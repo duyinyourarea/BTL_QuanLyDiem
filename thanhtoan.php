@@ -1,1 +1,5 @@
-duy alo
+<?php
+echo 'asdasdasd';
+
+
+?>
