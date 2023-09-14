@@ -16,8 +16,6 @@
 		header{
 			height: 100px;
 			background: 	#5121c5; ;
-			
-			
 		}
 		h1{text-align: center;}
 		.nav-menu ul{
