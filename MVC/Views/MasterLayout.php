@@ -94,7 +94,7 @@
 </head>
 <body>
 <header>
-			<img src="/TM22_MVC/MVC/Pubic/Images/logo.png"
+			<img src="./BTL_QuanLyDiem/Pubic/Images/logo.png"
 			
 		</header>
 		<nav class="nav-menu">
