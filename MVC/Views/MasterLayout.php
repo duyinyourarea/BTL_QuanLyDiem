@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style type="text/css">
-		*{margin: 0;}	
+		/* *{margin: 0;}	
 		.wrapper{
 			width: 960px;
 			margin: 0px auto;
@@ -88,14 +88,14 @@
 		.imgremove{
 			width: 30px;
 			height: 30px;
-		}
+		} */
 	</style>
 	<link rel="stylesheet" href="/TM22_MVC/MVC/Public/Css/css_bootstrap.min.css">
 </head>
 <body>
-<header>
-			<img src="./BTL_QuanLyDiem/Pubic/Images/logo.png"
-			
+		<header>
+			<img src="../../Public/Images/logo.png">
+			<div class = "status" ><div>
 		</header>
 		<nav class="nav-menu">
 			<ul >
