@@ -8,7 +8,7 @@ class Capnhatloaisach extends Controller
     }
     function Get_data()
     {
-        $this->view('MasterLayout', [
+        $this->view('MasterLayout2', [
             'page' => 'Capnhatloaisach_v',
             'ml' => '',
             'tl' => '',

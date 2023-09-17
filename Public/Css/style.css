@@ -1,0 +1,61 @@
+header{
+    width: 100%;
+    height: 120px;
+    background-color: #56a4fe;
+    border-radius: 15px;
+}
+header>table{
+    width: 100%;
+}
+#logo_cell{
+    width: 170px;
+    height: 120px;
+}
+#logo_utt_border{
+    /* width: 155px; */
+}
+#status{
+    width: 250px;
+    height: 20px;
+    background-color: azure;
+    border-radius: 15px;
+}
+.article{
+    float: left;
+    width: 17%;   
+}
+
+.card-body {
+    background-color: #ffffff;
+    float: left;
+    height: 400px;
+    width: 100%;
+}
+
+.card-body>ul {
+    padding: 0px;
+}
+
+.card-body>ul>li {
+    list-style: none;
+    /* padding: 10px 5px; */
+    border: #414141 solid 1px;
+    border-radius: 10px;
+}
+
+.card-body>ul>li>a {
+    display: block;
+    padding: 10px 15px;
+    line-height: 1.8;
+    width: 100%;
+}
+
+.card-body>ul>li:hover {
+    display: block;
+    background: #939393;
+}
+.aside {
+    margin-left: 17%;
+    height: 600px;
+    background-color: #ffffff;
+}
