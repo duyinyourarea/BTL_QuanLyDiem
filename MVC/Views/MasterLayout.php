@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Public/Css/style.css">
-    <link rel="stylesheet" href="../../Public/Css/css_bootstrap.min.css">
+    <link rel="stylesheet" href="Public/Css/css_bootstrap.min.css">
+    <base href="http://localhost/BTL_QuanLyDiem/">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
     <title>Document</title>
 </head>
@@ -42,6 +43,7 @@
     
             <div class="accordion" id="accordionExample">
                <div class="card" style="border: none;">
+                  <a href="">
                   <div class="card-header" id="headingOne" style="border-radius: 15px;">
                      <h5 class="mb-0">
                         <button class="btn btn-link" type="button" data-toggle="collapse"
@@ -51,6 +53,7 @@
                         </button>
                      </h5>
                   </div>
+                  </a>
                </div>
     
                <div class="card" style="border: none;">
