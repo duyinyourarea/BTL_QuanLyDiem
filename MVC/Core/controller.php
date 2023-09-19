@@ -5,7 +5,7 @@ class Controller
         include_once './MVC/Models/'.$mode.'.php';
         return new $mode;
     }
-    function view($view, $data = []){
+    function view($view, $data= []){
         include_once './MVC/Views/'.$view.'.php';
     }
 }

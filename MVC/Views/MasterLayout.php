@@ -33,7 +33,7 @@
             <td>
             </td>
             <td style="align-items: end;width: 150px;border-radius: 15px;background-color: #56a4fe;text-align: center;">
-                <span style="color: aliceblue;"><a href="" style="color: aliceblue;">Trang chủ</a> | <a href="" style="color: aliceblue;">Thoát</a></span>
+                <span style="color: aliceblue;"><a href="http://localhost/BTL_QuanLyDiem/" style="color: aliceblue;">Trang chủ</a> | <a href="" style="color: aliceblue;">Thoát</a></span>
             </td>
         </tr>
     </table>
@@ -85,7 +85,7 @@
                             <li><a href="" style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Sinh viên</b></a></li>
                             <li><a href="" style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Tài khoản sinh viên</b></a></li>
                             <li><a href="" style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Môn hoc</b></a></li>
-                            <li><a href="" style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Lớp</b></a></li>
+                            <li><a href="http://localhost/BTL_QuanLyDiem/DanhSachLop/" style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Lớp</b></a></li>
                             <li><a href="" style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Khoa</b></a></li>
                             <li><a href="" style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Thống kê</b></a></li>
                         </ul>
