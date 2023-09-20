@@ -82,7 +82,7 @@
                      data-parent="#accordionExample">
                      <div class="card-body">
                         <ul >
-                            <li><a href="" style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Sinh viên</b></a></li>
+                            <li><a href="http://localhost/BTL_QuanLyDiem/DanhSachSinhVien/" style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Sinh viên</b></a></li>
                             <li><a href="" style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Tài khoản sinh viên</b></a></li>
                             <li><a href="" style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Môn hoc</b></a></li>
                             <li><a href="http://localhost/BTL_QuanLyDiem/DanhSachLop/" style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Lớp</b></a></li>
