@@ -74,7 +74,7 @@
                         <button class="btn btn-link collapsed" type="button"
                            data-toggle="collapse" data-target="#collapseThree"
                            aria-expanded="false" aria-controls="collapseThree" style="color: black;font-family: Arial, Helvetica, sans-serif;">
-                        <b>Admin</b>
+                        <b>Quản lý</b>
                         </button>
                      </h5>
                   </div>
@@ -86,6 +86,29 @@
                             <li><a href="" style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Tài khoản sinh viên</b></a></li>
                             <li><a href="" style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Môn hoc</b></a></li>
                             <li><a href="http://localhost/BTL_QuanLyDiem/DanhSachLop/" style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Lớp</b></a></li>
+                            <li><a href="" style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Khoa</b></a></li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+
+               <div class="card" style="border: none;">
+                  <div class="card-header" id="headingFour" style="border-radius: 15px;">
+                     <h5 class="mb-0">
+                        <button class="btn btn-link collapsed" type="button"
+                           data-toggle="collapse" data-target="#collapseFour"
+                           aria-expanded="false" aria-controls="collapseFour" style="color: black;font-family: Arial, Helvetica, sans-serif;">
+                        <b>Thống kê</b>
+                        </button>
+                     </h5>
+                  </div>
+                  <div id="collapseFour" class="collapse" aria-labelledby="headingFour"
+                     data-parent="#accordionExample">
+                     <div class="card-body">
+                        <ul >
+                            <li><a href="http://localhost/BTL_QuanLyDiem/DanhSachSinhVien/" style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Sinh viên</b></a></li>
+                            <li><a href="" style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Tài khoản sinh viên</b></a></li>
+                            <li><a href="" style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Môn hoc</b></a></li>
                             <li><a href="" style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Khoa</b></a></li>
                             <li><a href="" style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Thống kê</b></a></li>
                         </ul>
