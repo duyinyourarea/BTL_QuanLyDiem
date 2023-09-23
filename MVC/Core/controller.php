@@ -9,4 +9,3 @@ class Controller
         include_once './MVC/Views/'.$view.'.php';
     }
 }
-?>
