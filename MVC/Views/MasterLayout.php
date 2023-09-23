@@ -110,6 +110,7 @@
                             <li><a href="" style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Tài khoản sinh viên</b></a></li>
                             <li><a href="" style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Môn hoc</b></a></li>
                             <li><a href="" style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Khoa</b></a></li>
+                            <li><a href="http://localhost/BTL_QuanLyDiem/DanhSachKhoa/" style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Khoa</b></a></li>
                             <li><a href="" style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Thống kê</b></a></li>
                         </ul>
                      </div>
