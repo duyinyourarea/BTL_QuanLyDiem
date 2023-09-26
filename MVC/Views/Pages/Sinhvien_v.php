@@ -7,24 +7,23 @@
     <link rel="stylesheet" href="Public/Css/style.css">
     <link rel="stylesheet" href="Public/Css/css_bootstrap.min.css">
     <base href="http://localhost/BTL_QuanLyDiem/">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
-    <title>Document</title>
+    <title>Danh sách sinh viên</title>
 </head>
 
 <body>
     <form action="http://localhost/BTL_QuanLyDiem/DanhSachSinhVien/Timkiem" method="post">
         <table style="width: 100%;">
             <tr>
-                <td style="width: 64%;"><a href=""><button class="btn btn-outline-success" name="btnThemsinhvien" style="margin: 5px;">Thêm
+                <td style="width: 64%;"><a href="http://localhost/BTL_QuanLyDiem/ThemSinhVien/"><button class="btn btn-outline-success" name="btnThemsinhvien" style="margin: 5px;">Thêm
                             sinh viên</button></a></td>
                 <td>
                     <form>
                         <div class="form-inline">
-                            <input type="text" name="txtMasinhvien" class="form-control" placeholder="Mã sinh viên" value="<?php if (isset($data['msv']))
-                                                                                                                                echo $data['msv'] ?>">
-                            <input type="text" name="txtTensinhvien" class="form-control" placeholder="Tên sinh viên" value="<?php if (isset($data['tsv']))
-                                                                                                                                    echo $data['tsv'] ?>">
-                            <input type="submit" class="btn btn-primary" name="btnTimkiem" value="Tìm kiếm">
+                            <input type="text" name="txtMasinhvien" class="form-control" placeholder="Mã sinh viên" value="<?php if (isset($data['masinhvien']))
+                                                                                                                                echo $data['masinhvien'] ?>">
+                            <input type="text" name="txtTensinhvien" class="form-control" placeholder="Tên sinh viên" value="<?php if (isset($data['tensinhvien']))
+                                                                                                                                    echo $data['tensinhvien'] ?>">
+                            <input type="submit" class="btn btn-outline-primary" name="btnTimkiem" value="Tìm kiếm">
                         </div>
                     </form>
                 </td>
