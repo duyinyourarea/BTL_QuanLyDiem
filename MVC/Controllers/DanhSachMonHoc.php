@@ -45,7 +45,8 @@ class DanhSachMonHoc extends Controller
     {
         $this->view('MasterLayout', [
             'page' => 'Monhoc_sua',
-            'dulieu' => $this->monhoc->monhoc_find($mamon, '')
+            'dulieu' => $this->monhoc->monhoc_find($mamon, ''), 
+            'data_khoa' => $this->khoa->khoa_find('', '')
         ]);
     }
     function Them()

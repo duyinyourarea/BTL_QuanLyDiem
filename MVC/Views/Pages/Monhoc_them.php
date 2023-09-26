@@ -52,8 +52,6 @@
                     <select class="custom-select" id="txtMakhoa" name="txtMakhoa"
                         style="left: 1px; top: 9px; transition: none 0s ease 0s; cursor: move;" >
                         <option value="">--Chọn khoa--</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
                         <?php
                         if (isset($data['data_khoa']) && $data['data_khoa'] != null) {
                             while ($row_of_khoa = mysqli_fetch_array($data['data_khoa'])) {
