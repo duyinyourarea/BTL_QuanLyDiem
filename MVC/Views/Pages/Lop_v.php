@@ -12,14 +12,15 @@
 </head>
 
 <body>
-   <form action="http://localhost/BTL_QuanLyDiem/DanhSachLop/Timkiem" method="post">
+   
       <table style="width: 100%;">
          <tr>
-            <td style="width: 64%;"><a href=""><button class="btn btn-outline-secondary" name="btnThemlop"
+            <td style="width: 64%;"><a href="http://localhost/BTL_QuanLyDiem/DanhSachLop/Them"><button class="btn btn-outline-secondary" name="btnThemlop"
                      style="margin: 5px;">Thêm
                      lớp</button></a></td>
             <td>
-               <form>
+            <form action="http://localhost/BTL_QuanLyDiem/DanhSachLop/Timkiem" method="post">
+               <form >
                   <div class="form-inline">
                      <input type="text" name="txtMalop" class="form-control" placeholder="Mã lớp" value="<?php if (isset($data['ml']))
                         echo $data['ml'] ?>">

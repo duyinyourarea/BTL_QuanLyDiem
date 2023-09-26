@@ -16,32 +16,32 @@
                 <td colspan="2" class="col1" style="text-align: center;"><h2>CẬP NHẬT THÔNG TIN LỚP</h2></td>
             </tr>
             <tr>
-                <td class="col1">Mã lớp</td>
-                <td class="col2">
-                    <input  class="form-control" type="text" name="txtMaloai" value="<?php if(isset($data['dulieu'])){ $row = mysqli_fetch_assoc($data['dulieu']); echo $row['malop'];} ?>">
+                <td >Mã lớp</td>
+                <td >
+                    <input  class="form-control" type="text" name="txtMalop" value="<?php if(isset($data['dulieu'])){ $row = mysqli_fetch_assoc($data['dulieu']); echo $row['malop'];} ?>">
                 </td>
             </tr>
             <tr>
-                <td class="col1">Tên lớp</td>
-                <td class="col2">
-                    <input class="form-control" type="text" name="txtTenloai" value="<?php if(isset($data['dulieu'])){ $row = mysqli_fetch_assoc($data['dulieu']); echo $row['tenlop'];} ?>">
+                <td >Tên lớp</td>
+                <td >
+                    <input class="form-control" type="text" name="txtTenlop" value="<?php if(isset($data['dulieu'])){ $row = mysqli_fetch_assoc($data['dulieu']); echo $row['tenlop'];} ?>">
                 </td>
             </tr>
             <tr>
-                <td class="col1">Sĩ số</td>
-                <td class="col2">
-                    <input class="form-control" type="text" name="txtMota" value="<?php if(isset($data['dulieu'])){ $row = mysqli_fetch_assoc($data['dulieu']); echo $row['siso'];} ?>">
+                <td >Sĩ số</td>
+                <td >
+                    <input class="form-control" type="text" name="txtSiso" value="<?php if(isset($data['dulieu'])){ $row = mysqli_fetch_assoc($data['dulieu']); echo $row['siso'];} ?>">
                 </td>
             </tr>
             <tr>
-                <td class="col1">Mã khoa</td>
-                <td class="col2">
-                    <input class="form-control" type="text" name="txtMota" value="<?php if(isset($data['dulieu'])){ $row = mysqli_fetch_assoc($data['dulieu']); echo $row['makhoa'];} ?>">
+                <td >Mã khoa</td>
+                <td >
+                    <input class="form-control" type="text" name="txtMakhoa" value="<?php if(isset($data['dulieu'])){ $row = mysqli_fetch_assoc($data['dulieu']); echo $row['makhoa'];} ?>">
                 </td>
             </tr>
             <tr>
                 
-                <td class="col2" colspan="2" align = center>
+                <td colspan="2" align = center>
                     <input class="btn btn-primary" type="submit" name="btnLuu" value="Lưu">
                 </td>
                 

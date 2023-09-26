@@ -63,3 +63,11 @@ header>table{
     width: 18px;
     height: 18px;
 }
+.col1{
+    width: 200px;
+    text-align: start;
+}
+.col2{
+    width: 500px;
+    text-align: start;
+}
