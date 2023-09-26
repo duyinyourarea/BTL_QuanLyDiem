@@ -23,7 +23,6 @@ class DanhSachSinhVien extends Controller
                 'page' => 'Sinhvien_v', 'dulieu' => $this->sinhvien->sinhvien_find($masinhvien, $tensinhvien), 'masinhvien' => $masinhvien, 'tensinhvien' => $tensinhvien
             ]);
         }
-        
     }
     function Xoa($masinhvien)
     {
@@ -57,6 +56,11 @@ class DanhSachSinhVien extends Controller
                     'page' => 'Sinhvien_v', 'dulieu' => $this->sinhvien->sinhvien_find('', ''),
                 ]);
         }
+        if (isset($_POST['btnHuy'])) {
+            $this->view('MasterLayout', [
+                'page' => 'Sinhvien_v', 'dulieu' => $this->sinhvien->sinhvien_find('', '')
+            ]);
+        }
     }
     function Them_sinhvien()
     {
@@ -69,30 +73,26 @@ class DanhSachSinhVien extends Controller
             $email = $_POST['txtEmail'];
             $malop = $_POST['cbMalop'];
             $ck = $this->sinhvien->masinhvien_check($masinhvien);
-            if ($masinhvien = '' || $tensinhvien = '' || $gioitinh = '' || $sodienthoai = '' || $email = '') {
+            if ($masinhvien == '' || $tensinhvien == '' || $gioitinh == '' || $sodienthoai == '' || $email == '' || $malop == 'Chọn lớp') {
                 echo "<script>alert('Vui lòng nhập đủ thông tin!')</script>";
+                $this->view('MasterLayout', ['page' => 'Sinhvien_them', 'dulieu' => $this->malop->lop_find('', '')]);
             } else {
                 if ($ck) {
                     echo "<script>alert('Mã sinh viên đã tồn tại!')</script>";
+                    $this->view('MasterLayout', ['page' => 'Sinhvien_them', 'dulieu' => $this->malop->lop_find('', '')]);
                 } else {
                     $kq = $this->sinhvien->sinhvien_ins($masinhvien, $tensinhvien, $gioitinh, $sodienthoai, $email, $malop);
                     if ($kq)
                         echo "<script>alert('Thêm mới thành công!')</script>";
                     else
                         echo "<script>alert('Thêm mới thất bại!')</script>";
+                    //gọi lại giao diện ra
+                    $this->view('MasterLayout', [
+                        'page' => 'Sinhvien_v',
+                        'dulieu' => $this->sinhvien->sinhvien_find('', '')
+                    ]);
                 }
-                //gọi lại giao diện ra
-                $this->view('MasterLayout', [
-                    'page' => 'Sinhvien_them',
-                    'masinhvien' => $masinhvien,
-                    'tensinhvien' => $tensinhvien,
-                    'gioitinh' => $gioitinh,
-                    'sodienthoai' => $sodienthoai,
-                    'email' => $email,
-                    'malop' => $malop,
-                ]);
             }
-
         }
         if (isset($_POST['btnHuy'])) {
             $this->view('MasterLayout', [
