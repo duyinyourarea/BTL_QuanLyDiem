@@ -11,59 +11,58 @@
 </head>
 
 <body>
-    <form action="http://localhost/BTL_QuanLyDiem/ThemSinhVien/sinhvien_them" method="post">
-        <table cellspacing="20" align="center" style="width: 35%">
-            <tr>
-                <td colspan="2" style="text-align: center;">
-                    <h2 style="font-family: 'Times New Roman', Times, serif;">THÊM SINH VIÊN</h2>
-                </td>
-            </tr>
+    <form action="http://localhost/BTL_QuanLyDiem/DanhSachSinhVien/Them_sinhvien" method="post">
+        <table cellspacing="20" align="center" style="width: 35%;">
             <div class="input-group">
+                <tr>
+                    <td colspan="2" style="text-align: center;">
+                        <h2 style="font-family: 'Times New Roman', Times, serif;">THÊM SINH VIÊN</h2>
+                    </td>
+                </tr>
+
                 <tr>
                     <td class="input-group-text">Mã sinh viên</td>
                     <td>
-                        <input class="form-control" type="text" name="txtMasinhvien" placeholder="Mã sinh viên" value="<?php echo $data['masinhvien'] ?>">
+                        <input class="form-control" type="text" name="txtMasinhvien" placeholder="Mã sinh viên" value="">
                     </td>
                 </tr>
                 <tr>
                     <td class="input-group-text">Tên sinh viên</td>
                     <td>
-                        <input class="form-control" type="text" name="txtTenloai" placeholder="Tên sinh viên" value="<?php echo $data['tensinhvien'] ?>">
+                        <input class="form-control" type="text" name="txtTenloai" placeholder="Tên sinh viên" value="">
                     </td>
                 </tr>
                 <tr>
                     <td class="input-group-text">Giới tính</td>
                     <td>
-                        <input class="form-control" type="text" name="txtGioitinh" placeholder="Giới tính" value="<?php echo $data['gioitinh'] ?>">
+                        <input class="form-control" type="text" name="txtGioitinh" placeholder="Giới tính" value="">
                     </td>
                 </tr>
                 <tr>
                     <td class="input-group-text">Số điện thoại</td>
                     <td>
-                        <input class="form-control" type="text" name="txtSodienthoai" placeholder="Số điện thoại" value="<?php echo $data['sodienthoai'] ?>">
+                        <input class="form-control" type="text" name="txtSodienthoai" placeholder="Số điện thoại" value="">
                     </td>
                 </tr>
                 <tr>
                     <td class="input-group-text">Email</td>
                     <td>
-                        <input class="form-control" type="text" name="txtEmail" placeholder="Email" value="<?php echo $data['email'] ?>">
+                        <input class="form-control" type="text" name="txtEmail" placeholder="Email" value="">
                     </td>
                 </tr>
                 <tr>
                     <td class="input-group-text">Mã lớp</td>
                     <td>
                         <select class="form-control" name="cbMalop" style="width: 100%;">
-                            <option value="">--Chọn loại sách--</option>
+                            <option value="">Chọn lớp</option>
                             <?php
-                            $con = mysqli_connect('localhost', 'root', '', 'quanly_thuvien');
-                            $sql = "SELECT DISTINCT tenloai FROM loaisach";
-                            $dt = mysqli_query($con, $sql);
-                            while ($row = mysqli_fetch_array($dt)) {
-                                echo "<option value='" . $row['tenloai'] . "'>" . $row['tenloai'] . "</option>";
-                            }
-                            mysqli_close($con);
-                            ?>
+                            if (isset($data['dulieu']) && $data['dulieu'] != null) {
 
+                                while ($row = mysqli_fetch_array($data['dulieu'])) {
+                                    echo "<option value='" . $row['malop'] . "'>" . $row['tenlop'] . "</option>";
+                                }
+                            }
+                            ?>
                         </select>
                     </td>
                 </tr>
@@ -71,12 +70,15 @@
                     <td></td>
                     <td>
                         <input class="btn btn-primary" type="submit" name="btnLuu" value="Lưu">
-                        <a href="http://localhost/BTL_QuanLyDiem/DanhSachSinhVien/"><button class="btn btn-warning" name="btnHuy">Hủy</button></a>
+                                                <input class="btn btn-primary" type="submit" name="btnHuy" value="Hủy">
+
+                       
                     </td>
                 </tr>
             </div>
         </table>
     </form>
+     
 </body>
 
 </html>
