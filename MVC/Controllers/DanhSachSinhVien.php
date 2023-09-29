@@ -93,8 +93,6 @@ class DanhSachSinhVien extends Controller
             $email = $_POST['txtEmail'];
             $malop = $_POST['cbMalop'];
             //Gán dữ liệu cho tài khoản sinh viên
-            $taikhoan = $_POST['txtMasinhvien'];
-            $matkhau = $_POST['txtSodienthoai'];
             $ck = $this->sinhvien->masinhvien_check($masinhvien);
             if ($masinhvien == '' || $tensinhvien == '' || $gioitinh == '' || $sodienthoai == '' || $email == '' || $malop == 'Chọn lớp') {
                 echo "<script>alert('Vui lòng nhập đủ thông tin!')</script>";
@@ -114,7 +112,7 @@ class DanhSachSinhVien extends Controller
                     );
                 } else {
                     $kq = $this->sinhvien->sinhvien_ins($masinhvien, $tensinhvien, $gioitinh, $sodienthoai, $email, $malop);
-                    $kq_taikhoan = $this->taikhoan->taikhoan_ins($taikhoan, $matkhau, $masinhvien);
+                    $kq_taikhoan = $this->taikhoan->taikhoan_ins($masinhvien, $sodienthoai, 'Sinh viên');
                     if ($kq)
                         echo "<script>alert('Thêm mới thành công!')</script>";
                     else

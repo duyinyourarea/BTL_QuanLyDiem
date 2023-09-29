@@ -2,9 +2,13 @@
 class DanhSachLop extends Controller
 {
     protected $lop;
+    protected $monhoc;
+    protected $sinhvien;
     function __construct()
     {
         $this->lop = $this->mode('Lop');
+        $this->monhoc = $this->mode('Monhoc');
+        $this->sinhvien = $this->mode('Sinhvien');
     }
     function Get_data()
     {

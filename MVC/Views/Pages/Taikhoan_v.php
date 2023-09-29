@@ -35,7 +35,7 @@
                 <th>STT</th>
                 <th>Tài khoản</th>
                 <th>Mật khẩu</th>
-                <th>Mã sinh viên</th>
+                <th>Vai trò</th>
                 <th>Tác vụ</th>
             </tr>
         </thead>
@@ -57,7 +57,7 @@
                             <?php echo $row['matkhau'] ?>
                         </td>
                         <td>
-                            <?php echo $row['masinhvien'] ?>
+                            <?php echo $row['vaitro'] ?>
                         </td>
                         <td>
                             <a href="http://localhost/BTL_QuanLyDiem/DanhSachTaiKhoan/Sua/<?php echo $row['taikhoan'] ?>"><img class="icon" src="Public/Images/note.png" alt="note"></a>

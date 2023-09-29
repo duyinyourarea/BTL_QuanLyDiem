@@ -1,12 +1,12 @@
 <?php
 class TaiKhoan extends connectDB
 {
-    function taikhoan_ins($taikhoan, $matkhau, $masinhvien)
+    function taikhoan_ins($taikhoan, $matkhau, $vaitro)
     {
-        $sql_taikhoan_ins = "INSERT INTO taikhoan VALUES('$taikhoan','$matkhau','$masinhvien')";
+        $sql_taikhoan_ins = "INSERT INTO taikhoan VALUES('$taikhoan','$matkhau','$vaitro')";
         return mysqli_query($this->con, $sql_taikhoan_ins);
     }
-    function taikhoan_upd($taikhoan, $matkhau, $masinhvien)
+    function taikhoan_upd($taikhoan, $matkhau)
     {
         $sql_taikhoan_upd = "UPDATE taikhoan SET matkhau = '$matkhau' WHERE taikhoan = '$taikhoan'";
         return mysqli_query($this->con, $sql_taikhoan_upd);

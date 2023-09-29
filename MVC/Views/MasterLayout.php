@@ -16,8 +16,7 @@
       <table>
          <tr>
             <td rowspan="2" id="logo_cell">
-               <img style="width: 169px;margin-left: 2px;" id="logo-utt-border" src="Public/Images/logo-utt-border.png"
-                  alt="asdasd">
+               <img style="width: 169px;margin-left: 2px;" id="logo-utt-border" src="Public/Images/logo-utt-border.png" alt="asdasd">
             </td>
             <td rowspan="2" style="font-family: Arial, Helvetica, sans-serif; color: azure;">
                <h4 style="margin: 0;">BỘ GIAO THÔNG VẬN TẢI</h3>
@@ -50,9 +49,7 @@
             <div class="card" style="border: none;">
                <div class="card-header" id="headingOne" style="border-radius: 15px;">
                   <h5 class="mb-0">
-                     <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
-                        aria-expanded="true" aria-controls="collapseOne"
-                        style="color: black;font-family: Arial, Helvetica, sans-serif;">
+                     <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="color: black;font-family: Arial, Helvetica, sans-serif;">
                         <b>Tra cứu điểm</b>
                      </button>
                   </h5>
@@ -62,9 +59,7 @@
             <div class="card" style="border: none;">
                <div class="card-header" id="headingTwo" style="border-radius: 15px;">
                   <h5 class="mb-0">
-                     <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
-                        data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"
-                        style="color: black;font-family: Arial, Helvetica, sans-serif;">
+                     <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="color: black;font-family: Arial, Helvetica, sans-serif;">
                         <b>Tra cứu điểm tổng hợp</b>
                      </button>
                   </h5>
@@ -74,9 +69,7 @@
             <div class="card" style="border: none;">
                <div class="card-header" id="headingThree" style="border-radius: 15px;">
                   <h5 class="mb-0">
-                     <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
-                        data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree"
-                        style="color: black;font-family: Arial, Helvetica, sans-serif;">
+                     <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="color: black;font-family: Arial, Helvetica, sans-serif;">
                         <b>Quản lý</b>
                      </button>
                   </h5>
@@ -84,16 +77,11 @@
                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
                   <div class="card-body">
                      <ul>
-                        <li><a href="http://localhost/BTL_QuanLyDiem/DanhSachSinhVien/"
-                              style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Sinh viên</b></a></li>
-                        <li><a href="" style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Tài khoản sinh
-                                 viên</b></a></li>
-                        <li><a href="http://localhost/BTL_QuanLyDiem/DanhSachMonHoc/"
-                              style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Môn hoc</b></a></li>
-                        <li><a href="http://localhost/BTL_QuanLyDiem/DanhSachLop/"
-                              style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Lớp</b></a></li>
-                        <li><a href="http://localhost/BTL_QuanLyDiem/DanhSachKhoa/"
-                              style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Khoa</b></a></li>
+                        <li><a href="http://localhost/BTL_QuanLyDiem/DanhSachSinhVien/" style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Sinh viên</b></a></li>
+                        <li><a href="http://localhost/BTL_QuanLyDiem/DanhSachTaiKhoan/" style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Tài khoản sinh viên</b></a></li>
+                        <li><a href="http://localhost/BTL_QuanLyDiem/DanhSachMonHoc/" style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Môn hoc</b></a></li>
+                        <li><a href="http://localhost/BTL_QuanLyDiem/DanhSachLop/" style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Lớp</b></a></li>
+                        <li><a href="http://localhost/BTL_QuanLyDiem/DanhSachKhoa/" style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Khoa</b></a></li>
                      </ul>
                   </div>
                </div>
@@ -102,9 +90,7 @@
             <div class="card" style="border: none;">
                <div class="card-header" id="headingFour" style="border-radius: 15px;">
                   <h5 class="mb-0">
-                     <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
-                        data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour"
-                        style="color: black;font-family: Arial, Helvetica, sans-serif;">
+                     <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour" style="color: black;font-family: Arial, Helvetica, sans-serif;">
                         <b>Thống kê</b>
                      </button>
                   </h5>
@@ -112,8 +98,7 @@
                <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
                   <div class="card-body">
                      <ul>
-                        <li><a href="http://localhost/BTL_QuanLyDiem/DanhSachSinhVien/"
-                              style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Điểm</b></a></li>
+                        <li><a href="http://localhost/BTL_QuanLyDiem/DanhSachSinhVien/" style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Điểm</b></a></li>
                         <li><a href="" style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Học bổng</b></a></li>
                         <li><a href="" style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Thi lại</b></a></li>
                         <li><a href="" style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Học lại</b></a></li>
