@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 29, 2023 at 06:45 AM
+-- Generation Time: Sep 29, 2023 at 09:44 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -24,17 +24,31 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bangdiem`
+-- Table structure for table `diemcuamonhoc`
 --
 
-CREATE TABLE `bangdiem` (
-  `madiem` varchar(30) NOT NULL,
-  `masinhvien` varchar(30) NOT NULL,
-  `mamon` varchar(30) NOT NULL,
+CREATE TABLE `diemcuamonhoc` (
+  `dcmh_id` varchar(30) NOT NULL,
+  `dcsv_id` varchar(30) NOT NULL,
   `diemchuyencan` float NOT NULL,
   `diemthuchanh` float NOT NULL,
-  `diemkiemtra` float NOT NULL,
-  `diemthi` float NOT NULL
+  `diemgiuaki` float NOT NULL,
+  `diemcuoiki` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `diemcuasinhvien`
+--
+
+CREATE TABLE `diemcuasinhvien` (
+  `dcsv_id` varchar(30) NOT NULL,
+  `masinhvien` varchar(30) NOT NULL,
+  `mamon` varchar(30) NOT NULL,
+  `diemtrungbinh` varchar(10) NOT NULL,
+  `lanthi` int(11) NOT NULL,
+  `trangthai` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -132,10 +146,17 @@ CREATE TABLE `taikhoan` (
 --
 
 --
--- Indexes for table `bangdiem`
+-- Indexes for table `diemcuamonhoc`
 --
-ALTER TABLE `bangdiem`
-  ADD PRIMARY KEY (`madiem`),
+ALTER TABLE `diemcuamonhoc`
+  ADD PRIMARY KEY (`dcmh_id`),
+  ADD KEY `dcsv_id` (`dcsv_id`);
+
+--
+-- Indexes for table `diemcuasinhvien`
+--
+ALTER TABLE `diemcuasinhvien`
+  ADD PRIMARY KEY (`dcsv_id`),
   ADD KEY `masinhvien` (`masinhvien`),
   ADD KEY `mamon` (`mamon`);
 
@@ -177,11 +198,17 @@ ALTER TABLE `taikhoan`
 --
 
 --
--- Constraints for table `bangdiem`
+-- Constraints for table `diemcuamonhoc`
 --
-ALTER TABLE `bangdiem`
-  ADD CONSTRAINT `bangdiem_ibfk_1` FOREIGN KEY (`masinhvien`) REFERENCES `sinhvien` (`masinhvien`),
-  ADD CONSTRAINT `bangdiem_ibfk_2` FOREIGN KEY (`mamon`) REFERENCES `monhoc` (`mamon`);
+ALTER TABLE `diemcuamonhoc`
+  ADD CONSTRAINT `diemcuamonhoc_ibfk_1` FOREIGN KEY (`dcsv_id`) REFERENCES `diemcuasinhvien` (`dcsv_id`);
+
+--
+-- Constraints for table `diemcuasinhvien`
+--
+ALTER TABLE `diemcuasinhvien`
+  ADD CONSTRAINT `diemcuasinhvien_ibfk_1` FOREIGN KEY (`masinhvien`) REFERENCES `sinhvien` (`masinhvien`),
+  ADD CONSTRAINT `diemcuasinhvien_ibfk_2` FOREIGN KEY (`mamon`) REFERENCES `monhoc` (`mamon`);
 
 --
 -- Constraints for table `lop`

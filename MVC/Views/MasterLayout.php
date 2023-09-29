@@ -113,17 +113,10 @@
                   <div class="card-body">
                      <ul>
                         <li><a href="http://localhost/BTL_QuanLyDiem/DanhSachSinhVien/"
-                              style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Sinh viên</b></a></li>
-                        <li><a href="" style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Tài khoản sinh
-                                 viên</b></a></li>
-                        <li><a href="" style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Môn
-                                 hoc</b></a></li>
-                        <li><a href="" style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Khoa</b></a>
-                        </li>
-                        <li><a href="" style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Khoa</b></a>
-                        </li>
-                        <li><a href="" style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Thống
-                                 kê</b></a></li>
+                              style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Điểm</b></a></li>
+                        <li><a href="" style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Học bổng</b></a></li>
+                        <li><a href="" style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Thi lại</b></a></li>
+                        <li><a href="" style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Học lại</b></a></li>
                      </ul>
                   </div>
                </div>
