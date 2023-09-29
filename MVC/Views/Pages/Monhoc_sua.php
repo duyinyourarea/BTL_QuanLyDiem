@@ -10,7 +10,7 @@
     <title>Document</title>
 </head>
 <body>
-<form action="http://localhost/MVC/DanhSachMonhoc/Sua_monhoc" method="post">
+<form action="http://localhost/BTL_QuanLyDiem/DanhSachMonhoc/Sua_monhoc" method="post">
         <?php
             if(isset($data['dulieu'])){
                 $row = mysqli_fetch_assoc($data['dulieu']);
@@ -22,7 +22,7 @@
             <tr>
                 <td >Mã môn</td>
                 <td >
-                    <input  class="form-control" type="text" name="txtMamon" value="<?php echo $row['mamon']; ?>" disabled>
+                    <input  class="form-control" type="text" id="txtMamon" name="txtMamon" value="<?php echo $row['mamon']; ?>" readonly>
                 </td>
             </tr>
             <tr>
@@ -60,18 +60,19 @@
             <tr>
                 <td >Kì</td>
                 <td >
-                    <input class="form-control" type="number" name="txtSiso" value="<?php echo $row['ki']; ?>">
+                    <input class="form-control" type="number" name="txtKi" value="<?php echo $row['ki']; ?>">
                 </td>
             </tr>
             <tr>
                 <td >Giảng viên</td>
                 <td >
-                    <input class="form-control" type="text" name="txtSiso" value="<?php echo $row['giangvien']; ?>">
+                    <input class="form-control" type="text" name="txtGiangvien" value="<?php echo $row['giangvien']; ?>">
                 </td>
             </tr>
             <tr>
                 <td >Phương thức tính điểm</td>
                 <?php 
+                    $pttd = explode("/",$row['phuongthuctinhdiem']);
                 ?>
                 <td>
                     <div class="input-group mb-3">
@@ -81,9 +82,7 @@
                         </div>
                         <input type="number" name="txtDiemcc" min="0" class="form-control" placeholder="Chuyên cần"
                             style="padding-bottom: 6px; left: 1px; top: 7px; transition: none 0s ease 0s; cursor: move;"
-                            value="<?php if (isset($data['dcc'])) {
-                                echo $data['dcc'];
-                            } ?>">
+                            value="<?php echo $pttd[0] ?>">
                         <span class="input-group-text"
                             style="padding-bottom: 6px; position: relative; left: 0px; top: 7px;">%</span>
                         <div class="input-group-prepend">
@@ -91,27 +90,21 @@
                         </div>
                         <input type="number" name="txtDiemtl_th" min="0" class="form-control"
                             placeholder="Thảo luận/Thực hành" style="left: 0px; top: 7px;"
-                            value="<?php if (isset($data['dtl_th'])) {
-                                echo $data['dtl_th'];
-                            } ?>">
+                            value="<?php echo $pttd[1] ?>">
                         <span class="input-group-text"
                             style="padding-bottom: 6px; position: relative; left: 0px; top: 7px;">%</span>
                         <div class="input-group-prepend">
                             <span class="input-group-text" style="position: relative; left: -1px; top: 7px;">GK</span>
                         </div>
                         <input type="number" name="txtDiemgk" min="0" class="form-control" placeholder="Giữa kì"
-                            style="left: 0px; top: 7px;" value="<?php if (isset($data['dgk'])) {
-                                echo $data['dgk'];
-                            } ?>">
+                            style="left: 0px; top: 7px;" value="<?php echo $pttd[2] ?>">
                         <span class="input-group-text"
                             style="padding-bottom: 6px; position: relative; left: 0px; top: 7px;">%</span>
                         <div class="input-group-prepend">
                             <span class="input-group-text" style="position: relative; left: -1px; top: 7px;">CK</span>
                         </div>
                         <input type="number" name="txtDiemck" min="0" class="form-control" placeholder="Cuối kì"
-                            style="left: 0px; top: 7px;" value="<?php if (isset($data['dck'])) {
-                                echo $data['dck'];
-                            } ?>">
+                            style="left: 0px; top: 7px;" value="<?php echo $pttd[3] ?>">
                         <span class="input-group-text"
                             style="padding-bottom: 6px; position: relative; left: 0px; top: 7px;">%</span>
                     </div>
