@@ -10,7 +10,7 @@
     <title>Document</title>
 </head>
 <body>
-<form action="http://localhost/MVC/DanhSachLop/Sua_khoa" method="post">
+<form action="http://localhost/MVC/DanhSachKhoa/Sua_khoa" method="post">
         <table cellspacing="20" align="center" >
             <tr>
                 <td colspan="2" class="col1" style="text-align: center;"><h2>CẬP NHẬT THÔNG TIN KHOA</h2></td>
