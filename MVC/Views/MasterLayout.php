@@ -17,9 +17,9 @@
                     <img style="width: 169px;margin-left: 2px;" id="logo-utt-border" src="Public/Images/logo-utt-border.png" alt="asdasd">
                 </td>
                 <td rowspan="2" style="font-family: Arial, Helvetica, sans-serif; color: azure;">
-                    <h4 style="margin: 0;">BỘ GIAO THÔNG VẬN TẢI</h3>
-                    <h3 style="margin: 0;">ĐẠI HỌC CÔNG NGHỆ GIAO THÔNG VẬN TẢI</h2>
-                    <h5 style="margin: 0;">UNIVERSITY OF TRANSPORT TECHNOLOGY</h4>
+                    <h4 style="margin: 0;">BỘ GIAO THÔNG VẬN TẢI</h4>
+                    <h3 style="margin: 0;">ĐẠI HỌC CÔNG NGHỆ GIAO THÔNG VẬN TẢI</h3>
+                    <h5 style="margin: 0;">UNIVERSITY OF TRANSPORT TECHNOLOGY</h5>
                 </td>
                 <td id = "status"><span></span></td>
             </tr>
@@ -83,7 +83,7 @@
                      <div class="card-body">
                         <ul >
                             <li><a href="http://localhost/BTL_QuanLyDiem/DanhSachSinhVien/" style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Sinh viên</b></a></li>
-                            <li><a href="" style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Tài khoản sinh viên</b></a></li>
+                            <li><a href="http://localhost/BTL_QuanLyDiem/DanhSachTaiKhoan/" style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Tài khoản sinh viên</b></a></li>
                             <li><a href="http://localhost/BTL_QuanLyDiem/DanhSachMonHoc/" style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Môn hoc</b></a></li>
                             <li><a href="http://localhost/BTL_QuanLyDiem/DanhSachLop/" style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Lớp</b></a></li>
                             <li><a href="" style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Khoa</b></a></li>

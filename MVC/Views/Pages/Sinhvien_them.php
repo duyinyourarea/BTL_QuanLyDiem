@@ -23,31 +23,41 @@
                 <tr>
                     <td class="input-group-text">Mã sinh viên</td>
                     <td>
-                        <input class="form-control" type="text" name="txtMasinhvien" placeholder="Mã sinh viên">
+                        <input class="form-control" type="text" name="txtMasinhvien" placeholder="Mã sinh viên" value="<?php if (isset($data['masinhvien'])) {
+                                                                                                                            echo $data['masinhvien'];
+                                                                                                                        } ?>">
                     </td>
                 </tr>
                 <tr>
                     <td class="input-group-text">Tên sinh viên</td>
                     <td>
-                        <input class="form-control" type="text" name="txtTensinhvien" placeholder="Tên sinh viên">
+                        <input class="form-control" type="text" name="txtTensinhvien" placeholder="Tên sinh viên" value="<?php if (isset($data['tensinhvien'])) {
+                                                                                                                                echo $data['tensinhvien'];
+                                                                                                                            } ?>">
                     </td>
                 </tr>
                 <tr>
                     <td class="input-group-text">Giới tính</td>
                     <td>
-                        <input class="form-control" type="text" name="txtGioitinh" placeholder="Giới tính">
+                        <input class="form-control" type="text" name="txtGioitinh" placeholder="Giới tính" value="<?php if (isset($data['gioitinh'])) {
+                                                                                                                        echo $data['gioitinh'];
+                                                                                                                    } ?>">
                     </td>
                 </tr>
                 <tr>
                     <td class="input-group-text">Số điện thoại</td>
                     <td>
-                        <input class="form-control" type="text" name="txtSodienthoai" placeholder="Số điện thoại">
+                        <input class="form-control" type="text" name="txtSodienthoai" placeholder="Số điện thoại" value="<?php if (isset($data['sodienthoai'])) {
+                                                                                                                                echo $data['sodienthoai'];
+                                                                                                                            } ?>">
                     </td>
                 </tr>
                 <tr>
                     <td class="input-group-text">Email</td>
                     <td>
-                        <input class="form-control" type="text" name="txtEmail" placeholder="Email">
+                        <input class="form-control" type="text" name="txtEmail" placeholder="Email" value="<?php if (isset($data['email'])) {
+                                                                                                                echo $data['email'];
+                                                                                                            } ?>">
                     </td>
                 </tr>
                 <tr>
@@ -56,9 +66,9 @@
                         <select class="form-control" name="cbMalop" style="width: 100%;">
                             <option>Chọn lớp</option>
                             <?php
-                            if (isset($data['dulieu']) && $data['dulieu'] != null) {
+                            if (isset($data['dulieu_malop']) && $data['dulieu_malop'] != null) {
 
-                                while ($row = mysqli_fetch_array($data['dulieu'])) {
+                                while ($row = mysqli_fetch_array($data['dulieu_malop'])) {
                                     echo "<option value='" . $row['malop'] . "'>" . $row['tenlop'] . "</option>";
                                 }
                             }
