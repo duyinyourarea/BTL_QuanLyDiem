@@ -39,5 +39,26 @@ class DanhSachKhoa extends Controller{
         ]);
         }
     }
+    function Them()
+    {
+        $this->view('MasterLayout', ['page' => 'Khoa_them']);
+    }
+    function Them_khoa()
+    {
+        if (isset($_POST['btnLuu'])) {
+            $mk = $_POST['txtMakhoa'];
+            $tk = $_POST['txtTenkhoa'];
+           $kq = $this->khoa->khoa_ins($mk, $tk);
+            if ($kq)
+                echo "<script>alert('Thêm thành công')</script>";
+            else
+                echo "<script>alert('Thêm thất bại')</script>";
+            $this->view('MasterLayout', [
+                'page' => 'Khoa_v',
+                'dulieu' => $this->khoa->khoa_find('', ''),
+            ]);
+        }
+    }
 }
+
 ?>

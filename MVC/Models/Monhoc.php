@@ -5,7 +5,7 @@ class Monhoc extends connectDB{
         return mysqli_query($this->con, $sql_monhoc_ins);
     }
     function monhoc_upd($mamon, $tenmon, $sotinchi, $makhoa, $ki, $giangvien, $phuongthuctinhdiem){
-        $sql_monhoc_upd = "UPDATE monhoc SET tenmon = '$tenmon', sotinhchi = '$sotinchi', makhoa = '$makhoa', ki = '$ki', giangvien='$giangvien', phuongthuctinhdiem = '$phuongthuctinhdiem' WHERE mamon = '$mamon'";
+        $sql_monhoc_upd = "UPDATE monhoc SET tenmon = '$tenmon', sotinchi = '$sotinchi', makhoa = '$makhoa', ki = '$ki', giangvien='$giangvien', phuongthuctinhdiem = '$phuongthuctinhdiem' WHERE mamon = '$mamon'";
         return mysqli_query($this->con, $sql_monhoc_upd);
     }
     function monhoc_del($mamon){

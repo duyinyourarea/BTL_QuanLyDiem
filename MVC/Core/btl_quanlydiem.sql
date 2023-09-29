@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 15, 2023 at 06:28 PM
+-- Generation Time: Sep 29, 2023 at 06:45 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `bangdiem` (
-  `masodiem` varchar(30) NOT NULL,
+  `madiem` varchar(30) NOT NULL,
   `masinhvien` varchar(30) NOT NULL,
   `mamon` varchar(30) NOT NULL,
   `diemchuyencan` float NOT NULL,
@@ -48,6 +48,14 @@ CREATE TABLE `khoa` (
   `tenkhoa` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `khoa`
+--
+
+INSERT INTO `khoa` (`makhoa`, `tenkhoa`) VALUES
+('CNTT', 'Công nghệ thông tin'),
+('KT', 'Kinh tế');
+
 -- --------------------------------------------------------
 
 --
@@ -60,6 +68,13 @@ CREATE TABLE `lop` (
   `siso` int(11) NOT NULL,
   `makhoa` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `lop`
+--
+
+INSERT INTO `lop` (`malop`, `tenlop`, `siso`, `makhoa`) VALUES
+('[value-1]', '[value-2]', 0, 'CNTT');
 
 -- --------------------------------------------------------
 
@@ -76,6 +91,14 @@ CREATE TABLE `monhoc` (
   `giangvien` varchar(30) NOT NULL,
   `phuongthuctinhdiem` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `monhoc`
+--
+
+INSERT INTO `monhoc` (`mamon`, `tenmon`, `sotinchi`, `makhoa`, `ki`, `giangvien`, `phuongthuctinhdiem`) VALUES
+('MH01', 'Java', 3, 'CNTT', 5, 'Bui Thi Nhu', '10/0/20/70'),
+('MH02', 'C++', 3, 'CNTT', 4, 'SaThuan', '10/0/20/70');
 
 -- --------------------------------------------------------
 
@@ -100,7 +123,8 @@ CREATE TABLE `sinhvien` (
 
 CREATE TABLE `taikhoan` (
   `taikhoan` varchar(30) NOT NULL,
-  `matkhau` varchar(30) NOT NULL
+  `matkhau` varchar(30) NOT NULL,
+  `vaitro` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -111,7 +135,7 @@ CREATE TABLE `taikhoan` (
 -- Indexes for table `bangdiem`
 --
 ALTER TABLE `bangdiem`
-  ADD PRIMARY KEY (`masodiem`),
+  ADD PRIMARY KEY (`madiem`),
   ADD KEY `masinhvien` (`masinhvien`),
   ADD KEY `mamon` (`mamon`);
 
