@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 28, 2023 at 05:56 PM
+-- Generation Time: Sep 29, 2023 at 06:45 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -53,7 +53,8 @@ CREATE TABLE `khoa` (
 --
 
 INSERT INTO `khoa` (`makhoa`, `tenkhoa`) VALUES
-('CNTT', 'Công nghệ thông tin');
+('CNTT', 'Công nghệ thông tin'),
+('KT', 'Kinh tế');
 
 -- --------------------------------------------------------
 
@@ -97,8 +98,7 @@ CREATE TABLE `monhoc` (
 
 INSERT INTO `monhoc` (`mamon`, `tenmon`, `sotinchi`, `makhoa`, `ki`, `giangvien`, `phuongthuctinhdiem`) VALUES
 ('MH01', 'Java', 3, 'CNTT', 5, 'Bui Thi Nhu', '10/0/20/70'),
-('MH02', 'C++', 3, 'CNTT', 4, 'SaThuan', '10/0/20/70'),
-('MH03', 'An toàn thông tin', 3, 'CNTT', 3, 'Trọng Tấn', '10/10/20/60');
+('MH02', 'C++', 3, 'CNTT', 4, 'SaThuan', '10/0/20/70');
 
 -- --------------------------------------------------------
 
@@ -124,7 +124,7 @@ CREATE TABLE `sinhvien` (
 CREATE TABLE `taikhoan` (
   `taikhoan` varchar(30) NOT NULL,
   `matkhau` varchar(30) NOT NULL,
-  `masinhvien` varchar(30) NOT NULL
+  `vaitro` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -170,8 +170,7 @@ ALTER TABLE `sinhvien`
 -- Indexes for table `taikhoan`
 --
 ALTER TABLE `taikhoan`
-  ADD PRIMARY KEY (`taikhoan`),
-  ADD KEY `masinhvien` (`masinhvien`);
+  ADD PRIMARY KEY (`taikhoan`);
 
 --
 -- Constraints for dumped tables
@@ -201,12 +200,6 @@ ALTER TABLE `monhoc`
 --
 ALTER TABLE `sinhvien`
   ADD CONSTRAINT `sinhvien_ibfk_1` FOREIGN KEY (`malop`) REFERENCES `lop` (`malop`);
-
---
--- Constraints for table `taikhoan`
---
-ALTER TABLE `taikhoan`
-  ADD CONSTRAINT `taikhoan_ibfk_1` FOREIGN KEY (`masinhvien`) REFERENCES `sinhvien` (`masinhvien`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
