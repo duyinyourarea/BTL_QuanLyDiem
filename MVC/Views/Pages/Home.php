@@ -13,6 +13,12 @@
 <body>
     <form action="http://localhost/BTL_QuanLyDiem/Home" method="post">
 
+
+
+
+
+
+        
     </form>
 </body>
 
