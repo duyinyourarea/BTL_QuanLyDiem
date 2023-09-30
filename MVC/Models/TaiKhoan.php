@@ -31,4 +31,15 @@ class TaiKhoan extends connectDB
         $sql_taikhoan_find = "SELECT * FROM taikhoan where taikhoan like '%$taikhoan%' and matkhau like '%$matkhau%' and vaitro like '%$vaitro%'";
         return mysqli_query($this->con, $sql_taikhoan_find);
     }
+    function getDataAcc($taikhoan){
+        $data_info_acc = $this->taikhoan_find($taikhoan,'','');
+        $row_info = mysqli_fetch_assoc($data_info_acc);
+        if($row_info['vaitro'] == "Admin"){
+            return $row_info;
+        }else{
+            $sql_info_sv = "SELECT * from taikhoan, sinhvien where taikhoan.taikhoan = sinhvien.masinhvien and taikhoan = '$taikhoan'";
+            $data_info_sv = mysqli_query($this->con,$sql_info_sv);
+            return mysqli_fetch_assoc($data_info_sv);
+        }
+    }
 }

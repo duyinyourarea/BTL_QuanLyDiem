@@ -24,13 +24,27 @@ class HomeLogin extends Controller{
             }else {
                 if ($ck) {
                     echo "<script>alert('Đăng nhập thành công!')</script>";
-                    $this->view(
-                        'MasterLayout',
-                        [
-                            'page' => 'Home',
-                            
-                        ]
-                    );
+                    $row_info_acc = $this->taikhoan->getDataAcc($taikhoan);
+                    if($row_info_acc['vaitro'] == "Admin"){
+                        $this->view(
+                            'MasterLayout',
+                            [
+                                'page' => 'Home',
+                                'info_ten' => $row_info_acc['vaitro'],
+                                'vaitro' => $row_info_acc['vaitro']
+                            ]
+                        );
+                    }else{
+                        $this->view(
+                            'MasterLayout',
+                            [
+                                'page' => 'Home',
+                                'info_ten' => $row_info_acc['tensinhvien'],
+                                'info_ma' => $row_info_acc['masinhvien'],
+                                'vaitro' => $row_info_acc['vaitro']
+                            ]
+                        );
+                    }
                 }else {
                     echo "<script>alert('Đăng nhập thất bại!')</script>";
                     $this->view('Login_v', [
