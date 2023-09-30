@@ -71,7 +71,7 @@
                   <td>
                      <a href="http://localhost/BTL_QuanLyDiem/DanhSachLop/Sua/<?php echo $row['malop'] ?>"><img class="icon" src="Public/Images/note.png" alt="note"></a>
                      <a href="http://localhost/BTL_QuanLyDiem/DanhSachLop/Xoa/<?php echo $row['malop'] ?>"><img class="icon" src="Public/Images/trash.png" alt="trash"></a>
-                     <a href="http://localhost/BTL_QuanLyDiem/DanhSachLop/Xoa/<?php echo $row['malop'] ?>"><img class="icon" src="Public/Images/user.png" alt="user"></a>
+                     <a href="http://localhost/BTL_QuanLyDiem/DanhSachLop/Diem_Sinhvien/<?php echo $row['malop'] ?>"><img class="icon" src="Public/Images/user.png" alt="user"></a>
                   </td>
                </tr>
          <?php

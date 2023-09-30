@@ -85,10 +85,10 @@ class DanhSachLop extends Controller
             ]);
         }
     }
-    function DanhSachSinhVien(){
+    function Diem_Sinhvien($malop)
+    {
         $this->view('MasterLayout', [
-            'page' => 'Sinhvien_sua', 'dulieu' => $this->sinhvien->sinhvien_find($masinhvien, ''), 'dulieu_malop' => $this->malop->lop_find('', '')
+            'page' => 'DiemSinhVien_v', 'dulieu' => $this->lop->lop_find($malop, ''), 'dulieu_sinhvien' => $this->sinhvien->sinhvien_find('', '', $malop), 'dulieu_monhoc' => $this->monhoc->monhoc_find('', '')
         ]);
     }
 }
-?>

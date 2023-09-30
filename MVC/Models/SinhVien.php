@@ -22,8 +22,8 @@ class SinhVien extends connectDB{
         }
         return $kq_masinhvien_check;
     }
-    function sinhvien_find($masinhvien,$tensinhvien){
-        $sql_sinhvien_find="SELECT * FROM sinhvien where masinhvien like '%$masinhvien%' and tensinhvien like '%$tensinhvien%'";
+    function sinhvien_find($masinhvien,$tensinhvien,$malop){
+        $sql_sinhvien_find="SELECT * FROM sinhvien where masinhvien like '%$masinhvien%' and tensinhvien like '%$tensinhvien%' and malop like '%$malop%'";
         return mysqli_query($this->con,$sql_sinhvien_find);
     }
 }
