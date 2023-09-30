@@ -1,4 +1,11 @@
 <?php
+
+require 'vendor/autoload.php';
+
+use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+
 class DanhSachTaiKhoan extends Controller
 {
     protected $taikhoan;
@@ -37,7 +44,7 @@ class DanhSachTaiKhoan extends Controller
                 echo "<script>alert('Vui lòng nhập đủ thông tin!')</script>";
                 $this->view('MasterLayout', [
                     'page' => 'Taikhoan_sua', 'dulieu' => $this->taikhoan->taikhoan_find($taikhoan, '', 'Sinh viên'),
-                    'matkhau'=> $matkhau
+                    'matkhau' => $matkhau
                 ]);
             } else {
                 $kq = $this->taikhoan->taikhoan_upd($taikhoan, $matkhau);
@@ -57,4 +64,47 @@ class DanhSachTaiKhoan extends Controller
             ]);
         }
     }
+
+    function ExportExcel()
+    {
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+        $taikhoan = $_POST['txtTaikhoan'];
+        $matkhau = $_POST['txtMatkhau'];
+        $data_export = $this->taikhoan->taikhoan_find($taikhoan, $matkhau, 'Sinh viên');
+        //định dạng cột tiêu đề
+        $sheet->getColumnDimension('A')->setAutoSize(true);
+        $sheet->getColumnDimension('B')->setAutoSize(true);
+        $sheet->getColumnDimension('C')->setAutoSize(true);
+        $sheet->getColumnDimension('D')->setAutoSize(true);
+        // căn lề cácc tiêu đề trong các ô
+        $sheet->getStyle('A1:D1')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
+        // Tạo tiêu đề
+        $sheet
+            ->setCellValue('A1', 'STT')
+            ->setCellValue('B1', 'Tài khoản')
+            ->setCellValue('C1', 'Mật khẩu')
+            ->setCellValue('D1', 'Vai trò');
+           
+        // Ghi dữ liệu
+        $rowCount = 2;
+        foreach ($data_export as $key => $value) {
+            $sheet->setCellValue('A' . $rowCount, $rowCount - 1);
+            $sheet->setCellValue('B' . $rowCount, $value['taikhoan']);
+            $sheet->setCellValue('C' . $rowCount, $value['matkhau']);
+            $sheet->setCellValue('D' . $rowCount, $value['vaitro']);
+            //căn lề cho các văn bản trong các ô thuộc mỗi hàng
+            $sheet->getStyle('A' . $rowCount . ':D' . $rowCount)->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
+            $rowCount++;
+        }
+
+        // Xuất file
+        $writer = new Xlsx($spreadsheet);
+        $writer->setOffice2003Compatibility(true);
+        $filename = "DStaikhoan" . time() . ".xlsx";
+        $writer->save($filename);
+        header("location:" . $filename);
+        $this->view('MasterLayout', ['page' => 'Taikhoan_v', 'dulieu' => $this->taikhoan->taikhoan_find('', '', 'Sinh viên')]);
+    }
+
 }
