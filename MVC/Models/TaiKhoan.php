@@ -26,9 +26,9 @@ class TaiKhoan extends connectDB
         }
         return $kq_taikhoan_check;
     }
-    function taikhoan_find($taikhoan, $matkhau)
+    function taikhoan_find($taikhoan, $matkhau, $vaitro)
     {
-        $sql_taikhoan_find = "SELECT * FROM taikhoan where taikhoan like '%$taikhoan%' and matkhau like '%$matkhau%'";
+        $sql_taikhoan_find = "SELECT * FROM taikhoan where taikhoan like '%$taikhoan%' and matkhau like '%$matkhau%' and vaitro like '%$vaitro%'";
         return mysqli_query($this->con, $sql_taikhoan_find);
     }
 }

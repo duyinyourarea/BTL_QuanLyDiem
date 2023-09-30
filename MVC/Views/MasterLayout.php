@@ -36,8 +36,8 @@
          <td>
          </td>
          <td style="align-items: end;width: 150px;border-radius: 15px;background-color: #56a4fe;text-align: center;">
-            <span style="color: aliceblue;"><a href="http://localhost/BTL_QuanLyDiem/" style="color: aliceblue;">Trang
-                  chủ</a> | <a href="" style="color: aliceblue;">Thoát</a></span>
+            <span style="color: aliceblue;"><a href="http://localhost/BTL_QuanLyDiem/Home" style="color: aliceblue;">Trang
+                  chủ</a> | <a href="http://localhost/BTL_QuanLyDiem/HomeLogin" style="color: aliceblue;">Thoát</a></span>
          </td>
       </tr>
    </table>

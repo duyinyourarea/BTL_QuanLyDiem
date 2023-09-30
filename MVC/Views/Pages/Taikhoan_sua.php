@@ -37,9 +37,9 @@
                         </td>
                     </tr>
                     <tr>
-                        <td class="input-group-text">Mã sinh viên</td>
+                        <td class="input-group-text">Vai trò</td>
                         <td>
-                            <input class="form-control" type="text" name="txtMasinhvien" value="<?php echo $row['masinhvien']; ?>" readonly>
+                            <input class="form-control" type="text" name="txtVaitro" value="<?php echo $row['vaitro']; ?>" readonly>
                         </td>
                     </tr>
                     

@@ -73,9 +73,8 @@ class DanhSachLop extends Controller
         if (isset($_POST['btnLuu'])) {
             $ml = $_POST['txtMalop'];
             $tl = $_POST['txtTenlop'];
-            $ss = $_POST['txtSiso'];
             $mk = $_POST['txtMakhoa'];
-            $kq = $this->lop->lop_ins($ml, $tl, $ss, $mk);
+            $kq = $this->lop->lop_ins($ml, $tl, $mk);
             if ($kq)
                 echo "<script>alert('Thêm thành công')</script>";
             else

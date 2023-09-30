@@ -9,7 +9,7 @@ class DanhSachTaiKhoan extends Controller
     function Get_data()
     {
         $this->view('MasterLayout', [
-            'page' => 'Taikhoan_v', 'dulieu' => $this->taikhoan->taikhoan_find('', '')
+            'page' => 'Taikhoan_v', 'dulieu' => $this->taikhoan->taikhoan_find('', '', 'Sinh viên'),
         ]);
     }
     function Timkiem()
@@ -18,25 +18,14 @@ class DanhSachTaiKhoan extends Controller
             $taikhoan = $_POST['txtTaikhoan'];
             $matkhau = $_POST['txtMatkhau'];
             $this->view('MasterLayout', [
-                'page' => 'Taikhoan_v', 'dulieu' => $this->taikhoan->taikhoan_find($taikhoan, $matkhau), 'taikhoan' => $taikhoan, 'matkhau' => $matkhau
+                'page' => 'Taikhoan_v', 'dulieu' => $this->taikhoan->taikhoan_find($taikhoan, $matkhau, 'Sinh viên'), 'taikhoan' => $taikhoan, 'matkhau' => $matkhau
             ]);
         }
-    }
-    function Xoa($taikhoan)
-    {
-        $kq_del = $this->taikhoan->taikhoan_del($taikhoan);
-        if ($kq_del)
-            echo "<script>alert('Xóa thành công')</script>";
-        else
-            echo "<script>alert('Xóa thất bại')</script>";
-        $this->view('MasterLayout', [
-            'page' => 'Taikhoan_v', 'dulieu' => $this->taikhoan->taikhoan_find('', '')
-        ]);
     }
     function Sua($taikhoan)
     {
         $this->view('MasterLayout', [
-            'page' => 'Taikhoan_sua', 'dulieu' => $this->taikhoan->taikhoan_find($taikhoan, ''),
+            'page' => 'Taikhoan_sua', 'dulieu' => $this->taikhoan->taikhoan_find($taikhoan, '', 'Sinh viên'),
         ]);
     }
     function Sua_taikhoan()
@@ -44,28 +33,27 @@ class DanhSachTaiKhoan extends Controller
         if (isset($_POST['btnLuu'])) {
             $taikhoan = $_POST['txtTaikhoan'];
             $matkhau = $_POST['txtMatkhau'];
-            $masinhvien = $_POST['txtMasinhvien'];
             if ($matkhau == '') {
                 echo "<script>alert('Vui lòng nhập đủ thông tin!')</script>";
                 $this->view('MasterLayout', [
-                    'page' => 'Taikhoan_sua', 'dulieu' => $this->taikhoan->taikhoan_find($taikhoan, ''),
+                    'page' => 'Taikhoan_sua', 'dulieu' => $this->taikhoan->taikhoan_find($taikhoan, '', 'Sinh viên'),
                     'matkhau'=> $matkhau
                 ]);
             } else {
-                $kq = $this->taikhoan->taikhoan_upd($taikhoan, $matkhau, $masinhvien);
+                $kq = $this->taikhoan->taikhoan_upd($taikhoan, $matkhau);
                 if ($kq) {
                     echo "<script>alert('Sửa thành công!')</script>";
                 } else {
                     echo "<script>alert('Sửa thất bại!')</script>";
                 }
                 $this->view('MasterLayout', [
-                    'page' => 'Taikhoan_v', 'dulieu' => $this->taikhoan->taikhoan_find('', ''),
+                    'page' => 'Taikhoan_v', 'dulieu' => $this->taikhoan->taikhoan_find('', '', 'Sinh viên'),
                 ]);
             }
         }
         if (isset($_POST['btnHuy'])) {
             $this->view('MasterLayout', [
-                'page' => 'Taikhoan_v', 'dulieu' => $this->taikhoan->taikhoan_find('', '')
+                'page' => 'Taikhoan_v', 'dulieu' => $this->taikhoan->taikhoan_find('', '', 'Sinh viên'),
             ]);
         }
     }

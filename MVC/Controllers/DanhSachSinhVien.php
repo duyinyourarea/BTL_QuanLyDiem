@@ -1,4 +1,10 @@
 <?php
+require 'vendor/autoload.php';
+
+use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+
 class DanhSachSinhVien extends Controller
 {
     protected $sinhvien;
@@ -134,5 +140,105 @@ class DanhSachSinhVien extends Controller
     function Them()
     {
         $this->view('MasterLayout', ['page' => 'Sinhvien_them', 'dulieu_malop' => $this->malop->lop_find('', '')]);
+    }
+
+    function ExportExcel()
+    {
+        $spreadsheet = new Spreadsheet();
+        $sheet = $spreadsheet->getActiveSheet();
+        $masinhvien = $_POST['txtMasinhvien'];
+        $tensinhvien = $_POST['txtTensinhvien'];
+        $data_export = $this->sinhvien->sinhvien_find($masinhvien, $tensinhvien);
+        //định dạng cột tiêu đề
+        $sheet->getColumnDimension('A')->setAutoSize(true);
+        $sheet->getColumnDimension('B')->setAutoSize(true);
+        $sheet->getColumnDimension('C')->setAutoSize(true);
+        $sheet->getColumnDimension('D')->setAutoSize(true);
+        $sheet->getColumnDimension('E')->setAutoSize(true);
+        $sheet->getColumnDimension('F')->setAutoSize(true);
+        $sheet->getColumnDimension('G')->setAutoSize(true);
+        // căn lề cácc tiêu đề trong các ô
+        $sheet->getStyle('A1:G1')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
+        // Tạo tiêu đề
+        $sheet
+            ->setCellValue('A1', 'STT')
+            ->setCellValue('B1', 'Mã sinh viên')
+            ->setCellValue('C1', 'Tên sinh viên')
+            ->setCellValue('D1', 'Giới tính')
+            ->setCellValue('E1', 'Số điện thoại')
+            ->setCellValue('F1', 'Email')
+            ->setCellValue('G1', 'Mã lớp');
+
+        // Ghi dữ liệu
+        $rowCount = 2;
+        foreach ($data_export as $key => $value) {
+            $sheet->setCellValue('A' . $rowCount, $rowCount - 1);
+            $sheet->setCellValue('B' . $rowCount, $value['masinhvien']);
+            $sheet->setCellValue('C' . $rowCount, $value['tensinhvien']);
+            $sheet->setCellValue('D' . $rowCount, $value['gioitinh']);
+            $sheet->setCellValue('E' . $rowCount, $value['sodienthoai']);
+            $sheet->setCellValue('F' . $rowCount, $value['email']);
+            $sheet->setCellValue('G' . $rowCount, $value['malop']);
+            //căn lề cho các văn bản trong các ô thuộc mỗi hàng
+            $sheet->getStyle('A' . $rowCount . ':G' . $rowCount)->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
+            $rowCount++;
+        }
+
+        // Xuất file
+        $writer = new Xlsx($spreadsheet);
+        $writer->setOffice2003Compatibility(true);
+        $filename = "DSsinhvien" . time() . ".xlsx";
+        $writer->save($filename);
+        header("location:" . $filename);
+        $this->view('MasterLayout', ['page' => 'Sinhvien_v', 'dulieu' => $this->sinhvien->sinhvien_find('', '')]);
+    }
+
+    function ImportExcel()
+    {
+        $this->view('MasterLayout', ['page' => 'Sinhvien_imp']);
+        
+    }
+    function sinhvien_import(){
+        if (isset($_POST['btnCancel'])) {
+            $this->view('MasterLayout', [
+                'page' => 'Sinhvien_v',
+                'dulieu' => $this->sinhvien->sinhvien_find('', '')
+            ]);
+        }
+        if (isset($_POST['btnImport'])) {
+            if (isset($_FILES['fileimport'])) {
+                if ($_FILES['fileimport']['error'] > 0) {
+                    echo "<script>alert('File Import bị lỗi')</script>";
+                    $this->view('MasterLayout', ['page' => 'Sinhvien_imp']);
+                } else {
+                    $inputFileName = 'file.xlsx';
+                    move_uploaded_file($_FILES['fileimport']['tmp_name'], $inputFileName);
+                    $spreadsheet = IOFactory::load($inputFileName);
+                    $sheetData = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
+                    $arrayCount = count($sheetData);
+
+                    for ($i = 2; $i < $arrayCount; $i++) {
+                        $masinhvien = trim($sheetData[$i]["B"]);
+                        $tensinhvien = trim($sheetData[$i]["C"]);
+                        $gioitinh = trim($sheetData[$i]["D"]);
+                        $sodienthoai = trim($sheetData[$i]["E"]);
+                        $email = trim($sheetData[$i]["F"]);
+                        $malop = trim($sheetData[$i]["G"]);
+                        $kq_import = $this->sinhvien->sinhvien_ins($masinhvien, $tensinhvien, $gioitinh, $sodienthoai, $email, $malop);
+                        isset($kq_import);
+                    }
+                    unlink('file.xlsx');
+                    echo "<script>alert('Import file thành công')</script>";
+                    $this->view('MasterLayout', [
+                        'page' => 'Sinhvien_v',
+                        'dulieu' => $this->sinhvien->sinhvien_find('',''),
+                    ]);
+                }
+                
+            } else {
+                echo "<script>alert('Bạn chưa chọn file import')</script>";
+            }
+            
+        }
     }
 }

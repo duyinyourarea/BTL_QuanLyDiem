@@ -1,7 +1,7 @@
 <?php
 class Lop extends connectDB{
-    function lop_ins($malop, $tenlop, $siso, $makhoa){
-        $sql_lop_ins = "INSERT INTO loaisach VALUES('$malop','$tenlop','$siso','$makhoa')";
+    function lop_ins($malop, $tenlop, $makhoa){
+        $sql_lop_ins = "INSERT INTO lop VALUES('$malop','$tenlop','0','$makhoa')";
         return mysqli_query($this->con, $sql_lop_ins);
     }
     function lop_upd($malop, $tenlop, $siso, $makhoa){
