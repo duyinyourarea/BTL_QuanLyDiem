@@ -14,7 +14,7 @@
 
     <table style="width: 100%;">
         <tr>
-            <td style="width: 61%;"><a href="http://localhost/BTL_QuanLyDiem/DanhSachSinhVien/Them"><button class="btn btn-outline-success" name="btnThemsinhvien" style="margin: 5px;">Thêm
+            <td style="width: 57%;"><a href="http://localhost/BTL_QuanLyDiem/DanhSachSinhVien/Them"><button class="btn btn-outline-success" name="btnThemsinhvien" style="margin: 5px;">Thêm
                         sinh viên</button></a></td>
             <td>
                 <form action="http://localhost/BTL_QuanLyDiem/DanhSachSinhVien/Timkiem" method="post">

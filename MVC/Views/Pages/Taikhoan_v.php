@@ -14,7 +14,7 @@
 
     <table style="width: 100%; margin: 5px 0px;">
         <tr>
-            <td style="width: 61%;"></td>
+            <td style="width: 57%;"></td>
             <td>
                 <form action="http://localhost/BTL_QuanLyDiem/DanhSachTaiKhoan/Timkiem" method="post">
                     <div class="form-inline">
