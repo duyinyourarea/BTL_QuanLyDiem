@@ -26,5 +26,6 @@ class Monhoc extends connectDB{
         $sql_monhoc_find="SELECT * FROM monhoc where mamon like '%$mamon%' and tenmon like '%$tenmon%'";
         return mysqli_query($this->con,$sql_monhoc_find);
     }
+    
 }
 ?>

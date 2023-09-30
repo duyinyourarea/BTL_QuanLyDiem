@@ -23,7 +23,7 @@
                 <td style="width: 16%;">
                     <label for="">Khoa: <?php echo $row['makhoa']; ?></label>
                 </td>
-                <td style="width: 35%;"><select class="form-control" name="cbMalop" style="width: 100%;">
+                <td style="width: 28%;"><select class="form-control" name="cbMalop" style="width: 100%;">
                         <option>Chọn môn học</option>
                         <?php
                         if (isset($data['dulieu_monhoc']) && $data['dulieu_monhoc'] != null) {
