@@ -8,7 +8,7 @@ class DanhSachLop extends Controller
     {
         $this->lop = $this->mode('Lop');
         $this->monhoc = $this->mode('Monhoc');
-        $this->sinhvien = $this->mode('Sinhvien');
+        $this->sinhvien = $this->mode('SinhVien');
     }
     function Get_data()
     {
@@ -84,6 +84,11 @@ class DanhSachLop extends Controller
                 'dulieu' => $this->lop->lop_find('', ''),
             ]);
         }
+    }
+    function DanhSachSinhVien(){
+        $this->view('MasterLayout', [
+            'page' => 'Sinhvien_sua', 'dulieu' => $this->sinhvien->sinhvien_find($masinhvien, ''), 'dulieu_malop' => $this->malop->lop_find('', '')
+        ]);
     }
 }
 ?>
