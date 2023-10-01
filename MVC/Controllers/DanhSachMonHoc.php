@@ -8,19 +8,35 @@ class DanhSachMonHoc extends Controller
 {
     protected $monhoc;
     protected $khoa;
+    protected $taikhoan;
 
     function __construct()
     {
 
         $this->monhoc = $this->mode('Monhoc');
         $this->khoa = $this->mode('Khoa');
+        $this->taikhoan = $this->mode('TaiKhoan');
     }
     function Get_data()
     {
-        $this->view('MasterLayout', [
-            'page' => 'Monhoc_v',
-            'dulieu' => $this->monhoc->monhoc_find('', '')
-        ]);
+        $tensv = $_POST['txtInfoAcc1'];
+        $masv = $_POST['txtInfoAcc2'];
+        $vaitro = $this->taikhoan->vaitro_check($masv);
+        if ($vaitro == "Sinh viên") {
+
+            echo "<script>alert('Chức năng này không dành cho sinh viên')</script>";
+            $this->view('MasterLayout', [
+                'page' => 'Home',
+                'dulieu' => $this->monhoc->monhoc_find('', ''),
+                'info_ten' => $tensv,
+                'info' => $masv,
+                'vaitro' => $vaitro,
+            ]);
+        }
+        // $this->view('MasterLayout', [
+        //     'page' => 'Monhoc_v',
+        //     'dulieu' => $this->monhoc->monhoc_find('', '')
+        // ]);
     }
     function Timkiem()
     {
@@ -268,9 +284,10 @@ class DanhSachMonHoc extends Controller
     function ImportExcel()
     {
         $this->view('MasterLayout', ['page' => 'Monhoc_imp']);
-        
+
     }
-    function monhoc_import(){
+    function monhoc_import()
+    {
         if (isset($_POST['btnCancel'])) {
             $this->view('MasterLayout', [
                 'page' => 'Monhoc_v',
@@ -304,14 +321,14 @@ class DanhSachMonHoc extends Controller
                     echo "<script>alert('Import file thành công')</script>";
                     $this->view('MasterLayout', [
                         'page' => 'Monhoc_v',
-                        'dulieu' => $this->monhoc->monhoc_find('',''),
+                        'dulieu' => $this->monhoc->monhoc_find('', ''),
                     ]);
                 }
-                
+
             } else {
                 echo "<script>alert('Bạn chưa chọn file import')</script>";
             }
-            
+
         }
     }
 }

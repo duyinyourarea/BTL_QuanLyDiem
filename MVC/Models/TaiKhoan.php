@@ -31,15 +31,24 @@ class TaiKhoan extends connectDB
         $sql_taikhoan_find = "SELECT * FROM taikhoan where taikhoan like '%$taikhoan%' and matkhau like '%$matkhau%' and vaitro like '%$vaitro%'";
         return mysqli_query($this->con, $sql_taikhoan_find);
     }
-    function getDataAcc($taikhoan){
-        $data_info_acc = $this->taikhoan_find($taikhoan,'','');
-        $row_info = mysqli_fetch_assoc($data_info_acc);
-        if($row_info['vaitro'] == "Admin"){
-            return $row_info;
-        }else{
-            $sql_info_sv = "SELECT * from taikhoan, sinhvien where taikhoan.taikhoan = sinhvien.masinhvien and taikhoan = '$taikhoan'";
-            $data_info_sv = mysqli_query($this->con,$sql_info_sv);
-            return mysqli_fetch_assoc($data_info_sv);
-        }
+    function getDataAcc($taikhoan)
+    {
+        $sql_info_acc = "SELECT * from taikhoan where taikhoan = '$taikhoan'";
+        $data_info_acc = mysqli_query($this->con, $sql_info_acc);
+        return mysqli_fetch_assoc($data_info_acc);
+
+    }
+    function getDataSv($taikhoan)
+    {
+        $sql_info_sv = "SELECT * from taikhoan, sinhvien where taikhoan.taikhoan = sinhvien.masinhvien and taikhoan = '$taikhoan'";
+        $data_info_sv = mysqli_query($this->con, $sql_info_sv);
+        return mysqli_fetch_assoc($data_info_sv);
+
+    }
+    function vaitro_check($taikhoan)
+    {
+        $data_vaitro_check = $this->taikhoan_find($taikhoan, '', '');
+        $row_data_vaitro = mysqli_fetch_assoc($data_vaitro_check);
+        return $row_data_vaitro['vaitro'];
     }
 }
