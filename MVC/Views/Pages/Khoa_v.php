@@ -40,6 +40,7 @@
                   <th>STT</th>
                   <th>Mã khoa</th>
                   <th>Tên khoa</th>
+                  <th>Tác vụ</th>
                </tr>
             </thead>
             <tbody>

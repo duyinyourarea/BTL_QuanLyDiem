@@ -104,7 +104,6 @@
                            <li><a href="http://localhost/BTL_QuanLyDiem/DanhSachSinhVien"
                                  style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Sinh viên</b></a>
                            </li>
-<<<<<<< Updated upstream
                            <li><a href="http://localhost/BTL_QuanLyDiem/DanhSachTaiKhoan/"
                                  style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Tài khoản sinh
                                     viên</b></a></li>
@@ -113,17 +112,6 @@
                            <li><a href="http://localhost/BTL_QuanLyDiem/DanhSachLop/"
                                  style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Lớp</b></a></li>
                            <li><a href="http://localhost/BTL_QuanLyDiem/DanhSachKhoa/"
-=======
-                           
-                           <li><a href="http://localhost/BTL_QuanLyDiem/DanhSachTaiKhoan"
-                                 style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Tài khoản sinh
-                                    viên</b></a></li>
-                           <li><a href="http://localhost/BTL_QuanLyDiem/DanhSachMonHoc"
-                                 style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Môn hoc</b></a></li>
-                           <li><a href="http://localhost/BTL_QuanLyDiem/DanhSachLop"
-                                 style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Lớp</b></a></li>
-                           <li><a href="http://localhost/BTL_QuanLyDiem/DanhSachKhoa"
->>>>>>> Stashed changes
                                  style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Khoa</b></a></li>
                         </ul>
                      </div>
@@ -163,10 +151,6 @@
 
       </div>
       </div>
-<<<<<<< Updated upstream
-=======
-      <!-- </form> -->
->>>>>>> Stashed changes
       <div class="aside">
          <?php
          include_once './MVC/Views/Pages/' . $data['page'] . '.php';
