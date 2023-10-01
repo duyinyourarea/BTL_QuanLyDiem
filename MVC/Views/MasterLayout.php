@@ -26,15 +26,12 @@
                         <h5 style="margin: 0;">UNIVERSITY OF TRANSPORT TECHNOLOGY
                   </h4>
                </td>
-               <td id="status" style="width: 370px;"><span>
+               <td id="status" style="width: 270px;"><span>
 
                      <table style="margin: 4px;">
                         <tr>
-                           <td><input type="text" name="txtInfoAcc1" style="border-style: none; width: 150px;" value="<?php if (isset($data['info_ten']))
-                              echo $data['info_ten']; ?>" readonly></td>
-                           <td style="border-radius: 15px; width: 10px;"><input type="text" name="txtInfoAcc2"
-                                 style="border-style: none; width: 60px;" value="(<?php if (isset($data['info_ma']))
-                                    echo $data['info_ma']; ?>)" readonly></td>
+                           <td><input type="text" name="txtInfoAcc" style="border-style: none; width: 110px;" value="<?php if (isset($data['info']))
+                              echo $data['info']; ?>" readonly></td>
                            <td style="width: 60px;">Vai trò:</td>
                            <td style="border-radius: 15px;"><input type="text" name="txtVaitro"
                                  style="border-style: none;width: 70px;" value="<?php if (isset($data['vaitro']))
@@ -54,7 +51,7 @@
             <td>
             </td>
             <td style="align-items: end;width: 150px;border-radius: 15px;background-color: #56a4fe;text-align: center;">
-               <span style="color: aliceblue;"><a href="http://localhost/BTL_QuanLyDiem/Home/Trangchu/<?php echo $data['info_ma'] ?>"
+               <span style="color: aliceblue;"><a href="http://localhost/BTL_QuanLyDiem/Home/Trangchu/<?php if (isset($data['info'])) echo $data['info'] ?>"
                      style="color: aliceblue;">Trang
                      chủ</a> | <a href="http://localhost/BTL_QuanLyDiem/HomeLogin"
                      style="color: aliceblue;">Thoát</a></span>
@@ -104,7 +101,7 @@
                      data-parent="#accordionExample">
                      <div class="card-body">
                         <ul>
-                           <li><a href="http://localhost/BTL_QuanLyDiem/DanhSachSinhVien/"
+                           <li><a href="http://localhost/BTL_QuanLyDiem/Home/Danhsachsinhvien/<?php if (isset($data['info'])) echo $data['info'] ?>"
                                  style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Sinh viên</b></a>
                            </li>
                            <li><a href="http://localhost/BTL_QuanLyDiem/DanhSachTaiKhoan/"
