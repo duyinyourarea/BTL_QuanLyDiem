@@ -34,4 +34,11 @@ class Lop extends connectDB{
         $sql_lop_del = "UPDATE lop SET siso = siso - 1 WHERE malop = '$malop'";
         return mysqli_query($this->con, $sql_lop_del);
     }
+    function getDataKhoa($malop)
+    {
+        $sql_info_khoa = "SELECT * from lop,khoa where lop.makhoa = khoa.makhoa and malop = '$malop'";
+        $data_info_khoa = mysqli_query($this->con, $sql_info_khoa);
+        return mysqli_fetch_assoc($data_info_khoa);
+
+    }
 }

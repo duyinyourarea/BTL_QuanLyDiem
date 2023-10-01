@@ -59,7 +59,7 @@ class DanhSachSinhVien extends Controller
             $sodienthoai = $_POST['txtSodienthoai'];
             $email = $_POST['txtEmail'];
             $malop = $_POST['cbMalop'];
-            $ck_siso = $this->malop->malop_check($malop);
+            $ck_siso = $this->sinhvien->sinhvien_check($masinhvien,$malop);
             if ($tensinhvien == '' || $gioitinh == '' || $sodienthoai == '' || $email == '' || $malop == 'Chọn lớp') {
                 echo "<script>alert('Vui lòng nhập đủ thông tin!')</script>";
                 $this->view('MasterLayout', [
@@ -72,8 +72,8 @@ class DanhSachSinhVien extends Controller
 
                 ]);
             } else {
-                if ($ck_siso) {
-                    $kq_lop=$this->malop->add_sinhvien($malop);
+                if ($ck_siso==false) {
+                    $kq_siso=$this->malop->add_sinhvien($malop);
                 }
 
                 $kq = $this->sinhvien->sinhvien_upd($masinhvien, $tensinhvien, $gioitinh, $sodienthoai, $email, $malop);
@@ -125,6 +125,7 @@ class DanhSachSinhVien extends Controller
                 } else {
                     $kq = $this->sinhvien->sinhvien_ins($masinhvien, $tensinhvien, $gioitinh, $sodienthoai, $email, $malop);
                     $kq_taikhoan = $this->taikhoan->taikhoan_ins($masinhvien, $sodienthoai, 'Sinh viên');
+                    $kq_siso=$this->malop->add_sinhvien($malop);
                     if ($kq)
                         echo "<script>alert('Thêm mới thành công!')</script>";
                     else
