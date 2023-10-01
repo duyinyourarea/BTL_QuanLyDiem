@@ -30,18 +30,19 @@ class HomeLogin extends Controller{
                             'MasterLayout',
                             [
                                 'page' => 'Home',
-                                'info_ten' => $row_info_acc['vaitro'],
-                                'vaitro' => $row_info_acc['vaitro']
+                                'info_ten' => $row_info_acc['taikhoan'],
+                                'vaitro' => $row_info_acc['vaitro'],
                             ]
                         );
                     }else{
+                        $row_info_sv = $this->taikhoan->getDataSv($taikhoan);
                         $this->view(
                             'MasterLayout',
                             [
                                 'page' => 'Home',
-                                'info_ten' => $row_info_acc['tensinhvien'],
-                                'info_ma' => $row_info_acc['masinhvien'],
-                                'vaitro' => $row_info_acc['vaitro']
+                                'info_ten' => $row_info_sv['tensinhvien'],
+                                'info_ma' => $row_info_sv['masinhvien'],
+                                'vaitro' => $row_info_sv['vaitro']
                             ]
                         );
                     }
