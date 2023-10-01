@@ -14,23 +14,31 @@
 
     <table style="width: 100%;">
         <tr>
-            <td style="width: 57%;"><a href="http://localhost/BTL_QuanLyDiem/DanhSachSinhVien/Them"><button class="btn btn-outline-success" name="btnThemsinhvien" style="margin: 5px;">Thêm
+            <td style="width: 57%;"><a href="http://localhost/BTL_QuanLyDiem/DanhSachSinhVien/Them/<?php if (isset($data['info']))
+                echo $data['info']; ?>"><button class="btn btn-outline-success" name="btnThemsinhvien"
+                        style="margin: 5px;">Thêm
                         sinh viên</button></a></td>
             <td>
                 <form action="http://localhost/BTL_QuanLyDiem/DanhSachSinhVien/Timkiem" method="post">
+                    <input type="text" name="txtInfoAcc" hidden value="<?php if (isset($data['info']))
+                        echo $data['info']; ?>">
                     <div class="form-inline">
                         <input type="text" name="txtMasinhvien" class="form-control" placeholder="Mã sinh viên" value="<?php if (isset($data['masinhvien']))
-                                                                                                                            echo $data['masinhvien'] ?>">
-                        <input type="text" name="txtTensinhvien" class="form-control" placeholder="Tên sinh viên" value="<?php if (isset($data['tensinhvien']))
-                                                                                                                                echo $data['tensinhvien'] ?>">
-                        <input type="submit" class="btn btn-outline-primary" name="btnTimkiem" value="Tìm kiếm">
-                </form>
-                <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" style="position: relative; left: 10px; top: 0px;">
-                    Thêm
-                </button>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="http://localhost/BTL_QuanLyDiem/DanhSachSinhVien/ImportExcel">Import Excel</a>
-                    <a class="dropdown-item" href="http://localhost/BTL_QuanLyDiem/DanhSachSinhVien/ExportExcel">Export
+                            echo $data['masinhvien'] ?>">
+                            <input type="text" name="txtTensinhvien" class="form-control" placeholder="Tên sinh viên" value="<?php if (isset($data['tensinhvien']))
+                            echo $data['tensinhvien'] ?>">
+                            <input type="submit" class="btn btn-outline-primary" name="btnTimkiem" value="Tìm kiếm">
+                    </form>
+                    <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+                        data-toggle="dropdown" style="position: relative; left: 10px; top: 0px;">
+                        Thêm
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="http://localhost/BTL_QuanLyDiem/DanhSachSinhVien/ImportExcel/<?php if (isset($data['info']))
+                            echo $data['info']; ?>">Import
+                        Excel</a>
+                    <a class="dropdown-item" href="http://localhost/BTL_QuanLyDiem/DanhSachSinhVien/ExportExcel/<?php if (isset($data['info']))
+                        echo $data['info']; ?>">Export
                         Excel</a>
 
                 </div>
@@ -40,6 +48,8 @@
         </tr>
     </table>
     <form action="http://localhost/BTL_QuanLyDiem/DanhSachSinhVien/Timkiem" method="post">
+        <input type="text" name="txtInfoAcc" hidden value="<?php if (isset($data['info']))
+            echo $data['info']; ?>">
         <table class="table">
             <thead class="thead-dark">
                 <tr>
@@ -59,7 +69,7 @@
                 if (isset($data['dulieu']) && $data['dulieu'] != null) {
                     $i = 1;
                     while ($row = mysqli_fetch_array($data['dulieu'])) {
-                ?>
+                        ?>
                         <tr>
                             <td>
                                 <?php echo $i++ ?>
@@ -83,11 +93,12 @@
                                 <?php echo $row['malop'] ?>
                             </td>
                             <td>
-                                <a href="http://localhost/BTL_QuanLyDiem/DanhSachSinhVien/Sua/<?php echo $row['masinhvien'] ?>"><img class="icon" src="Public/Images/note.png" alt="note"></a>
-                                <a href="http://localhost/BTL_QuanLyDiem/DanhSachSinhVien/Xoa/<?php echo $row['masinhvien'] ?>"><img class="icon" src="Public/Images/trash.png" alt="trash"></a>
+                                <a href="http://localhost/BTL_QuanLyDiem/DanhSachSinhVien/Sua/<?php echo $row['masinhvien'] ?>$<"><img class="icon" src="Public/Images/note.png" alt="note"></a>
+                                <a href="http://localhost/BTL_QuanLyDiem/DanhSachSinhVien/Xoa/<?php echo $row['masinhvien'] ?>"><img
+                                        class="icon" src="Public/Images/trash.png" alt="trash"></a>
                             </td>
                         </tr>
-                <?php
+                        <?php
                     }
                 }
                 ?>

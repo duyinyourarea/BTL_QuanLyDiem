@@ -104,14 +104,14 @@
                            <li><a href="http://localhost/BTL_QuanLyDiem/Home/Danhsachsinhvien/<?php if (isset($data['info'])) echo $data['info'] ?>"
                                  style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Sinh viên</b></a>
                            </li>
-                           <li><a href="http://localhost/BTL_QuanLyDiem/DanhSachTaiKhoan/"
+                           <li><a href="http://localhost/BTL_QuanLyDiem/Home/Danhsachtaikhoan/<?php if (isset($data['info'])) echo $data['info'] ?>"
                                  style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Tài khoản sinh
                                     viên</b></a></li>
-                           <li><a href="http://localhost/BTL_QuanLyDiem/DanhSachMonHoc/"
+                           <li><a href="http://localhost/BTL_QuanLyDiem/Home/Danhsachmonhoc/<?php if (isset($data['info'])) echo $data['info'] ?>"
                                  style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Môn hoc</b></a></li>
-                           <li><a href="http://localhost/BTL_QuanLyDiem/DanhSachLop/"
+                           <li><a href="http://localhost/BTL_QuanLyDiem/Home/Danhsachlop/<?php if (isset($data['info'])) echo $data['info'] ?>"
                                  style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Lớp</b></a></li>
-                           <li><a href="http://localhost/BTL_QuanLyDiem/DanhSachKhoa/"
+                           <li><a href="http://localhost/BTL_QuanLyDiem/Home/Danhsachkhoa/<?php if (isset($data['info'])) echo $data['info'] ?>"
                                  style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Khoa</b></a></li>
                         </ul>
                      </div>
@@ -151,12 +151,13 @@
 
       </div>
       </div>
+      </form>
       <div class="aside">
          <?php
          include_once './MVC/Views/Pages/' . $data['page'] . '.php';
          ?>
       </div>
-   </form>
+   
    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>

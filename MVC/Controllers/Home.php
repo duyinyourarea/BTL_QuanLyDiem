@@ -30,29 +30,103 @@ class Home extends Controller
     function Danhsachsinhvien($taikhoan)
     {
         $row_data_acc = $this->taikhoan->getDataAcc($taikhoan);
-        $tensv = '';
-        $masv = '';
         $vaitro = '';
-        if ($row_data_acc['vaitro'] == "Admin") {
-            $data_acc_admin = $this->taikhoan->getDataAcc($taikhoan);
-            $masv = $data_acc_admin['taikhoan'];
-            $vaitro = $data_acc_admin['$vaitro'];
+        $vaitro = $row_data_acc['vaitro'];
+        if ($vaitro == "Admin") {
             $this->view('MasterLayout', [
                 'page' => 'Sinhvien_v',
-                'info_ten' => $tensv,
-                'info_ma' => $masv,
+                'info' => $taikhoan,
                 'vaitro' => $vaitro
             ]);
         } else {
             echo "<script>alert('Chức năng chỉ dành cho admin')</script>";
-            $data_acc_sv = $this->taikhoan->getDataSv($taikhoan);
-            $tensv = $data_acc_sv['tensinhvien'];
-            $masv = $data_acc_sv['masinhvien'];
-            $vaitro = $data_acc_sv['vaitro'];
             $this->view('MasterLayout', [
                 'page' => 'Home',
-                'info_ten' => $tensv,
-                'info_ma' => $masv,
+                'info' => $taikhoan,
+                'vaitro' => $vaitro
+            ]);
+        }
+
+    }
+    function Danhsachtaikhoan($taikhoan)
+    {
+        $row_data_acc = $this->taikhoan->getDataAcc($taikhoan);
+        $vaitro = '';
+        $vaitro = $row_data_acc['vaitro'];
+        if ($vaitro == "Admin") {
+            $this->view('MasterLayout', [
+                'page' => 'Taikhoan_v',
+                'info' => $taikhoan,
+                'vaitro' => $vaitro
+            ]);
+        } else {
+            echo "<script>alert('Chức năng chỉ dành cho admin')</script>";
+            $this->view('MasterLayout', [
+                'page' => 'Home',
+                'info' => $taikhoan,
+                'vaitro' => $vaitro
+            ]);
+        }
+
+    }
+    function Danhsachmonhoc($taikhoan)
+    {
+        $row_data_acc = $this->taikhoan->getDataAcc($taikhoan);
+        $vaitro = '';
+        $vaitro = $row_data_acc['vaitro'];
+        if ($vaitro == "Admin") {
+            $this->view('MasterLayout', [
+                'page' => 'Monhoc_v',
+                'info' => $taikhoan,
+                'vaitro' => $vaitro
+            ]);
+        } else {
+            echo "<script>alert('Chức năng chỉ dành cho admin')</script>";
+            $this->view('MasterLayout', [
+                'page' => 'Home',
+                'info' => $taikhoan,
+                'vaitro' => $vaitro
+            ]);
+        }
+
+    }
+    function Danhsachlop($taikhoan)
+    {
+        $row_data_acc = $this->taikhoan->getDataAcc($taikhoan);
+        $vaitro = '';
+        $vaitro = $row_data_acc['vaitro'];
+        if ($vaitro == "Admin") {
+            $this->view('MasterLayout', [
+                'page' => 'Lop_v',
+                'info' => $taikhoan,
+                'vaitro' => $vaitro
+            ]);
+        } else {
+            echo "<script>alert('Chức năng chỉ dành cho admin')</script>";
+            $this->view('MasterLayout', [
+                'page' => 'Home',
+                'info' => $taikhoan,
+                'vaitro' => $vaitro
+            ]);
+        }
+
+    }
+    function Danhsachkhoa($taikhoan)
+    {
+        $row_data_acc = $this->taikhoan->getDataAcc($taikhoan);
+        $vaitro = '';
+        $vaitro = $row_data_acc['vaitro'];
+        if ($vaitro == "Admin") {
+            $this->view('MasterLayout', [
+                'page' => 'Khoa_v',
+                'info' => $taikhoan,
+                'vaitro' => $vaitro
+            ]);
+        } else {
+            echo "<script>alert('Chức năng chỉ dành cho admin')</script>";
+            $this->view('MasterLayout', [
+                'page' => 'Home',
+                'info' => $taikhoan,
                 'vaitro' => $vaitro
             ]);
         }

@@ -12,6 +12,8 @@
 
 <body>
     <form action="http://localhost/BTL_QuanLyDiem/DanhSachSinhVien/Sua_sinhvien" method="post">
+        <input type="text" name="txtInfoAcc" hidden value="<?php if (isset($data['info']))
+                                    echo $data['info']; ?>">
         <?php
         if (isset($data['dulieu'])) {
             $row = mysqli_fetch_assoc($data['dulieu']);

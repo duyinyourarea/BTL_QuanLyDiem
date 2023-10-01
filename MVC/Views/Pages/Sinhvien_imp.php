@@ -14,6 +14,8 @@
 <body>
     <div>
         <form action="http://localhost/BTL_QuanLyDiem/DanhSachSinhVien/sinhvien_import" method="post" enctype = "multipart/form-data">
+            <input type="text" name="txtInfoAcc" hidden value="<?php if (isset($data['info']))
+                                    echo $data['info']; ?>">
             <h2>
                 Nhập file
             </h2>
