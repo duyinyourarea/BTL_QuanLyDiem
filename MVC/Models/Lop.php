@@ -26,5 +26,12 @@ class Lop extends connectDB{
         $sql_lop_find="SELECT * FROM lop where malop like '%$malop%' and tenlop like '%$tenlop%'";
         return mysqli_query($this->con,$sql_lop_find);
     }
+    function add_sinhvien($malop){
+        $sql_lop_upd = "UPDATE lop SET siso = siso + 1 WHERE malop = '$malop'";
+        return mysqli_query($this->con, $sql_lop_upd);
+    }
+    function del_sinhvien($malop){
+        $sql_lop_del = "UPDATE lop SET siso = siso - 1 WHERE malop = '$malop'";
+        return mysqli_query($this->con, $sql_lop_del);
+    }
 }
-?>
