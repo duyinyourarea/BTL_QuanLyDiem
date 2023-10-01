@@ -83,15 +83,8 @@
                                 <?php echo $row['malop'] ?>
                             </td>
                             <td>
-<<<<<<< Updated upstream
                                 <a href="http://localhost/BTL_QuanLyDiem/DanhSachSinhVien/Sua/<?php echo $row['masinhvien'] ?>"><img class="icon" src="Public/Images/note.png" alt="note"></a>
                                 <a href="http://localhost/BTL_QuanLyDiem/DanhSachSinhVien/Xoa/<?php echo $row['masinhvien'] ?>"><img class="icon" src="Public/Images/trash.png" alt="trash"></a>
-=======
-                                <a href="http://localhost/BTL_QuanLyDiem/DanhSachSinhVien/Sua/<?php echo $row['masinhvien'] ?>&<?php if (isset($data['info']))
-                            echo $data['info']; ?>"><img class="icon" src="Public/Images/note.png" alt="note"></a>
-                                <a href="http://localhost/BTL_QuanLyDiem/DanhSachSinhVien/Xoa/<?php echo $row['masinhvien'] ?>"><img
-                                        class="icon" src="Public/Images/trash.png" alt="trash"></a>
->>>>>>> Stashed changes
                             </td>
                         </tr>
                 <?php
