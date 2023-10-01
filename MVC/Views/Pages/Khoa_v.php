@@ -60,8 +60,8 @@
                         <?php echo $row['tenkhoa'] ?>
                      </td>
                      <td>
-                        <a href="http://localhost/BTL_QuanLyDiem/DanhSachKhoa/Sua/<?php echo $row['malop'] ?>"><img class="icon" src="Public/Images/note.png" alt="note"></a>
-                        <a href="http://localhost/BTL_QuanLyDiem/DanhSachKhoa/Xoa/<?php echo $row['malop'] ?>"><img
+                        <a href="http://localhost/BTL_QuanLyDiem/DanhSachKhoa/Sua/<?php echo $row['makhoa'] ?>"><img class="icon" src="Public/Images/note.png" alt="note"></a>
+                        <a href="http://localhost/BTL_QuanLyDiem/DanhSachKhoa/Xoa/<?php echo $row['makhoa'] ?>"><img
                               class="icon" src="Public/Images/trash.png" alt="trash"></a>
                      </td>
                   </tr>
