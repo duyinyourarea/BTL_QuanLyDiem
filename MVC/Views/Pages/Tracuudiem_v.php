@@ -43,32 +43,29 @@
             </tr>
         </thead>
         <tbody>
-            <?php
+            <!-- <?php
                 if (isset($data['dulieu_sinhvien']) && $data['dulieu_sinhvien'] != null) {
                     while ($row = mysqli_fetch_array($data['dulieu_sinhvien'])) {
-                ?>
+                ?> -->
                         <tr>
                             
                             <td>
-                                <?php echo $row['masinhvien'] ?>
+                                <?php if (isset($data['masinhvien'])) echo $data['masinhvien'] ?>
                             </td>
                             <td>
-                                <?php echo $row['tensinhvien'] ?>
+                                <?php if (isset($data['tensinhvien'])) echo $data['tensinhvien'] ?>
                             </td>
                             <td>
-                                <?php echo $row['tenlop'] ?>
+                                <?php if (isset($data['tenlop'])) echo $data['tenlop'] ?>
                             </td>
                             <td>
-                                <?php echo $row['makhoa'] ?>
-                            </td>
-                            <td>
-                                <?php echo $row['trangthai'] ?>
+                                <?php if (isset($data['tenkhoa'])) echo $data['tenkhoa'] ?>
                             </td>
                         </tr>
-                <?php
+                <!-- <?php
                     }
                 }
-                ?>
+                ?> -->
         </tbody>
     </table>
     <form action="http://localhost/BTL_QuanLyDiem/TraCuuDiem/Timkiem" method="post">

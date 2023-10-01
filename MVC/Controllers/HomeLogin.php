@@ -2,18 +2,40 @@
 class HomeLogin extends Controller
 {
     protected $taikhoan;
+    protected $sinhvien;
     function __construct()
     {
         $this->taikhoan = $this->mode('TaiKhoan');
+        $this->sinhvien = $this->mode('SinhVien');
     }
     function Get_data()
     {
+        
         $this->view('Login_v', [
             'page' => 'Login_body'
         ]);
     }
     function Dangnhap()
     {
+        if (isset($_POST['btnTracuudiem'])) {
+            $taikhoan = $_POST['txtInfoAcc'];
+            $vaitro = '';
+            $data_acc = $this->taikhoan->getDataAcc($taikhoan);
+            $vaitro = $data_acc['vaitro'];
+            $data_sinhvien = $this->taikhoan->getDataSv($taikhoan);
+            $masinhvien = $data_sinhvien['masinhvien'];
+            $tensinhvien = $data_sinhvien['tensinhvien'];
+            $malop = $data_sinhvien['malop'];
+            $data_lop = $this->sinhvien->getDataLop($malop);
+            $tenlop = $data_lop['tenlop'];
+            $tenkhoa = $data_lop['tenkhoa'];
+            $this->view('MasterLayout', [
+                'page' => 'Tracuudiem_v',
+                'info' => $taikhoan,
+                'vaitro' => $vaitro,
+                'masinhvien' => $masinhvien, 'tensinhvien' => $tensinhvien, 'tenlop' => $tenlop, 'tenkhoa' => $tenkhoa
+            ]);
+        }
         if (isset($_POST['btnLogin'])) {
             $taikhoan = $_POST['txtTaiKhoan'];
             $matkhau = $_POST['txtMatKhau'];

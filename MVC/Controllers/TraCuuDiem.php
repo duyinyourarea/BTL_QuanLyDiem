@@ -20,15 +20,25 @@ class TraCuuDiem extends Controller
     }
     function Get_data()
     {
-        $taikhoan=$_POST['txtInfoAcc'];
-        $vaitro = '';
-        $data_acc = $this->taikhoan->getDataAcc($taikhoan);
-        $vaitro = $data_acc['vaitro'];
-        $this->view('MasterLayout', [
-            'page' => 'Tracuudiem_v',
-            'info' => $taikhoan,
-            'vaitro' => $vaitro
-        ]);
+        if (isset($_POST['btnTracuudiem'])) {
+            $taikhoan = $_POST['txtInfoAcc'];
+            $vaitro = '';
+            $data_acc = $this->taikhoan->getDataAcc($taikhoan);
+            $vaitro = $data_acc['vaitro'];
+            $data_sinhvien = $this->taikhoan->getDataSv($taikhoan);
+            $masinhvien = $data_sinhvien['masinhvien'];
+            $tensinhvien = $data_sinhvien['tensinhvien'];
+            $malop = $data_sinhvien['malop'];
+            $data_lop = $this->sinhvien->getDataLop($malop);
+            $tenlop = $data_lop['tenlop'];
+            $tenkhoa = $data_lop['tenkhoa'];
+            $this->view('MasterLayout', [
+                'page' => 'Tracuudiem_v',
+                'info' => $taikhoan,
+                'vaitro' => $vaitro,
+                'masinhvien' => $masinhvien, 'tensinhvien' => $tensinhvien, 'tenlop' => $tenlop, 'tenkhoa' => $tenkhoa
+            ]);
+        }
     }
     function Timkiem()
     {
@@ -39,5 +49,19 @@ class TraCuuDiem extends Controller
                 'page' => 'Tracuudiem_v', 'dulieu' => $this->sinhvien->sinhvien_find('', '', ''), 'ki' => $ki, 'tenmon' => $tenmon
             ]);
         }
+    }
+    function DataSinhVien($taikhoan)
+    {
+        $data_sinhvien = $this->taikhoan->getDataSv($taikhoan);
+        $masinhvien = $data_sinhvien['masinhvien'];
+        $tensinhvien = $data_sinhvien['tensinhvien'];
+        $malop = $data_sinhvien['malop'];
+        $data_lop = $this->sinhvien->getDataLop($malop);
+        $tenlop = $data_lop['tenlop'];
+        $tenkhoa = $data_lop['tenkhoa'];
+        $this->view('MasterLayout', [
+            'page' => 'Tracuudiem_v',
+            'masinhvien' => $masinhvien, 'tensinhvien' => $tensinhvien, 'tenlop' => $tenlop, 'tenkhoa' => $tenkhoa
+        ]);
     }
 }
