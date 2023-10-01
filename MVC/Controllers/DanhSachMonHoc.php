@@ -19,24 +19,24 @@ class DanhSachMonHoc extends Controller
     }
     function Get_data()
     {
-        $tensv = $_POST['txtInfoAcc1'];
-        $masv = $_POST['txtInfoAcc2'];
-        $vaitro = $this->taikhoan->vaitro_check($masv);
-        if ($vaitro == "Sinh viên") {
+        // $tensv = $_POST['txtInfoAcc1'];
+        // $masv = $_POST['txtInfoAcc2'];
+        // $vaitro = $this->taikhoan->vaitro_check($masv);
+        // if ($vaitro == "Sinh viên") {
 
-            echo "<script>alert('Chức năng này không dành cho sinh viên')</script>";
-            $this->view('MasterLayout', [
-                'page' => 'Home',
-                'dulieu' => $this->monhoc->monhoc_find('', ''),
-                'info_ten' => $tensv,
-                'info' => $masv,
-                'vaitro' => $vaitro,
-            ]);
-        }
-        // $this->view('MasterLayout', [
-        //     'page' => 'Monhoc_v',
-        //     'dulieu' => $this->monhoc->monhoc_find('', '')
-        // ]);
+        //     echo "<script>alert('Chức năng này không dành cho sinh viên')</script>";
+        //     $this->view('MasterLayout', [
+        //         'page' => 'Home',
+        //         'dulieu' => $this->monhoc->monhoc_find('', ''),
+        //         'info_ten' => $tensv,
+        //         'info' => $masv,
+        //         'vaitro' => $vaitro,
+        //     ]);
+        // }
+        $this->view('MasterLayout', [
+            'page' => 'Monhoc_v',
+            'dulieu' => $this->monhoc->monhoc_find('', '')
+        ]);
     }
     function Timkiem()
     {

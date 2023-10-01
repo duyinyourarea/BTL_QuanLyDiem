@@ -12,7 +12,7 @@
 </head>
 
 <body>
-   <form action="http://localhost/BTL_QuanLyDiem/" method="post">
+   <!-- <form action="http://localhost/BTL_QuanLyDiem/" method="post"> -->
       <header>
          <table>
             <tr>
@@ -51,7 +51,7 @@
             <td>
             </td>
             <td style="align-items: end;width: 150px;border-radius: 15px;background-color: #56a4fe;text-align: center;">
-               <span style="color: aliceblue;"><a href="http://localhost/BTL_QuanLyDiem/Home/Trangchu/<?php if (isset($data['info'])) echo $data['info'] ?>"
+               <span style="color: aliceblue;"><a href="http://localhost/BTL_QuanLyDiem/Home/"
                      style="color: aliceblue;">Trang
                      chủ</a> | <a href="http://localhost/BTL_QuanLyDiem/HomeLogin"
                      style="color: aliceblue;">Thoát</a></span>
@@ -101,9 +101,10 @@
                      data-parent="#accordionExample">
                      <div class="card-body">
                         <ul>
-                           <li><a href="http://localhost/BTL_QuanLyDiem/Home/Danhsachsinhvien/<?php if (isset($data['info'])) echo $data['info'] ?>"
+                           <li><a href="http://localhost/BTL_QuanLyDiem/DanhSachSinhVien"
                                  style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Sinh viên</b></a>
                            </li>
+<<<<<<< Updated upstream
                            <li><a href="http://localhost/BTL_QuanLyDiem/DanhSachTaiKhoan/"
                                  style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Tài khoản sinh
                                     viên</b></a></li>
@@ -112,6 +113,17 @@
                            <li><a href="http://localhost/BTL_QuanLyDiem/DanhSachLop/"
                                  style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Lớp</b></a></li>
                            <li><a href="http://localhost/BTL_QuanLyDiem/DanhSachKhoa/"
+=======
+                           
+                           <li><a href="http://localhost/BTL_QuanLyDiem/DanhSachTaiKhoan"
+                                 style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Tài khoản sinh
+                                    viên</b></a></li>
+                           <li><a href="http://localhost/BTL_QuanLyDiem/DanhSachMonHoc"
+                                 style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Môn hoc</b></a></li>
+                           <li><a href="http://localhost/BTL_QuanLyDiem/DanhSachLop"
+                                 style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Lớp</b></a></li>
+                           <li><a href="http://localhost/BTL_QuanLyDiem/DanhSachKhoa"
+>>>>>>> Stashed changes
                                  style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Khoa</b></a></li>
                         </ul>
                      </div>
@@ -151,6 +163,10 @@
 
       </div>
       </div>
+<<<<<<< Updated upstream
+=======
+      <!-- </form> -->
+>>>>>>> Stashed changes
       <div class="aside">
          <?php
          include_once './MVC/Views/Pages/' . $data['page'] . '.php';

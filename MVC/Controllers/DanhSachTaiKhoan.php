@@ -15,8 +15,14 @@ class DanhSachTaiKhoan extends Controller
     }
     function Get_data()
     {
+        // $taikhoan = $_POST['txtInfoAcc'];
+        // $vaitro = '';
+        // $data_acc = $this->taikhoan->getDataAcc($taikhoan);
+        // $vaitro = $data_acc['vaitro'];
         $this->view('MasterLayout', [
             'page' => 'Taikhoan_v', 'dulieu' => $this->taikhoan->taikhoan_find('', '', 'Sinh viên'),
+            // 'info' => $taikhoan,
+            // 'vaitro' => $vaitro
         ]);
     }
     function Timkiem()

@@ -9,7 +9,7 @@ class Home extends Controller
     function Get_data()
     {
         $this->view('Login_v', [
-            'page' => 'Login_body'
+            'page' => 'Home'
         ]);
     }
     function Trangchu($taikhoan)
