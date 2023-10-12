@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 29, 2023 at 09:44 AM
+-- Generation Time: Oct 12, 2023 at 07:24 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -24,31 +24,37 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `diemcuamonhoc`
+-- Table structure for table `diemmonhoc`
 --
 
-CREATE TABLE `diemcuamonhoc` (
-  `dcmh_id` varchar(30) NOT NULL,
-  `dcsv_id` varchar(30) NOT NULL,
+CREATE TABLE `diemmonhoc` (
+  `dmh_id` varchar(30) NOT NULL,
   `diemchuyencan` float NOT NULL,
   `diemthuchanh` float NOT NULL,
   `diemgiuaki` float NOT NULL,
-  `diemcuoiki` float NOT NULL
+  `diemcuoiki_l1` float NOT NULL,
+  `diemcuoiki_l2` float DEFAULT NULL,
+  `diemtb_he10` varchar(10) DEFAULT NULL,
+  `diemtb_he4` varchar(10) DEFAULT NULL,
+  `diemtb_word` varchar(10) DEFAULT NULL,
+  `lanthi` int(11) NOT NULL,
+  `trangthai` varchar(30) NOT NULL,
+  `masinhvien` varchar(30) NOT NULL,
+  `mamon` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `diemcuasinhvien`
+-- Table structure for table `diemsinhvien`
 --
 
-CREATE TABLE `diemcuasinhvien` (
-  `dcsv_id` varchar(30) NOT NULL,
+CREATE TABLE `diemsinhvien` (
+  `dsv_id` varchar(30) NOT NULL,
   `masinhvien` varchar(30) NOT NULL,
-  `mamon` varchar(30) NOT NULL,
-  `diemtrungbinh` varchar(10) NOT NULL,
-  `lanthi` int(11) NOT NULL,
-  `trangthai` varchar(30) NOT NULL
+  `diemtb_he10` varchar(10) DEFAULT NULL,
+  `diemtb_he4` varchar(10) DEFAULT NULL,
+  `ki` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -67,7 +73,9 @@ CREATE TABLE `khoa` (
 --
 
 INSERT INTO `khoa` (`makhoa`, `tenkhoa`) VALUES
+('CK', 'Cơ khí'),
 ('CNTT', 'Công nghệ thông tin'),
+('CT', 'Công trình'),
 ('KT', 'Kinh tế');
 
 -- --------------------------------------------------------
@@ -79,16 +87,16 @@ INSERT INTO `khoa` (`makhoa`, `tenkhoa`) VALUES
 CREATE TABLE `lop` (
   `malop` varchar(30) NOT NULL,
   `tenlop` varchar(30) NOT NULL,
-  `siso` int(11) NOT NULL,
-  `makhoa` varchar(30) NOT NULL
+  `siso` varchar(10) NOT NULL,
+  `manganh` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `lop`
 --
 
-INSERT INTO `lop` (`malop`, `tenlop`, `siso`, `makhoa`) VALUES
-('[value-1]', '[value-2]', 0, 'CNTT');
+INSERT INTO `lop` (`malop`, `tenlop`, `siso`, `manganh`) VALUES
+('L01', '72DCTM22', '0', 'CNTT02');
 
 -- --------------------------------------------------------
 
@@ -99,20 +107,46 @@ INSERT INTO `lop` (`malop`, `tenlop`, `siso`, `makhoa`) VALUES
 CREATE TABLE `monhoc` (
   `mamon` varchar(30) NOT NULL,
   `tenmon` varchar(50) NOT NULL,
-  `sotinchi` int(11) NOT NULL,
-  `makhoa` varchar(30) NOT NULL,
-  `ki` int(11) NOT NULL,
-  `giangvien` varchar(30) NOT NULL,
-  `phuongthuctinhdiem` varchar(30) NOT NULL
+  `sotinchi` varchar(10) NOT NULL,
+  `ki` varchar(10) NOT NULL,
+  `giangvien` varchar(50) NOT NULL,
+  `phuongthuctinhdiem` varchar(100) NOT NULL,
+  `manganh` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `monhoc`
 --
 
-INSERT INTO `monhoc` (`mamon`, `tenmon`, `sotinchi`, `makhoa`, `ki`, `giangvien`, `phuongthuctinhdiem`) VALUES
-('MH01', 'Java', 3, 'CNTT', 5, 'Bui Thi Nhu', '10/0/20/70'),
-('MH02', 'C++', 3, 'CNTT', 4, 'SaThuan', '10/0/20/70');
+INSERT INTO `monhoc` (`mamon`, `tenmon`, `sotinchi`, `ki`, `giangvien`, `phuongthuctinhdiem`, `manganh`) VALUES
+('MH01', 'Java', '3', '1', 'Bùi Thị Như', '10/0/20/70', 'CNTT01'),
+('MH02', 'An toàn thông tin', '3', '1', 'Thanh Tấn', '10/0/20/70', 'CNTT02');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `nganh`
+--
+
+CREATE TABLE `nganh` (
+  `manganh` varchar(30) NOT NULL,
+  `tennganh` varchar(50) NOT NULL,
+  `makhoa` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `nganh`
+--
+
+INSERT INTO `nganh` (`manganh`, `tennganh`, `makhoa`) VALUES
+('CK01', 'Công nghệ kỹ thuật Ô tô', 'CK'),
+('CK02', 'Cơ khí chế tạo', 'CK'),
+('CNTT01', 'Công nghệ thông tin', 'CNTT'),
+('CNTT02', 'Mạng máy tính và truyền thông dữ liệu', 'CNTT'),
+('CT01', 'Quy hoạch và kỹ thuật giao thông', 'CT'),
+('CT02', 'Xây dựng Cầu đường bộ', 'CT'),
+('KT01', 'Logistics và quản lý chuỗi cung ứng', 'KT'),
+('KT02', 'Thương mại điện tử', 'KT');
 
 -- --------------------------------------------------------
 
@@ -142,23 +176,29 @@ CREATE TABLE `taikhoan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
+-- Dumping data for table `taikhoan`
+--
+
+INSERT INTO `taikhoan` (`taikhoan`, `matkhau`, `vaitro`) VALUES
+('ADMIN01', '1', 'Admin'),
+('SV02', '234', 'Sinh viên');
+
+--
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `diemcuamonhoc`
+-- Indexes for table `diemmonhoc`
 --
-ALTER TABLE `diemcuamonhoc`
-  ADD PRIMARY KEY (`dcmh_id`),
-  ADD KEY `dcsv_id` (`dcsv_id`);
+ALTER TABLE `diemmonhoc`
+  ADD PRIMARY KEY (`dmh_id`);
 
 --
--- Indexes for table `diemcuasinhvien`
+-- Indexes for table `diemsinhvien`
 --
-ALTER TABLE `diemcuasinhvien`
-  ADD PRIMARY KEY (`dcsv_id`),
-  ADD KEY `masinhvien` (`masinhvien`),
-  ADD KEY `mamon` (`mamon`);
+ALTER TABLE `diemsinhvien`
+  ADD PRIMARY KEY (`dsv_id`),
+  ADD KEY `masinhvien` (`masinhvien`);
 
 --
 -- Indexes for table `khoa`
@@ -171,13 +211,20 @@ ALTER TABLE `khoa`
 --
 ALTER TABLE `lop`
   ADD PRIMARY KEY (`malop`),
-  ADD KEY `makhoa` (`makhoa`);
+  ADD KEY `manganh` (`manganh`);
 
 --
 -- Indexes for table `monhoc`
 --
 ALTER TABLE `monhoc`
   ADD PRIMARY KEY (`mamon`),
+  ADD KEY `manganh` (`manganh`);
+
+--
+-- Indexes for table `nganh`
+--
+ALTER TABLE `nganh`
+  ADD PRIMARY KEY (`manganh`),
   ADD KEY `makhoa` (`makhoa`);
 
 --
@@ -198,29 +245,28 @@ ALTER TABLE `taikhoan`
 --
 
 --
--- Constraints for table `diemcuamonhoc`
+-- Constraints for table `diemsinhvien`
 --
-ALTER TABLE `diemcuamonhoc`
-  ADD CONSTRAINT `diemcuamonhoc_ibfk_1` FOREIGN KEY (`dcsv_id`) REFERENCES `diemcuasinhvien` (`dcsv_id`);
-
---
--- Constraints for table `diemcuasinhvien`
---
-ALTER TABLE `diemcuasinhvien`
-  ADD CONSTRAINT `diemcuasinhvien_ibfk_1` FOREIGN KEY (`masinhvien`) REFERENCES `sinhvien` (`masinhvien`),
-  ADD CONSTRAINT `diemcuasinhvien_ibfk_2` FOREIGN KEY (`mamon`) REFERENCES `monhoc` (`mamon`);
+ALTER TABLE `diemsinhvien`
+  ADD CONSTRAINT `diemsinhvien_ibfk_1` FOREIGN KEY (`masinhvien`) REFERENCES `sinhvien` (`masinhvien`);
 
 --
 -- Constraints for table `lop`
 --
 ALTER TABLE `lop`
-  ADD CONSTRAINT `lop_ibfk_1` FOREIGN KEY (`makhoa`) REFERENCES `khoa` (`makhoa`);
+  ADD CONSTRAINT `lop_ibfk_1` FOREIGN KEY (`manganh`) REFERENCES `nganh` (`manganh`);
 
 --
 -- Constraints for table `monhoc`
 --
 ALTER TABLE `monhoc`
-  ADD CONSTRAINT `monhoc_ibfk_1` FOREIGN KEY (`makhoa`) REFERENCES `khoa` (`makhoa`);
+  ADD CONSTRAINT `monhoc_ibfk_1` FOREIGN KEY (`manganh`) REFERENCES `nganh` (`manganh`);
+
+--
+-- Constraints for table `nganh`
+--
+ALTER TABLE `nganh`
+  ADD CONSTRAINT `nganh_ibfk_1` FOREIGN KEY (`makhoa`) REFERENCES `khoa` (`makhoa`);
 
 --
 -- Constraints for table `sinhvien`

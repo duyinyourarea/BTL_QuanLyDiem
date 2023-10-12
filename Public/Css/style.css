@@ -11,9 +11,6 @@ header>table{
     width: 170px;
     height: 120px;
 }
-#logo_utt_border{
-    /* width: 155px; */
-}
 #status{
     width: 350px;
     height: 20px;
@@ -24,11 +21,10 @@ header>table{
     float: left;
     width: 17%;   
 }
-
 .card-body {
     background-color: #ffffff;
     float: left;
-    height: 290px;
+    height: 350px;
     width: 100%;
 }
 .card-rw {
