@@ -18,29 +18,14 @@ class DanhSachSinhVien extends Controller
     }
     function Get_data()
     {
-
-        // $taikhoan = $_POST['txtInfoAcc'];
-        // $vaitro = '';
-        // $data_acc = $this->taikhoan->getDataAcc($taikhoan);
-        // $vaitro = $data_acc['vaitro'];
         $this->view('MasterLayout', [
             'page' => 'Sinhvien_v',
             'dulieu' => $this->sinhvien->sinhvien_find('', '', ''),
-            // 'info' => $taikhoan,
-            // 'vaitro' => $vaitro
-
         ]);
     }
     function Timkiem()
     {
         if (isset($_POST['btnTimkiem'])) {
-
-            //
-            // $taikhoan = $_POST['txtInfoAcc'];
-            // $vaitro = '';
-            // $data_acc = $this->taikhoan->getDataAcc($taikhoan);
-            // $vaitro = $data_acc['vaitro'];
-            //
             $masinhvien = $_POST['txtMasinhvien'];
             $tensinhvien = $_POST['txtTensinhvien'];
             $this->view('MasterLayout', [

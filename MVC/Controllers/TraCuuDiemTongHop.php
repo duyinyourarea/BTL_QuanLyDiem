@@ -5,7 +5,7 @@ use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
-class TraCuuDiem extends Controller
+class TraCuuDiemTongHop extends Controller
 {
     protected $sinhvien;
     protected $lop;
@@ -18,11 +18,16 @@ class TraCuuDiem extends Controller
         $this->monhoc = $this->mode('Monhoc');
         $this->taikhoan = $this->mode('TaiKhoan');
     }
-    function Get_data($masinhvien)
+    function Get_data()
     {
-        $this->view('MasterLayoutSV', [
-            'page' => 'Tracuudiem_v',
-            'masinhvien' => $masinhvien
+        // $taikhoan=$_POST['txtInfoAcc'];
+        // $vaitro = '';
+        // $data_acc = $this->taikhoan->getDataAcc($taikhoan);
+        // $vaitro = $data_acc['vaitro'];
+        $this->view('MasterLayout', [
+            'page' => 'Tracuudiemtonghop_v',
+            // 'info' => $taikhoan,
+            // 'vaitro' => $vaitro
         ]);
     }
     function Timkiem()

@@ -12,7 +12,6 @@
 </head>
 
 <body>
-   <!-- <form action="http://localhost/BTL_QuanLyDiem/" method="post"> -->
       <header>
          <table>
             <tr>
@@ -34,8 +33,7 @@
                               echo $data['info']; ?>" readonly></td>
                            <td style="width: 60px;">Vai trò:</td>
                            <td style="border-radius: 15px;"><input type="text" name="txtVaitro"
-                                 style="border-style: none;width: 70px;" value="<?php if (isset($data['vaitro']))
-                                    echo $data['vaitro']; ?>" readonly></td>
+                                 style="border-style: none;width: 70px;" value="Admin" readonly></td>
                         </tr>
                      </table>
 
@@ -51,7 +49,7 @@
             <td>
             </td>
             <td style="align-items: end;width: 150px;border-radius: 15px;background-color: #56a4fe;text-align: center;">
-               <span style="color: aliceblue;"><a href="http://localhost/BTL_QuanLyDiem/Home/"
+               <span style="color: aliceblue;"><a href="http://localhost/BTL_QuanLyDiem/Home/Trangchu/<?php echo $data_1 = ['vaitro' => "Admin"]?>"
                      style="color: aliceblue;">Trang
                      chủ</a> | <a href="http://localhost/BTL_QuanLyDiem/HomeLogin"
                      style="color: aliceblue;">Thoát</a></span>
@@ -61,31 +59,6 @@
       <div class="article">
          <div class="container mt-3">
             <h4 class="mb-1">Danh mục chính</h4>
-
-            <div class="accordion" id="accordionExample">
-               <div class="card" style="border: none;">
-                  <div class="card-header" id="headingOne" style="border-radius: 15px;">
-                     <h5 class="mb-0">
-                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
-                           aria-expanded="true" aria-controls="collapseOne"
-                           style="color: black;font-family: Arial, Helvetica, sans-serif;">
-                           <b>Tra cứu điểm</b>
-                        </button>
-                     </h5>
-                  </div>
-               </div>
-
-               <div class="card" style="border: none;">
-                  <div class="card-header" id="headingTwo" style="border-radius: 15px;">
-                     <h5 class="mb-0">
-                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
-                           data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"
-                           style="color: black;font-family: Arial, Helvetica, sans-serif;">
-                           <b>Tra cứu điểm tổng hợp</b>
-                        </button>
-                     </h5>
-                  </div>
-               </div>
 
                <div class="card" style="border: none;">
                   <div class="card-header" id="headingThree" style="border-radius: 15px;">
@@ -99,7 +72,7 @@
                   </div>
                   <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
                      data-parent="#accordionExample">
-                     <div class="card-body">
+                     <div class="card-body" style="height: 380px;">
                         <ul>
                            <li><a href="http://localhost/BTL_QuanLyDiem/DanhSachSinhVien"
                                  style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Sinh viên</b></a>
@@ -111,8 +84,12 @@
                                  style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Môn hoc</b></a></li>
                            <li><a href="http://localhost/BTL_QuanLyDiem/DanhSachLop/"
                                  style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Lớp</b></a></li>
+                                 <li><a href="http://localhost/BTL_QuanLyDiem/DanhSachLop/"
+                                 style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Ngành</b></a></li>
                            <li><a href="http://localhost/BTL_QuanLyDiem/DanhSachKhoa/"
                                  style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Khoa</b></a></li>
+                                 <li><a href="http://localhost/BTL_QuanLyDiem/#"
+                                 style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Nhập điểm</b></a></li>
                         </ul>
                      </div>
                   </div>
@@ -156,7 +133,6 @@
          include_once './MVC/Views/Pages/' . $data['page'] . '.php';
          ?>
       </div>
-   </form>
    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
