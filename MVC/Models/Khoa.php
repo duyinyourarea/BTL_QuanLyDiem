@@ -1,11 +1,11 @@
 <?php
 class Khoa extends connectDB{
     function khoa_ins($makhoa, $tenkhoa){
-        $sql_khoa_ins = "INSERT INTO loaisach VALUES('$makhoa','$tenkhoa')";
+        $sql_khoa_ins = "INSERT INTO khoa VALUES('$makhoa','$tenkhoa')";
         return mysqli_query($this->con, $sql_khoa_ins);
     }
     function khoa_upd($makhoa, $tenkhoa){
-        $sql_khoa_upd = "UPDATE khoa SET tenkhoa = '$tenkhoa',  makhoa = '$makhoa' WHERE makhoa = '$makhoa'";
+        $sql_khoa_upd = "UPDATE khoa SET tenkhoa = '$tenkhoa' WHERE makhoa = '$makhoa'";
         return mysqli_query($this->con, $sql_khoa_upd);
     }
     function khoa_del($makhoa){
@@ -25,6 +25,13 @@ class Khoa extends connectDB{
     function khoa_find($makhoa,$tenkhoa){
         $sql_khoa_find="SELECT * FROM khoa where makhoa like '%$makhoa%' and tenkhoa like '%$tenkhoa%'";
         return mysqli_query($this->con,$sql_khoa_find);
+    }
+    function getData($makhoa)
+    {
+        $sql_info = "SELECT * from khoa where makhoa = '$makhoa'";
+        $data_info = mysqli_query($this->con, $sql_info);
+        return mysqli_fetch_assoc($data_info);
+
     }
 }
 ?>
