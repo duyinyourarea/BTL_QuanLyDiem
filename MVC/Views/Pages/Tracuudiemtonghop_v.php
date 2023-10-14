@@ -8,31 +8,72 @@
     <link rel="stylesheet" href="Public/Css/css_bootstrap.min.css">
     <base href="http://localhost/BTL_QuanLyDiem/">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
-    <title>Thông tin bảng điểm</title>
+    <title>Tra cứu điểm tổng hợp</title>
 </head>
 
 <body>
-    <table style="width: 100%;">
-        <tr>
-            <td style="width: 57%;"></td>
-            <td>
-                <form action="http://localhost/BTL_QuanLyDiem/TraCuuDiem/Timkiem" method="post">
-                    <div class="form-inline">
-                        <input type="text" name="txtHocki" class="form-control" placeholder="Học kì" value="<?php if (isset($data['ki']))
-                                                                                                                echo $data['ki'] ?>">
-                        <input type="text" name="txtTenmon" class="form-control" placeholder="Tên môn" value="<?php if (isset($data['tenmon']))
-                                                                                                                    echo $data['tenmon'] ?>">
-                        <input type="submit" class="btn btn-outline-primary" name="btnTimkiem" value="Tìm kiếm">
-                </form>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="http://localhost/BTL_QuanLyDiem/TraCuuDiem/ExportExcel">Export
-                        Excel</a>
-                </div>
-                </div>
+    <h4 style="text-align: center;">THÔNG TIN SINH VIÊN</h4>
+    <table class="table table-bordered table">
+        <thead class="table-primary">
+            <tr style="text-align: center;">
+                <th>Kì</th>
+                <th>Họ tên</th>
+                <th>Lớp</th>
+                <th>Khoa</th>
+                <th>Ngành</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            if (isset($data['dulieu_sinhvien']) && $data['dulieu_sinhvien'] != null) {
+                while ($row = mysqli_fetch_array($data['dulieu_sinhvien'])) {
+            ?>
+                    <tr>
 
-            </td>
-        </tr>
+                    
+                        <td>
+                            <select class="form-control" name="cbMalop" style="width: 100%;">
+                                <option>Chọn kì</option>
+                                <?php
+                                if (isset($data['dulieu_malop']) && $data['dulieu_malop'] != null) {
+
+                                    while ($row = mysqli_fetch_array($data['dulieu_malop'])) {
+                                        echo "<option value='" . $row['malop'] . "'>" . $row['tenlop'] . "</option>";
+                                    }
+                                }
+                                ?>
+                            </select>
+                        </td>
+                        <td>
+                            <select class="form-control" name="cbMalop" style="width: 100%;">
+                                <option>Chọn kì</option>
+                                <?php
+                                if (isset($data['dulieu_malop']) && $data['dulieu_malop'] != null) {
+
+                                    while ($row = mysqli_fetch_array($data['dulieu_malop'])) {
+                                        echo "<option value='" . $row['malop'] . "'>" . $row['tenlop'] . "</option>";
+                                    }
+                                }
+                                ?>
+                            </select>
+                        </td>
+                        <td>
+                            <?php echo $row['tenlop'] ?>
+                        </td>
+                        <td>
+                            <?php echo $row['makhoa'] ?>
+                        </td>
+                        <td>
+                            <?php echo $row['nganh'] ?>
+                        </td>
+                    </tr>
+            <?php
+                }
+            }
+            ?>
+        </tbody>
     </table>
+    <h4 style="text-align: center;">BẢNG ĐIỂM CHI TIẾT</h4>
     <form action="http://localhost/BTL_QuanLyDiem/TraCuuDiem/Timkiem" method="post">
         <table class="table">
             <thead class="thead-dark">
@@ -49,6 +90,7 @@
                     <th>Thực hành/Thảo luận</th>
                     <th>Thi kết thúc</th>
                     <th>Tổng kết HP</th>
+                    <th>Điểm chữ</th>
                 </tr>
             </thead>
             <tbody>
@@ -79,10 +121,6 @@
                             </td>
                             <td>
                                 <?php echo $row['malop'] ?>
-                            </td>
-                            <td>
-                                <a href="http://localhost/BTL_QuanLyDiem/DanhSachSinhVien/Sua/<?php echo $row['masinhvien'] ?>"><img class="icon" src="Public/Images/note.png" alt="note"></a>
-                                <a href="http://localhost/BTL_QuanLyDiem/DanhSachSinhVien/Xoa/<?php echo $row['masinhvien'] ?>"><img class="icon" src="Public/Images/trash.png" alt="trash"></a>
                             </td>
                         </tr>
                 <?php

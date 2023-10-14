@@ -15,14 +15,10 @@ class DanhSachTaiKhoan extends Controller
     }
     function Get_data()
     {
-        // $taikhoan = $_POST['txtInfoAcc'];
-        // $vaitro = '';
-        // $data_acc = $this->taikhoan->getDataAcc($taikhoan);
-        // $vaitro = $data_acc['vaitro'];
-        $this->view('MasterLayout', [
+        
+        $this->view('MasterLayoutAD', [
             'page' => 'Taikhoan_v', 'dulieu' => $this->taikhoan->taikhoan_find('', '', 'Sinh viên'),
-            // 'info' => $taikhoan,
-            // 'vaitro' => $vaitro
+            
         ]);
     }
     function Timkiem()
@@ -30,14 +26,14 @@ class DanhSachTaiKhoan extends Controller
         if (isset($_POST['btnTimkiem'])) {
             $taikhoan = $_POST['txtTaikhoan'];
             $matkhau = $_POST['txtMatkhau'];
-            $this->view('MasterLayout', [
+            $this->view('MasterLayoutAD', [
                 'page' => 'Taikhoan_v', 'dulieu' => $this->taikhoan->taikhoan_find($taikhoan, $matkhau, 'Sinh viên'), 'taikhoan' => $taikhoan, 'matkhau' => $matkhau
             ]);
         }
     }
     function Sua($taikhoan)
     {
-        $this->view('MasterLayout', [
+        $this->view('MasterLayoutAD', [
             'page' => 'Taikhoan_sua', 'dulieu' => $this->taikhoan->taikhoan_find($taikhoan, '', 'Sinh viên'),
         ]);
     }
@@ -48,7 +44,7 @@ class DanhSachTaiKhoan extends Controller
             $matkhau = $_POST['txtMatkhau'];
             if ($matkhau == '') {
                 echo "<script>alert('Vui lòng nhập đủ thông tin!')</script>";
-                $this->view('MasterLayout', [
+                $this->view('MasterLayoutAD', [
                     'page' => 'Taikhoan_sua', 'dulieu' => $this->taikhoan->taikhoan_find($taikhoan, '', 'Sinh viên'),
                     'matkhau' => $matkhau
                 ]);
@@ -59,13 +55,13 @@ class DanhSachTaiKhoan extends Controller
                 } else {
                     echo "<script>alert('Sửa thất bại!')</script>";
                 }
-                $this->view('MasterLayout', [
+                $this->view('MasterLayoutAD', [
                     'page' => 'Taikhoan_v', 'dulieu' => $this->taikhoan->taikhoan_find('', '', 'Sinh viên'),
                 ]);
             }
         }
         if (isset($_POST['btnHuy'])) {
-            $this->view('MasterLayout', [
+            $this->view('MasterLayoutAD', [
                 'page' => 'Taikhoan_v', 'dulieu' => $this->taikhoan->taikhoan_find('', '', 'Sinh viên'),
             ]);
         }
@@ -110,7 +106,7 @@ class DanhSachTaiKhoan extends Controller
         $filename = "DStaikhoan" . time() . ".xlsx";
         $writer->save($filename);
         header("location:" . $filename);
-        $this->view('MasterLayout', ['page' => 'Taikhoan_v', 'dulieu' => $this->taikhoan->taikhoan_find('', '', 'Sinh viên')]);
+        $this->view('MasterLayoutAD', ['page' => 'Taikhoan_v', 'dulieu' => $this->taikhoan->taikhoan_find('', '', 'Sinh viên')]);
     }
 
 }

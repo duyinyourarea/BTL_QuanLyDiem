@@ -38,17 +38,17 @@ class TaiKhoan extends connectDB
         return mysqli_fetch_assoc($data_info_acc);
 
     }
-    function getDataSv($taikhoan)
-    {
-        $sql_info_sv = "SELECT * from taikhoan, sinhvien where taikhoan.taikhoan = sinhvien.masinhvien and taikhoan = '$taikhoan'";
-        $data_info_sv = mysqli_query($this->con, $sql_info_sv);
-        return mysqli_fetch_assoc($data_info_sv);
+    // function getDataSv($taikhoan)
+    // {
+    //     $sql_info_sv = "SELECT * from taikhoan, sinhvien where taikhoan.taikhoan = sinhvien.masinhvien and taikhoan = '$taikhoan'";
+    //     $data_info_sv = mysqli_query($this->con, $sql_info_sv);
+    //     return mysqli_fetch_assoc($data_info_sv);
 
-    }
-    function vaitro_check($taikhoan)
-    {
-        $data_vaitro_check = $this->taikhoan_find($taikhoan, '', '');
-        $row_data_vaitro = mysqli_fetch_assoc($data_vaitro_check);
-        return $row_data_vaitro['vaitro'];
-    }
+    // }
+    // function vaitro_check($taikhoan)
+    // {
+    //     $data_vaitro_check = $this->taikhoan_find($taikhoan, '', '');
+    //     $row_data_vaitro = mysqli_fetch_assoc($data_vaitro_check);
+    //     return $row_data_vaitro['vaitro'];
+    // }
 }

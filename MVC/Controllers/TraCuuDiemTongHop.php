@@ -24,7 +24,7 @@ class TraCuuDiemTongHop extends Controller
         // $vaitro = '';
         // $data_acc = $this->taikhoan->getDataAcc($taikhoan);
         // $vaitro = $data_acc['vaitro'];
-        $this->view('MasterLayout', [
+        $this->view('MasterLayoutSV', [
             'page' => 'Tracuudiemtonghop_v',
             // 'info' => $taikhoan,
             // 'vaitro' => $vaitro
@@ -35,7 +35,7 @@ class TraCuuDiemTongHop extends Controller
         if (isset($_POST['btnTimkiem'])) {
             $ki = $_POST['txtHocki'];
             $tenmon = $_POST['txtTenmon'];
-            $this->view('MasterLayout', [
+            $this->view('MasterLayoutSV', [
                 'page' => 'Tracuudiem_v', 'dulieu' => $this->sinhvien->sinhvien_find('', '', ''), 'ki' => $ki, 'tenmon' => $tenmon
             ]);
         }

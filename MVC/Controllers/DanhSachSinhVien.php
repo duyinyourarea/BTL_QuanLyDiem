@@ -18,7 +18,7 @@ class DanhSachSinhVien extends Controller
     }
     function Get_data()
     {
-        $this->view('MasterLayout', [
+        $this->view('MasterLayoutAD', [
             'page' => 'Sinhvien_v',
             'dulieu' => $this->sinhvien->sinhvien_find('', '', ''),
         ]);
@@ -28,136 +28,95 @@ class DanhSachSinhVien extends Controller
         if (isset($_POST['btnTimkiem'])) {
             $masinhvien = $_POST['txtMasinhvien'];
             $tensinhvien = $_POST['txtTensinhvien'];
-            $this->view('MasterLayout', [
+            $this->view('MasterLayoutAD', [
                 'page' => 'Sinhvien_v',
                 'dulieu' => $this->sinhvien->sinhvien_find($masinhvien, $tensinhvien, ''),
                 'masinhvien' => $masinhvien,
                 'tensinhvien' => $tensinhvien,
-                // 'info' => $taikhoan,
-                // 'vaitro' => $vaitro
 
             ]);
         }
     }
     function Xoa($masinhvien)
     {
-
-        
-        //
-        // $taikhoan = $_POST['txtInfoAcc'];
-        // $taikhoan = $arr[1];
-        // $vaitro = '';
-        // $data_acc = $this->taikhoan->getDataAcc($taikhoan);
-        // $vaitro = $data_acc['vaitro'];
-        //
-
+        $row_sinhvien_malop = $this->sinhvien->getDataLop($masinhvien);
+        $malop = $row_sinhvien_malop['malop'];
+        $kq_del_siso = $this->malop->del_sinhvien($malop);
         $kq_del = $this->sinhvien->sinhvien_del($masinhvien);
         $kq_taikhoan_del = $this->taikhoan->taikhoan_del($masinhvien);
-        if ($kq_del)
+        if ($kq_del && $kq_taikhoan_del && $kq_del_siso)
             echo "<script>alert('Xóa thành công')</script>";
         else
             echo "<script>alert('Xóa thất bại')</script>";
-        $this->view('MasterLayout', [
+        $this->view('MasterLayoutAD', [
 
             'page' => 'Sinhvien_v',
             'dulieu' => $this->sinhvien->sinhvien_find('', '', ''),
-            // 'info' => $taikhoan,
-            // 'vaitro' => $vaitro
 
         ]);
     }
     function Sua($masinhvien)
     {
 
-        // $taikhoan = $_POST['txtInfoAcc'];
-        // $arr = explode('&',$masinhvienvataikhoan);
-        // $taikhoan = $arr[1];
-        // $masinhvien =$arr[0];
-        // $vaitro = '';
-        // $data_acc = $this->taikhoan->getDataAcc($taikhoan);
-        // $vaitro = $data_acc['vaitro'];
-        $this->view('MasterLayout', [
+        $this->view('MasterLayoutAD', [
             'page' => 'Sinhvien_sua',
             'dulieu' => $this->sinhvien->sinhvien_find($masinhvien, '', ''),
             'dulieu_malop' => $this->malop->lop_find('', ''),
-            // 'info' => $taikhoan,
-            // 'vaitro' => $vaitro
-
         ]);
     }
     function Sua_sinhvien()
     {
-
-        //
-        // $taikhoan = $_POST['txtInfoAcc'];
-        // $vaitro = '';
-        // $data_acc = $this->taikhoan->getDataAcc($taikhoan);
-        // $vaitro = $data_acc['vaitro'];
-
+        $masinhvien = $_POST['txtMasinhvien'];
+        $sql_sinhvien_malop_old = $this->sinhvien->sinhvien_find($masinhvien, '', '');
+        $row_malop_old = mysqli_fetch_assoc($sql_sinhvien_malop_old);
+        $malop_old = $row_malop_old['malop'];
         if (isset($_POST['btnLuu'])) {
-            $masinhvien = $_POST['txtMasinhvien'];
             $tensinhvien = $_POST['txtTensinhvien'];
             $gioitinh = $_POST['txtGioitinh'];
             $sodienthoai = $_POST['txtSodienthoai'];
             $email = $_POST['txtEmail'];
             $malop = $_POST['cbMalop'];
-            $ck_siso = $this->sinhvien->sinhvien_check($masinhvien,$malop);
             if ($tensinhvien == '' || $gioitinh == '' || $sodienthoai == '' || $email == '' || $malop == 'Chọn lớp') {
                 echo "<script>alert('Vui lòng nhập đủ thông tin!')</script>";
-                $this->view('MasterLayout', [
+                $this->view('MasterLayoutAD', [
                     'page' => 'Sinhvien_sua', 'dulieu' => $this->sinhvien->sinhvien_find($masinhvien, '', ''), 'dulieu_malop' => $this->malop->lop_find('', ''),
                     'tensinhvien' => $tensinhvien,
                     'gioitinh' => $gioitinh,
                     'sodienthoai' => $sodienthoai,
                     'email' => $email,
-
                     'malop' => $malop,
-                    // 'info' => $taikhoan,
-                    // 'vaitro' => $vaitro
-
 
                 ]);
             } else {
-                if ($ck_siso==false) {
-                    $kq_siso=$this->malop->add_sinhvien($malop);
+                if ($malop != $malop_old) {
+                    $kq_del_siso = $this->malop->del_sinhvien($malop_old);
+                    $kq_add_siso = $this->malop->add_sinhvien($malop);
                 }
-
                 $kq = $this->sinhvien->sinhvien_upd($masinhvien, $tensinhvien, $gioitinh, $sodienthoai, $email, $malop);
-                
-                if ($kq) {
+                if ($kq && $kq_del_siso && $kq_add_siso) {
                     echo "<script>alert('Sửa thành công!')</script>";
                 } else {
                     echo "<script>alert('Sửa thất bại!')</script>";
                 }
-                $this->view('MasterLayout', [
+                $this->view('MasterLayoutAD', [
 
                     'page' => 'Sinhvien_v',
                     'dulieu' => $this->sinhvien->sinhvien_find('', '', ''),
-                    // 'info' => $taikhoan,
-                    // 'vaitro' => $vaitro
 
                 ]);
             }
         }
         if (isset($_POST['btnHuy'])) {
-            $this->view('MasterLayout', [
+            $this->view('MasterLayoutAD', [
 
                 'page' => 'Sinhvien_v',
                 'dulieu' => $this->sinhvien->sinhvien_find('', '', ''),
-                // 'info' => $taikhoan,
-                // 'vaitro' => $vaitro
 
             ]);
         }
     }
     function Them_sinhvien()
     {
-
-        //
-        // $taikhoan = $_POST['txtInfoAcc'];
-        // $vaitro = '';
-        // $data_acc = $this->taikhoan->getDataAcc($taikhoan);
-        // $vaitro = $data_acc['vaitro'];
 
         if (isset($_POST['btnLuu'])) {
             //Lấy dữ liệu trên các control của form thêm sinh viên
@@ -171,7 +130,7 @@ class DanhSachSinhVien extends Controller
             $ck = $this->sinhvien->masinhvien_check($masinhvien);
             if ($masinhvien == '' || $tensinhvien == '' || $gioitinh == '' || $sodienthoai == '' || $email == '' || $malop == 'Chọn lớp') {
                 echo "<script>alert('Vui lòng nhập đủ thông tin!')</script>";
-                $this->view('MasterLayout', [
+                $this->view('MasterLayoutAD', [
 
                     'page' => 'Sinhvien_them',
                     'dulieu_malop' => $this->malop->lop_find('', ''),
@@ -181,15 +140,14 @@ class DanhSachSinhVien extends Controller
                     'sodienthoai' => $sodienthoai,
                     'email' => $email,
                     'malop' => $malop,
-                    // 'info' => $taikhoan,
-                    // 'vaitro' => $vaitro
+
 
                 ]);
             } else {
                 if ($ck) {
                     echo "<script>alert('Mã sinh viên đã tồn tại!')</script>";
                     $this->view(
-                        'MasterLayout',
+                        'MasterLayoutAD',
                         [
 
                             'page' => 'Sinhvien_them',
@@ -200,38 +158,31 @@ class DanhSachSinhVien extends Controller
                             'sodienthoai' => $sodienthoai,
                             'email' => $email,
                             'malop' => $malop,
-                            // 'info' => $taikhoan,
-                            // 'vaitro' => $vaitro
+
 
                         ]
                     );
                 } else {
                     $kq = $this->sinhvien->sinhvien_ins($masinhvien, $tensinhvien, $gioitinh, $sodienthoai, $email, $malop);
                     $kq_taikhoan = $this->taikhoan->taikhoan_ins($masinhvien, $sodienthoai, 'Sinh viên');
-                    $kq_siso=$this->malop->add_sinhvien($malop);
-                    if ($kq)
+                    $kq_siso = $this->malop->add_sinhvien($malop);
+                    if ($kq && $kq_siso && $kq_taikhoan)
                         echo "<script>alert('Thêm mới thành công!')</script>";
                     else
                         echo "<script>alert('Thêm mới thất bại!')</script>";
                     //gọi lại giao diện ra
-                    $this->view('MasterLayout', [
+                    $this->view('MasterLayoutAD', [
                         'page' => 'Sinhvien_v',
                         'dulieu' => $this->sinhvien->sinhvien_find('', '', ''),
-
-                        // 'info' => $taikhoan,
-                        // 'vaitro' => $vaitro
-
                     ]);
                 }
             }
         }
         if (isset($_POST['btnHuy'])) {
-            $this->view('MasterLayout', [
+            $this->view('MasterLayoutAD', [
 
                 'page' => 'Sinhvien_v',
                 'dulieu' => $this->sinhvien->sinhvien_find('', '', ''),
-                // 'info' => $taikhoan,
-                // 'vaitro' => $vaitro
 
             ]);
         }
@@ -239,29 +190,15 @@ class DanhSachSinhVien extends Controller
     function Them()
     {
 
-        //
-        // $taikhoan = $_POST['txtInfoAcc'];
-        // $vaitro = '';
-        // $data_acc = $this->taikhoan->getDataAcc($taikhoan);
-        // $vaitro = $data_acc['vaitro'];
-        $this->view('MasterLayout', [
+        $this->view('MasterLayoutAD', [
             'page' => 'Sinhvien_them',
             'dulieu_malop' => $this->malop->lop_find('', ''),
-            // 'info' => $taikhoan,
-            // 'vaitro' => $vaitro
-        ]);
 
+        ]);
     }
 
     function ExportExcel()
     {
-
-        //
-        // $taikhoan = $_POST['txtInfoAcc'];
-        // $vaitro = '';
-        // $data_acc = $this->taikhoan->getDataAcc($taikhoan);
-        // $vaitro = $data_acc['vaitro'];
-        //
 
         $spreadsheet = new Spreadsheet();
         $sheet = $spreadsheet->getActiveSheet();
@@ -310,43 +247,29 @@ class DanhSachSinhVien extends Controller
         $writer->save($filename);
 
         // header("location:" . $filename);
-        $this->view('MasterLayout', [
+        $this->view('MasterLayoutAD', [
             'page' => 'Sinhvien_v',
             'dulieu' => $this->sinhvien->sinhvien_find('', '', ''),
-            // 'info' => $taikhoan,
-            // 'vaitro' => $vaitro
-        ]);
 
+        ]);
     }
 
     function ImportExcel()
     {
 
-        //
-        // $taikhoan = $_POST['txtInfoAcc'];
-        // $vaitro = '';
-        // $data_acc = $this->taikhoan->getDataAcc($taikhoan);
-        // $vaitro = $data_acc['vaitro'];
-        $this->view('MasterLayout', [
-            'page' => 'Sinhvien_imp',
-            // 'info' => $taikhoan,
-            // 'vaitro' => $vaitro
-        ]);
 
+        $this->view('MasterLayoutAD', [
+            'page' => 'Sinhvien_imp',
+
+        ]);
     }
     function sinhvien_import()
     {
-        //
-        // $taikhoan = $_POST['txtInfoAcc'];
-        // $vaitro = '';
-        // $data_acc = $this->taikhoan->getDataAcc($taikhoan);
-        // $vaitro = $data_acc['vaitro'];
         if (isset($_POST['btnCancel'])) {
-            $this->view('MasterLayout', [
+            $this->view('MasterLayoutAD', [
                 'page' => 'Sinhvien_v',
                 'dulieu' => $this->sinhvien->sinhvien_find('', '', ''),
-                // 'info' => $taikhoan,
-                // 'vaitro' => $vaitro
+
 
             ]);
         }
@@ -355,12 +278,10 @@ class DanhSachSinhVien extends Controller
                 if ($_FILES['fileimport']['error'] > 0) {
                     echo "<script>alert('File Import bị lỗi')</script>";
 
-                    $this->view('MasterLayout', [
+                    $this->view('MasterLayoutAD', [
                         'page' => 'Sinhvien_imp',
-                        // 'info' => $taikhoan,
-                        // 'vaitro' => $vaitro
-                    ]);
 
+                    ]);
                 } else {
                     $inputFileName = 'file.xlsx';
                     move_uploaded_file($_FILES['fileimport']['tmp_name'], $inputFileName);
@@ -380,18 +301,16 @@ class DanhSachSinhVien extends Controller
                     }
                     unlink('file.xlsx');
                     echo "<script>alert('Import file thành công')</script>";
-                    $this->view('MasterLayout', [
+                    $this->view('MasterLayoutAD', [
                         'page' => 'Sinhvien_v',
 
-                        'dulieu' => $this->sinhvien->sinhvien_find('','',''),
+                        'dulieu' => $this->sinhvien->sinhvien_find('', '', ''),
 
                     ]);
                 }
-                
             } else {
                 echo "<script>alert('Bạn chưa chọn file import')</script>";
             }
-            
         }
     }
 }

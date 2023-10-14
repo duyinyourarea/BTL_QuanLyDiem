@@ -33,6 +33,7 @@
             </td>
         </tr>
     </table>
+    <h4 style="text-align: center;">THÔNG TIN SINH VIÊN</h4>
     <table class="table table-bordered table">
         <thead class="table-primary">
             <tr style="text-align: center;">
@@ -40,6 +41,7 @@
                 <th>Họ tên</th>
                 <th>Lớp</th>
                 <th>Khoa</th>
+                <th>Ngành</th>
             </tr>
         </thead>
         <tbody>
@@ -62,7 +64,7 @@
                                 <?php echo $row['makhoa'] ?>
                             </td>
                             <td>
-                                <?php echo $row['trangthai'] ?>
+                                <?php echo $row['nganh'] ?>
                             </td>
                         </tr>
                 <?php
@@ -71,6 +73,45 @@
                 ?>
         </tbody>
     </table>
+    <h4 style="text-align: center;">BẢNG ĐIỂM TRUNG BÌNH HỌC TẬP HỌC KỲ</h4>
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+            <tr style="text-align: center;">
+                <th>Học kỳ</th>
+                <th>TBTL Hệ 10</th>
+                <th>TBTL Hệ 4</th>
+                <th>Số tín chỉ</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+                if (isset($data['dulieu_sinhvien']) && $data['dulieu_sinhvien'] != null) {
+                    while ($row = mysqli_fetch_array($data['dulieu_sinhvien'])) {
+                ?>
+                        <tr>
+                            
+                            <td>
+                                <?php echo $row['ki'] ?>
+                            </td>
+                            <td>
+                                <?php echo $row['tbtl_he10'] ?>
+                            </td>
+                            <td>
+                                <?php echo $row['tbtl_he4'] ?>
+                            </td>
+                            <td>
+                                <?php echo $row['sotinchi'] ?>
+                            </td>
+                        
+                        </tr>
+                <?php
+                    }
+                }
+                ?>
+        </tbody>
+    </table>
+    <h4 style="text-align: center;">BẢNG ĐIỂM CHI TIẾT MÔN HỌC</h4>
     <form action="http://localhost/BTL_QuanLyDiem/TraCuuDiem/Timkiem" method="post">
         <table class="table">
             <thead class="thead-dark">
@@ -87,6 +128,7 @@
                     <th>Thực hành/Thảo luận</th>
                     <th>Thi kết thúc</th>
                     <th>Tổng kết HP</th>
+                    <th>Điểm chữ</th>
                 </tr>
             </thead>
             <tbody>
@@ -117,10 +159,6 @@
                             </td>
                             <td>
                                 <?php echo $row['malop'] ?>
-                            </td>
-                            <td>
-                                <a href="http://localhost/BTL_QuanLyDiem/DanhSachSinhVien/Sua/<?php echo $row['masinhvien'] ?>"><img class="icon" src="Public/Images/note.png" alt="note"></a>
-                                <a href="http://localhost/BTL_QuanLyDiem/DanhSachSinhVien/Xoa/<?php echo $row['masinhvien'] ?>"><img class="icon" src="Public/Images/trash.png" alt="trash"></a>
                             </td>
                         </tr>
                 <?php
