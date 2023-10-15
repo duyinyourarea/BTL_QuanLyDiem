@@ -12,36 +12,15 @@
 </head>
 
 <body>
-    <table style="width: 100%;">
-        <tr>
-            <td style="width: 57%;"></td>
-            <td>
-                <form action="http://localhost/BTL_QuanLyDiem/TraCuuDiem/Timkiem" method="post">
-                    <div class="form-inline">
-                        <input type="text" name="txtHocki" class="form-control" placeholder="Học kì" value="<?php if (isset($data['ki']))
-                                                                                                                echo $data['ki'] ?>">
-                        <input type="text" name="txtTenmon" class="form-control" placeholder="Tên môn" value="<?php if (isset($data['tenmon']))
-                                                                                                                    echo $data['tenmon'] ?>">
-                        <input type="submit" class="btn btn-outline-primary" name="btnTimkiem" value="Tìm kiếm">
-                </form>
-                <div class="dropdown-menu">
-                    <a class="dropdown-item" href="http://localhost/BTL_QuanLyDiem/TraCuuDiem/ExportExcel">Export
-                        Excel</a>
-                </div>
-                </div>
-
-            </td>
-        </tr>
-    </table>
-    <h4 style="text-align: center;">THÔNG TIN SINH VIÊN</h4>
-    <table class="table table-bordered table">
+    <h4 style="text-align: center; margin-top: 15px;">THÔNG TIN SINH VIÊN</h4>
+    <table class="table table-bordered" style="text-align: center;">
         <thead class="table-primary">
-            <tr style="text-align: center;">
+            <tr>
                 <th>Mã sinh viên</th>
                 <th>Họ tên</th>
                 <th>Lớp</th>
-                <th>Khoa</th>
                 <th>Ngành</th>
+                <th>Khoa</th>
             </tr>
         </thead>
         <tbody>
@@ -61,10 +40,10 @@
                                 <?php echo $row['tenlop'] ?>
                             </td>
                             <td>
-                                <?php echo $row['makhoa'] ?>
+                                <?php echo $row['tennganh'] ?>
                             </td>
                             <td>
-                                <?php echo $row['nganh'] ?>
+                                <?php echo $row['tenkhoa'] ?>
                             </td>
                         </tr>
                 <?php
@@ -73,21 +52,19 @@
                 ?>
         </tbody>
     </table>
-    <h4 style="text-align: center;">BẢNG ĐIỂM TRUNG BÌNH HỌC TẬP HỌC KỲ</h4>
-    <table class="table table-bordered">
+    <h4 style="text-align: center;">BẢNG ĐIỂM TRUNG BÌNH HỌC TẬP THEO HỌC KỲ</h4>
+    <table class="table table-bordered table-hover" style="text-align: center;">
         <thead class="thead-dark">
-            <tr style="text-align: center;">
+            <tr>
                 <th>Học kỳ</th>
                 <th>TBTL Hệ 10</th>
-                <th>TBTL Hệ 4</th>
-                <th>Số tín chỉ</th>
-                
+                <th>TBTL Hệ 4</th>                
             </tr>
         </thead>
         <tbody>
             <?php
-                if (isset($data['dulieu_sinhvien']) && $data['dulieu_sinhvien'] != null) {
-                    while ($row = mysqli_fetch_array($data['dulieu_sinhvien'])) {
+                if (isset($data['dulieu_ki']) && $data['dulieu_ki'] != null) {
+                    while ($row = mysqli_fetch_array($data['dulieu_ki'])) {
                 ?>
                         <tr>
                             
@@ -95,15 +72,11 @@
                                 <?php echo $row['ki'] ?>
                             </td>
                             <td>
-                                <?php echo $row['tbtl_he10'] ?>
+                                <?php echo $row['diemtb_he10'] ?>
                             </td>
                             <td>
-                                <?php echo $row['tbtl_he4'] ?>
+                                <?php echo $row['diemtb_he4'] ?>
                             </td>
-                            <td>
-                                <?php echo $row['sotinchi'] ?>
-                            </td>
-                        
                         </tr>
                 <?php
                     }
@@ -112,8 +85,7 @@
         </tbody>
     </table>
     <h4 style="text-align: center;">BẢNG ĐIỂM CHI TIẾT MÔN HỌC</h4>
-    <form action="http://localhost/BTL_QuanLyDiem/TraCuuDiem/Timkiem" method="post">
-        <table class="table">
+        <table class="table table-bordered table-hover" style="text-align: center;">
             <thead class="thead-dark">
                 <tr>
                     <th>STT</th>
@@ -124,8 +96,8 @@
                     <th>Lần thi</th>
                     <th>Đánh giá</th>
                     <th>Chuyên cần</th>
-                    <th>Kiểm tra GK</th>
                     <th>Thực hành/Thảo luận</th>
+                    <th>Kiểm tra GK</th>
                     <th>Thi kết thúc</th>
                     <th>Tổng kết HP</th>
                     <th>Điểm chữ</th>
@@ -134,31 +106,53 @@
             <tbody>
 
                 <?php
-                if (isset($data['dulieu']) && $data['dulieu'] != null) {
+                if (isset($data['dulieu_chitiet']) && $data['dulieu_chitiet'] != null) {
                     $i = 1;
-                    while ($row = mysqli_fetch_array($data['dulieu'])) {
+                    while ($row = mysqli_fetch_array($data['dulieu_chitiet'])) {
                 ?>
                         <tr>
                             <td>
                                 <?php echo $i++ ?>
                             </td>
                             <td>
-                                <?php echo $row['masinhvien'] ?>
+                                <?php echo $row['mamon'] ?>
                             </td>
                             <td>
-                                <?php echo $row['tensinhvien'] ?>
+                                <?php echo $row['tenmon'] ?>
                             </td>
                             <td>
-                                <?php echo $row['gioitinh'] ?>
+                                <?php echo $row['sotinchi'] ?>
                             </td>
                             <td>
-                                <?php echo $row['sodienthoai'] ?>
+                                <?php echo $row['ki'] ?>
                             </td>
                             <td>
-                                <?php echo $row['email'] ?>
+                                <?php echo $row['lanthi'] ?>
                             </td>
                             <td>
-                                <?php echo $row['malop'] ?>
+                                <?php echo $row['trangthai'] ?>
+                            </td>
+                            <td>
+                                <?php echo $row['diemchuyencan'] ?>
+                            </td>
+                            <td>
+                                <?php echo $row['diemthuchanh'] ?>
+                            </td>
+                            <td>
+                                <?php echo $row['diemgiuaki'] ?>
+                            </td>
+                            <td>
+                                <?php echo $row['diemcuoiki_l1']; 
+                                if (isset($row['diemcuoiki_l2'])){
+                                    echo ' / '; 
+                                    echo $row['diemcuoiki_l2'];
+                                } ?>
+                            </td>
+                            <td>
+                                <?php echo $row['diemtb_he10'] ?>
+                            </td>
+                            <td>
+                                <?php echo $row['diemtb_word'] ?>
                             </td>
                         </tr>
                 <?php
@@ -167,7 +161,6 @@
                 ?>
             </tbody>
         </table>
-    </form>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </body>

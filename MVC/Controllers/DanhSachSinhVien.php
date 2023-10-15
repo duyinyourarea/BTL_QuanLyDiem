@@ -93,7 +93,7 @@ class DanhSachSinhVien extends Controller
                     $kq_add_siso = $this->malop->add_sinhvien($malop);
                 }
                 $kq = $this->sinhvien->sinhvien_upd($masinhvien, $tensinhvien, $gioitinh, $sodienthoai, $email, $malop);
-                if ($kq && $kq_del_siso && $kq_add_siso) {
+                if ($kq || $kq_del_siso || $kq_add_siso) {
                     echo "<script>alert('Sửa thành công!')</script>";
                 } else {
                     echo "<script>alert('Sửa thất bại!')</script>";
@@ -250,7 +250,8 @@ class DanhSachSinhVien extends Controller
         $this->view('MasterLayoutAD', [
             'page' => 'Sinhvien_v',
             'dulieu' => $this->sinhvien->sinhvien_find('', '', ''),
-
+            'masinhvien'=>$masinhvien,
+            'tensinhvien'=>$tensinhvien,
         ]);
     }
 
