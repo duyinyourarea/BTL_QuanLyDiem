@@ -44,7 +44,6 @@ class TraCuuDiemTongHopSinhVien extends Controller
     function Timkiem()
     {
         if (isset($_POST['btnTimkiem'])) {
-        
             $masinhvien = $_POST['cbMasinhvien'];
             $row_sinhvien = $this->sinhvien->getData($masinhvien);
             $malop = $row_sinhvien['malop'];
