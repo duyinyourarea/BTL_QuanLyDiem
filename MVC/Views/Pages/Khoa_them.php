@@ -34,8 +34,10 @@
                     </td>
                 </tr>
                 <tr>
+                    <td></td>
                     <td class="col2" colspan="2" align=center>
                     <input class="btn btn-primary" type="submit" name="btnLuu" value="Lưu">
+                    <input class="btn btn-warning" type="submit" name="btnHuy" value="Hủy">
                 </td>
 
             </tr>

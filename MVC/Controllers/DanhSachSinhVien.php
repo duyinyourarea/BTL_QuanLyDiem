@@ -202,9 +202,7 @@ class DanhSachSinhVien extends Controller
 
         $spreadsheet = new Spreadsheet();
         $sheet = $spreadsheet->getActiveSheet();
-        $masinhvien = $_POST['txtMasinhvien'];
-        $tensinhvien = $_POST['txtTensinhvien'];
-        $data_export = $this->sinhvien->sinhvien_find($masinhvien, $tensinhvien, '');
+        $data_export = $this->sinhvien->sinhvien_find('', '', '');
         //định dạng cột tiêu đề
         $sheet->getColumnDimension('A')->setAutoSize(true);
         $sheet->getColumnDimension('B')->setAutoSize(true);
@@ -249,9 +247,7 @@ class DanhSachSinhVien extends Controller
         // header("location:" . $filename);
         $this->view('MasterLayoutAD', [
             'page' => 'Sinhvien_v',
-            'dulieu' => $this->sinhvien->sinhvien_find('', '', ''),
-            'masinhvien'=>$masinhvien,
-            'tensinhvien'=>$tensinhvien,
+            'dulieu' => $this->sinhvien->sinhvien_find('', '', '')
         ]);
     }
 

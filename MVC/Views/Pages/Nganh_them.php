@@ -12,7 +12,7 @@
 </head>
 
 <body>
-<form action="http://localhost/BTL_QuanLyDiem/DanhSachKhoa/Them_khoa" method="post">
+    <form action="http://localhost/BTL_QuanLyDiem/DanhSachNganh/Them_nganh" method="post">
         <table cellspacing="20" align="center" style="width: 35%;">
             <div class="input-group">
                 <tr>
@@ -34,17 +34,34 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="input-group-text">Mã ngành</td>
+                    <td class="input-group-text">Khoa</td>
                     <td>
-                        <input class="form-control" type="text" name="txtMakhoa" placeholder="Mã khoa">
+                        <select class="custom-select" id="txtManganh" name="txtManganh"
+                            style="left: 1px; top: 9px; transition: none 0s ease 0s; cursor: move;">
+                            <option value="">--Chọn khoa--</option>
+                            <?php
+                            if (isset($data['data_khoa']) && $data['data_khoa'] != null) {
+                                while ($row_of_khoa = mysqli_fetch_array($data['data_khoa'])) {
+                                    ?>
+                                    <option value="<?php echo $row_of_khoa['makhoa'] ?>">
+                                        <?php echo $row_of_khoa['tenkhoa'] ?>
+                                    </option>
+                                    <?php
+                                }
+                            }
+                            ?>
+                        </select>
+
                     </td>
                 </tr>
                 <tr>
+                    <td></td>
                     <td class="col2" colspan="2" align=center>
-                    <input class="btn btn-primary" type="submit" name="btnLuu" value="Lưu">
-                </td>
+                        <input class="btn btn-primary" type="submit" name="btnLuu" value="Lưu">
+                        <input class="btn btn-warning" type="submit" name="btnHuy" value="Hủy">
+                    </td>
 
-            </tr>
+                </tr>
         </table>
     </form>
 </body>

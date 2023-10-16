@@ -43,15 +43,26 @@
                     <div class="form-group">
                         <select class="form-control" id="sel1" name="txtManganh">
                             <option>--Chọn ngành--</option>
-                            <option></option>
+                            <?php
+                            if (isset($data['data_nganh']) && $data['data_nganh'] != null) {
+                                while ($row_of_khoa = mysqli_fetch_array($data['data_nganh'])) {
+                                    ?>
+                                    <option value="<?php echo $row_of_khoa['manganh'] ?>">
+                                        <?php echo $row_of_khoa['tennganh'] ?>
+                                    </option>
+                                    <?php
+                                }
+                            }
+                            ?>
                         </select>
                     </div>
                 </td>
             </tr>
             <tr>
-
+                <td></td>
                 <td class="col2" colspan="2" align=center>
                     <input class="btn btn-primary" type="submit" name="btnLuu" value="Lưu">
+                    <input class="btn btn-warning" type="submit" name="btnHuy" value="Hủy">
                 </td>
 
             </tr>

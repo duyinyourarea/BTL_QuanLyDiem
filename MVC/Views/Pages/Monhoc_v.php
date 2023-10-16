@@ -14,30 +14,31 @@
 <body>
     <table style="width: 100%;">
         <tr>
-            <td style="width: 54%;"><a href="http://localhost/BTL_QuanLyDiem/DanhSachMonHoc/Them"><button
+            <td style="width: 57%;"><a href="http://localhost/BTL_QuanLyDiem/DanhSachMonHoc/Them"><button
                         class="btn btn-outline-secondary" name="btnThemlop" style="margin: 5px;">Thêm
                         môn</button></a></td>
-            <td align = "center">
+            <td align="center">
+                <div class="form-inline" >
+                    <form action="http://localhost/BTL_QuanLyDiem/DanhSachMonHoc/Timkiem" method="post">
 
-                <form action="http://localhost/BTL_QuanLyDiem/DanhSachMonHoc/Timkiem" method="post">
-                    <div class="form-inline" style="height: 56px;margin-top: 10px;">
                         <input type="text" name="txtMamon" class="form-control" placeholder="Mã môn" value="<?php if (isset($data['mm']))
-                            echo $data['mm'] ?>" style="position: relative; left: 49px; top: 0px;">
+                            echo $data['mm'] ?>" >
                             <input type="text" name="txtTenmon" class="form-control" placeholder="Tên môn" value="<?php if (isset($data['tm']))
-                            echo $data['tm'] ?>" style="position: relative; left: 54px; top: 0px;">
+                            echo $data['tm'] ?>" >
                             <!-- <button type="submit" class="btn btn-primary" name="btnTimkiem" id="btnTimkiem">Tìm kiếm</button> -->
-                            <input type="submit" class="btn btn-primary" name="btnTimkiem" value="Tìm kiếm"
-                                style="position: relative; left: 61px; top: -1px;">
-                    </form>
-                    <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
-                        data-toggle="dropdown" style="position: relative; left: 71px; top: -2px;">
-                        Thêm
-                    </button>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="http://localhost/BTL_QuanLyDiem/DanhSachMonHoc/ImportExcel">Import Excel</a>
-                        <a class="dropdown-item" href="http://localhost/BTL_QuanLyDiem/DanhSachMonHoc/ExportExcel">Export
-                            Excel</a>
-                    </div>
+                            <input type="submit" class="btn btn-primary" name="btnTimkiem" value="Tìm kiếm">
+                        </form>
+                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" style="position: relative; left: 9px; top: -1px;">
+                            Thêm
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item"
+                                href="http://localhost/BTL_QuanLyDiem/DanhSachMonHoc/ImportExcel">Import Excel</a>
+                            <a class="dropdown-item"
+                                href="http://localhost/BTL_QuanLyDiem/DanhSachMonHoc/ExportExcel">Export
+                                Excel</a>
+                        </div>
                     </div>
                 </td>
             </tr>
@@ -50,10 +51,10 @@
                         <th>Mã môn</th>
                         <th>Tên môn</th>
                         <th>Số tín chỉ</th>
-                        <th>Mã khoa</th>
                         <th>Kì</th>
                         <th>Giảng viên</th>
                         <th>CT tính điểm</th>
+                        <th>Mã ngành</th>
                         <th>Tác vụ</th>
                     </tr>
                 </thead>
@@ -78,9 +79,6 @@
                                 <?php echo $row['sotinchi'] ?>
                             </td>
                             <td>
-                                <?php echo $row['makhoa'] ?>
-                            </td>
-                            <td>
                                 <?php echo $row['ki'] ?>
                             </td>
                             <td>
@@ -88,6 +86,9 @@
                             </td>
                             <td>
                                 <?php echo $row['phuongthuctinhdiem'] ?>
+                            </td>
+                            <td>
+                                <?php echo $row['manganh'] ?>
                             </td>
                             <td>
                                 <a href="http://localhost/BTL_QuanLyDiem/DanhSachMonHoc/Sua/<?php echo $row['mamon'] ?>"><img
@@ -100,12 +101,10 @@
                             }
                         }
                         ?>
-
-
             </tbody>
         </table>
     </form>
-    
+
 </body>
 
 </html>

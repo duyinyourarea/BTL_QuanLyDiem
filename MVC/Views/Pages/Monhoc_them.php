@@ -22,42 +22,39 @@
             <tr>
                 <td>Mã môn</td>
                 <td>
-                    <input class="form-control" type="text" name="txtMamon"
-                        value="<?php if (isset($data['mm'])) {
-                            echo $data['mm'];
-                        } ?>">
+                    <input class="form-control" type="text" name="txtMamon" value="<?php if (isset($data['mm'])) {
+                        echo $data['mm'];
+                    } ?>">
                 </td>
             </tr>
             <tr>
                 <td>Tên môn</td>
                 <td>
-                    <input class="form-control" type="text" name="txtTenmon"
-                        value="<?php if (isset($data['tm'])) {
-                            echo $data['tm'];
-                        } ?>">
+                    <input class="form-control" type="text" name="txtTenmon" value="<?php if (isset($data['tm'])) {
+                        echo $data['tm'];
+                    } ?>">
                 </td>
             </tr>
             <tr>
                 <td>Số tín chỉ</td>
                 <td>
-                    <input class="form-control" type="number" name="txtSotinchi"
-                        value="<?php if (isset($data['stc'])) {
-                            echo $data['stc'];
-                        } ?>">
+                    <input class="form-control" type="number" name="txtSotinchi" value="<?php if (isset($data['stc'])) {
+                        echo $data['stc'];
+                    } ?>">
                 </td>
             </tr>
             <tr>
-                <td>Khoa</td>
+                <td>Ngành</td>
                 <td>
-                    <select class="custom-select" id="txtMakhoa" name="txtMakhoa"
-                        style="left: 1px; top: 9px; transition: none 0s ease 0s; cursor: move;" >
-                        <option value="">--Chọn khoa--</option>
+                    <select class="custom-select" id="txtManganh" name="txtManganh"
+                        style="left: 1px; top: 9px; transition: none 0s ease 0s; cursor: move;">
+                        <option value="">--Chọn ngành--</option>
                         <?php
-                        if (isset($data['data_khoa']) && $data['data_khoa'] != null) {
-                            while ($row_of_khoa = mysqli_fetch_array($data['data_khoa'])) {
+                        if (isset($data['data_nganh']) && $data['data_nganh'] != null) {
+                            while ($row_of_khoa = mysqli_fetch_array($data['data_nganh'])) {
                                 ?>
-                                <option value="<?php echo $row_of_khoa['makhoa'] ?>">
-                                    <?php echo $row_of_khoa['tenkhoa'] ?>
+                                <option value="<?php echo $row_of_khoa['manganh'] ?>">
+                                    <?php echo $row_of_khoa['tennganh'] ?>
                                 </option>
                                 <?php
                             }
@@ -70,19 +67,17 @@
             <tr>
                 <td>Kì</td>
                 <td>
-                    <input class="form-control" type="number" name="txtKi"
-                        value="<?php if (isset($data['k'])) {
-                            echo $data['k'];
-                        } ?>">
+                    <input class="form-control" type="number" name="txtKi" value="<?php if (isset($data['k'])) {
+                        echo $data['k'];
+                    } ?>">
                 </td>
             </tr>
             <tr>
                 <td>Giảng viên</td>
                 <td>
-                    <input class="form-control" type="text" name="txtGiangvien"
-                        value="<?php if (isset($data['gv'])) {
-                            echo $data['gv'];
-                        } ?>">
+                    <input class="form-control" type="text" name="txtGiangvien" value="<?php if (isset($data['gv'])) {
+                        echo $data['gv'];
+                    } ?>">
                 </td>
             </tr>
             <tr>
@@ -104,8 +99,7 @@
                             <span class="input-group-text" style="position: relative; left: 0px; top: 7px;">TL/TH</span>
                         </div>
                         <input type="number" name="txtDiemtl_th" min="0" class="form-control"
-                            placeholder="Thảo luận/Thực hành" style="left: 0px; top: 7px;"
-                            value="<?php if (isset($data['dtl_th'])) {
+                            placeholder="Thảo luận/Thực hành" style="left: 0px; top: 7px;" value="<?php if (isset($data['dtl_th'])) {
                                 echo $data['dtl_th'];
                             } ?>">
                         <span class="input-group-text"
@@ -135,12 +129,13 @@
 
                 <td colspan="2" align=center>
                     <input class="btn btn-primary" type="submit" name="btnLuu" value="Lưu">
+                    <input class="btn btn-warning" type="submit" name="btnHuy" value="Hủy">
                 </td>
 
             </tr>
         </table>
     </form>
-    
+
 </body>
 
 </html>

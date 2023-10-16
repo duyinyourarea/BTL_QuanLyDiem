@@ -10,7 +10,7 @@
     <title>Document</title>
 </head>
 <body>
-<form action="http://localhost/MVC/DanhSachKhoa/Sua_khoa" method="post">
+<form action="http://localhost/BTL_QuanLyDiem/DanhSachKhoa/Sua_khoa" method="post">
         <table cellspacing="20" align="center" >
             <tr>
                 <td colspan="2" class="col1" style="text-align: center;"><h2>CẬP NHẬT THÔNG TIN KHOA</h2></td>
@@ -18,19 +18,20 @@
             <tr>
                 <td class="col1">Mã khoa</td>
                 <td class="col2">
-                    <input  class="form-control" type="text" name="txtMakhoa" value="<?php if(isset($data['dulieu'])){ $row = mysqli_fetch_assoc($data['dulieu']); echo $row['makhoa'];} ?>">
+                    <input  class="form-control" type="text" name="txtMakhoa" value="<?php if(isset($data['dulieu'])){ $row = mysqli_fetch_assoc($data['dulieu']); echo $row['makhoa'];} ?>" readonly>
                 </td>
             </tr>
             <tr>
                 <td class="col1">Tên khoa</td>
                 <td class="col2">
-                    <input class="form-control" type="text" name="txtTenkhoa" value="<?php if(isset($data['dulieu'])){ $row = mysqli_fetch_assoc($data['dulieu']); echo $row['tenkhoa'];} ?>">
+                    <input class="form-control" type="text" name="txtTenkhoa" value="<?php echo $row['tenkhoa']; ?>">
                 </td>
             </tr>
             <tr>
-                
+                <td></td>
                 <td class="col2" colspan="2" align = center>
                     <input class="btn btn-primary" type="submit" name="btnLuu" value="Lưu">
+                    <input class="btn btn-warning" type="submit" name="btnHuy" value="Hủy">
                 </td>
                 
             </tr>
