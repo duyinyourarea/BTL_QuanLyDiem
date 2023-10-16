@@ -37,23 +37,8 @@
                         <a class="dropdown-item" href="http://localhost/BTL_QuanLyDiem/DanhSachMonHoc/ImportExcel">Import Excel</a>
                         <a class="dropdown-item" href="http://localhost/BTL_QuanLyDiem/DanhSachMonHoc/ExportExcel">Export
                             Excel</a>
-                        <!-- <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Bootstrap</a> -->
                     </div>
                     </div>
-
-                    <!-- <div class="btn-group">
-                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
-                                data-toggle="dropdown">
-                                Tutorials
-                            </button>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Javascript</a>
-                                <a class="dropdown-item" href="#">Css</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Bootstrap</a>
-                            </div>
-                        </div> -->
                 </td>
             </tr>
         </table>

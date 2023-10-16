@@ -88,7 +88,7 @@
                            style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Ngành</b></a></li>
                      <li><a href="http://localhost/BTL_QuanLyDiem/DanhSachKhoa/"
                            style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Khoa</b></a></li>
-                     <li><a href="http://localhost/BTL_QuanLyDiem/NhapDiem/"
+                     <li><a href="http://localhost/BTL_QuanLyDiem/NhapDiemSinhVien/"
                            style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Nhập điểm</b></a></li>
                   </ul>
                </div>
