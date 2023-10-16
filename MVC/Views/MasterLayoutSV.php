@@ -64,7 +64,7 @@
                <div class="card" style="border: none;">
                   <div class="card-header" id="headingOne" style="border-radius: 15px; ">
                      <h6 class="mb-0">
-                        <a href="http://localhost/BTL_QuanLyDiem/TraCuuDiem/Get_data/<?php echo  $data['masinhvien'] ?>"><b style="position: relative; left: 15px; top: -2px; color: black;">Tra cứu điểm</b></a>
+                        <a href="http://localhost/BTL_QuanLyDiem/TraCuuDiemSinhVien/Get_data/<?php echo  $data['masinhvien'] ?>"><b style="position: relative; left: 15px; top: -2px; color: black;">Tra cứu điểm</b></a>
                      </h6>
                   </div>
                </div>
@@ -72,7 +72,7 @@
                <div class="card" style="border: none;">
                   <div class="card-header" id="headingTwo" style="border-radius: 15px;">
                      <h6 class="mb-0">
-                        <a href="http://localhost/BTL_QuanLyDiem/TraCuuDiemTongHop/<?php echo  $data['masinhvien'] ?>"><b style="position: relative; left: 15px; top: -2px; color: black;">Tra cứu điểm tổng hợp</b></a>
+                        <a href="http://localhost/BTL_QuanLyDiem/TraCuuDiemTongHopSinhVien/Get_data/<?php echo  $data['masinhvien'] ?>"><b style="position: relative; left: 15px; top: -2px; color: black;">Tra cứu điểm tổng hợp</b></a>
                      </h6>
                   </div>
                </div>
