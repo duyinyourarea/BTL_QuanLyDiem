@@ -178,13 +178,13 @@ class DanhSachLop extends Controller
                     $sheetData = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
                     $arrayCount = count($sheetData);
 
-                    for ($i = 2; $i < $arrayCount; $i++) {
+                    for ($i = 2; $i <= $arrayCount; $i++) {
                         $malop = trim($sheetData[$i]["B"]);
                         $tenlop = trim($sheetData[$i]["C"]);
                         $siso = trim($sheetData[$i]["D"]);
                         $manganh = trim($sheetData[$i]["E"]);
                         $kq_import = $this->lop->lop_ins($malop, $tenlop, $siso, $manganh);
-                        isset($kq_import);
+                        if($kq_import);
                     }
                     unlink('file.xlsx');
                     echo "<script>alert('Import file thành công')</script>";

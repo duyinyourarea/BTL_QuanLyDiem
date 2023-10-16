@@ -187,7 +187,7 @@ class DanhSachMonHoc extends Controller
                     $check_mamon = $this->monhoc->mamon_check($mm);
                     if ($check_mamon) {
                         echo "<script>alert('Mã môn đã tồn tại')</script>";
-                        $this->view('MasterLayout', [
+                        $this->view('MasterLayoutAD', [
                             'page' => 'Monhoc_them',
                             'dulieu' => $this->monhoc->monhoc_find($mm, ''),
                             'data_khoa' => $this->nganh->nganh_find('', ''),
@@ -209,7 +209,7 @@ class DanhSachMonHoc extends Controller
                             echo "<script>alert('Thêm thành công')</script>";
                         else
                             echo "<script>alert('Thêm thất bại')</script>";
-                        $this->view('MasterLayout', [
+                        $this->view('MasterLayoutAD', [
                             'page' => 'Monhoc_v',
                             'dulieu' => $this->monhoc->monhoc_find('', ''),
                         ]);
@@ -304,7 +304,7 @@ class DanhSachMonHoc extends Controller
                     $sheetData = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
                     $arrayCount = count($sheetData);
 
-                    for ($i = 2; $i < $arrayCount; $i++) {
+                    for ($i = 2; $i <= $arrayCount; $i++) {
                         $mamon = trim($sheetData[$i]["B"]);
                         $tenmon = trim($sheetData[$i]["C"]);
                         $sotinchi = trim($sheetData[$i]["D"]);
@@ -313,7 +313,7 @@ class DanhSachMonHoc extends Controller
                         $pttd = trim($sheetData[$i]["G"]);
                         $manganh = trim($sheetData[$i]["H"]);
                         $kq_import = $this->monhoc->monhoc_ins($mamon, $tenmon, $sotinchi, $ki, $giangvien, $pttd, $manganh);
-                        isset($kq_import);
+                        if($kq_import);
                     }
                     unlink('file.xlsx');
                     echo "<script>alert('Import file thành công')</script>";

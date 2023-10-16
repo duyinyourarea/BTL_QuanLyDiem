@@ -39,7 +39,7 @@ class DanhSachSinhVien extends Controller
     }
     function Xoa($masinhvien)
     {
-        $row_sinhvien_malop = $this->sinhvien->getDataLop($masinhvien);
+        $row_sinhvien_malop = $this->sinhvien->getData($masinhvien);
         $malop = $row_sinhvien_malop['malop'];
         $kq_del_siso = $this->malop->del_sinhvien($malop);
         $kq_del = $this->sinhvien->sinhvien_del($masinhvien);
@@ -286,7 +286,7 @@ class DanhSachSinhVien extends Controller
                     $sheetData = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
                     $arrayCount = count($sheetData);
 
-                    for ($i = 2; $i < $arrayCount; $i++) {
+                    for ($i = 2; $i <= $arrayCount; $i++) {
                         $masinhvien = trim($sheetData[$i]["B"]);
                         $tensinhvien = trim($sheetData[$i]["C"]);
                         $gioitinh = trim($sheetData[$i]["D"]);
@@ -294,13 +294,12 @@ class DanhSachSinhVien extends Controller
                         $email = trim($sheetData[$i]["F"]);
                         $malop = trim($sheetData[$i]["G"]);
                         $kq_import = $this->sinhvien->sinhvien_ins($masinhvien, $tensinhvien, $gioitinh, $sodienthoai, $email, $malop);
-                        isset($kq_import);
+                        if($kq_import) ;
                     }
                     unlink('file.xlsx');
                     echo "<script>alert('Import file thành công')</script>";
                     $this->view('MasterLayoutAD', [
                         'page' => 'Sinhvien_v',
-
                         'dulieu' => $this->sinhvien->sinhvien_find('', '', ''),
 
                     ]);

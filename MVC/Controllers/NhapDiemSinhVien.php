@@ -57,17 +57,8 @@ class NhapDiemSinhVien extends Controller
         $malop = $_POST['txtmalop'];
         $mamon = $_POST['txtmamon'];
         $data_ds_ndqt = $this->nhapdiem->nhapdiem_quatrinh_array($mamon, $malop, 0);
-        // $row_ndqt = $data_ds_ndqt;
-        // foreach ($row_ndqt = $data_ds_ndqt) {
-        //     $dcc_tmp = $_POST['DCC'.$row_ndqt['masinhvien']];
-        //     echo $dcc_tmp;
-        // }
-        // echo $data_ds_ndqt[0]['malop'], $data_ds_ndqt[1]['malop'];
         foreach ($data_ds_ndqt as $key) {
-            # code...
-            print_r($key[11]);
             $dcc_tmp = $_POST['DCC'.$key[11]];
-            echo $dcc_tmp;
         }
     }
 }

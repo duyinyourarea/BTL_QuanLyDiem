@@ -36,7 +36,7 @@
                 <tr>
                     <td class="input-group-text">Khoa</td>
                     <td>
-                        <select class="custom-select" id="txtManganh" name="txtManganh"
+                        <select class="custom-select" id="txtMakhoa" name="txtMakhoa"
                             style="left: 1px; top: 9px; transition: none 0s ease 0s; cursor: move;">
                             <option value="">--Chọn khoa--</option>
                             <?php

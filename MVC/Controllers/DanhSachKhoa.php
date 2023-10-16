@@ -149,11 +149,11 @@ class DanhSachKhoa extends Controller
                     $sheetData = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
                     $arrayCount = count($sheetData);
 
-                    for ($i = 2; $i < $arrayCount; $i++) {
+                    for ($i = 2; $i <= $arrayCount; $i++) {
                         $makhoa = trim($sheetData[$i]["B"]);
                         $tenkhoa = trim($sheetData[$i]["C"]);
                         $kq_import = $this->khoa->khoa_ins($makhoa, $tenkhoa);
-                        isset($kq_import);
+                        if($kq_import);
                     }
                     unlink('file.xlsx');
                     echo "<script>alert('Import file thành công')</script>";

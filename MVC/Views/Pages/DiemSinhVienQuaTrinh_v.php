@@ -16,11 +16,11 @@
         <tr>
             <td style="width: 16%;">
                 <label for="malop">Lớp:</label>
-                <input type="text" id="malop" name="txtmalop" value="<?php if(isset($data['malop'])) echo $data['malop'] ?>">
+                <input type="text" id="malop" name="txtmalop" value="<?php if(isset($data['malop'])) echo $data['malop'] ?>" readonly>
             </td>
             <td style="width: 16%;">
                 <label for="mamon">Môn:</label>
-                <input type="text" id="mamon" name="txtmamon" value="<?php if(isset($data['mamon'])) echo $data['mamon'] ?>">
+                <input type="text" id="mamon" name="txtmamon" value="<?php if(isset($data['mamon'])) echo $data['mamon'] ?>" readonly>
             </td>
     </table>
 

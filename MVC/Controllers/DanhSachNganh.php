@@ -165,12 +165,12 @@ class DanhSachNganh extends Controller
                     $sheetData = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
                     $arrayCount = count($sheetData);
 
-                    for ($i = 2; $i < $arrayCount; $i++) {
+                    for ($i = 2; $i <= $arrayCount; $i++) {
                         $manganh = trim($sheetData[$i]["B"]);
                         $tennganh = trim($sheetData[$i]["C"]);
                         $makhoa = trim($sheetData[$i]["D"]);
                         $kq_import = $this->nganh->nganh_ins($manganh, $tennganh, $makhoa);
-                        isset($kq_import);
+                        if($kq_import);
                     }
                     unlink('file.xlsx');
                     echo "<script>alert('Import file thành công')</script>";
