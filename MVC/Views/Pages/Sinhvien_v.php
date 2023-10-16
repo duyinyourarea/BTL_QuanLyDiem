@@ -40,7 +40,7 @@
         </tr>
     </table>
     <form action="http://localhost/BTL_QuanLyDiem/DanhSachSinhVien/Timkiem" method="post">
-        <table class="table">
+        <table class="table" style="text-align: center;">
             <thead class="thead-dark">
                 <tr>
                     <th>STT</th>
