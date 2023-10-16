@@ -5,14 +5,14 @@ class DanhSachKhoa extends Controller{
         $this->khoa = $this->mode('Khoa');
     }
     function Get_data(){
-        $this->view('MasterLayout',['page'=>'Khoa_v','dulieu'=>$this->khoa->khoa_find('','')
+        $this->view('MasterLayoutAD',['page'=>'Khoa_v','dulieu'=>$this->khoa->khoa_find('','')
     ]);
     }
     function Timkiem(){
         if(isset($_POST['btnTimkiem'])){
             $mk=$_POST['txtMakhoa'];
             $tk=$_POST['txtTenkhoa'];
-            $this->view('MasterLayout',['page'=>'Khoa_v','dulieu'=>$this->khoa->khoa_find($mk,$tk),'mk'=>$mk,'tk'=>$tk
+            $this->view('MasterLayoutAD',['page'=>'Khoa_v','dulieu'=>$this->khoa->khoa_find($mk,$tk),'mk'=>$mk,'tk'=>$tk
         ]);
         }
     }
@@ -22,11 +22,11 @@ class DanhSachKhoa extends Controller{
         echo"<script>alert('Xóa thành công')</script>";
         else
         echo"<script>alert('Xóa thất bại')</script>";
-        $this->view('MasterLayout',['page'=>'Khoa_v','dulieu'=>$this->khoa->khoa_find('','') 
+        $this->view('MasterLayoutAD',['page'=>'Khoa_v','dulieu'=>$this->khoa->khoa_find('','') 
         ]); 
     }
     function Sua($makhoa){
-        $this->view('MasterLayout',['page'=>'Khoa_sua','dulieu'=>$this->khoa->khoa_find($makhoa,'')
+        $this->view('MasterLayoutAD',['page'=>'Khoa_sua','dulieu'=>$this->khoa->khoa_find($makhoa,'')
         ]);
     }
     function Sua_khoa(){
@@ -35,13 +35,13 @@ class DanhSachKhoa extends Controller{
             $tk=$_POST['txtTenkhoa'];
             $kq=$this->khoa->khoa_upd($mk,$tk);
             if($kq) 
-            $this->view('MasterLayout',['page'=>'Khoa_v','dulieu'=>$this->khoa->khoa_find('',''),
+            $this->view('MasterLayoutAD',['page'=>'Khoa_v','dulieu'=>$this->khoa->khoa_find('',''),
         ]);
         }
     }
     function Them()
     {
-        $this->view('MasterLayout', ['page' => 'Khoa_them']);
+        $this->view('MasterLayoutAD', ['page' => 'Khoa_them']);
     }
     function Them_khoa()
     {
@@ -53,7 +53,7 @@ class DanhSachKhoa extends Controller{
                 echo "<script>alert('Thêm thành công')</script>";
             else
                 echo "<script>alert('Thêm thất bại')</script>";
-            $this->view('MasterLayout', [
+            $this->view('MasterLayoutAD', [
                 'page' => 'Khoa_v',
                 'dulieu' => $this->khoa->khoa_find('', ''),
             ]);

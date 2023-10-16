@@ -33,7 +33,7 @@ class DanhSachMonHoc extends Controller
         //         'vaitro' => $vaitro,
         //     ]);
         // }
-        $this->view('MasterLayout', [
+        $this->view('MasterLayoutAD', [
             'page' => 'Monhoc_v',
             'dulieu' => $this->monhoc->monhoc_find('', '')
         ]);

@@ -1,11 +1,11 @@
 <?php
 class Lop extends connectDB{
-    function lop_ins($malop, $tenlop, $makhoa){
-        $sql_lop_ins = "INSERT INTO lop VALUES('$malop','$tenlop','0','$makhoa')";
+    function lop_ins($malop, $tenlop , $siso ,$manganh){
+        $sql_lop_ins = "INSERT INTO lop VALUES('$malop','$tenlop','$siso','$manganh')";
         return mysqli_query($this->con, $sql_lop_ins);
     }
-    function lop_upd($malop, $tenlop, $siso, $makhoa){
-        $sql_lop_upd = "UPDATE lop SET tenlop = '$tenlop', siso = '$siso', makhoa = '$makhoa' WHERE malop = '$malop'";
+    function lop_upd($malop, $tenlop, $siso, $manganh){
+        $sql_lop_upd = "UPDATE lop SET tenlop = '$tenlop', siso = '$siso', manganh = '$manganh' WHERE malop = '$malop'";
         return mysqli_query($this->con, $sql_lop_upd);
     }
     function lop_del($malop){

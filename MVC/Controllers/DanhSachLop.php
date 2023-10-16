@@ -12,7 +12,7 @@ class DanhSachLop extends Controller
     }
     function Get_data()
     {
-        $this->view('MasterLayout', [
+        $this->view('MasterLayoutAD', [
             'page' => 'Lop_v',
             'dulieu' => $this->lop->lop_find('', '')
         ]);
@@ -22,7 +22,7 @@ class DanhSachLop extends Controller
         if (isset($_POST['btnTimkiem'])) {
             $ml = $_POST['txtMalop'];
             $tl = $_POST['txtTenlop'];
-            $this->view('MasterLayout', [
+            $this->view('MasterLayoutAD', [
                 'page' => 'Lop_v',
                 'dulieu' => $this->lop->lop_find($ml, $tl),
                 'ml' => $ml,
@@ -37,14 +37,14 @@ class DanhSachLop extends Controller
             echo "<script>alert('Xóa thành công')</script>";
         else
             echo "<script>alert('Xóa thất bại')</script>";
-        $this->view('MasterLayout', [
+        $this->view('MasterLayoutAD', [
             'page' => 'Lop_v',
             'dulieu' => $this->lop->lop_find('', '')
         ]);
     }
     function Sua($malop)
     {
-        $this->view('MasterLayout', [
+        $this->view('MasterLayoutAD', [
             'page' => 'Lop_sua',
             'dulieu' => $this->lop->lop_find($malop, '')
         ]);
@@ -58,7 +58,7 @@ class DanhSachLop extends Controller
             $mk = $_POST['txtMakhoa'];
             $kq = $this->lop->lop_upd($ml, $tl, $ss, $mk);
             if ($kq)
-                $this->view('MasterLayout', [
+                $this->view('MasterLayoutAD', [
                     'page' => 'Lop_v',
                     'dulieu' => $this->lop->lop_find('', ''),
                 ]);
@@ -66,7 +66,7 @@ class DanhSachLop extends Controller
     }
     function Them()
     {
-        $this->view('MasterLayout', ['page' => 'Lop_them']);
+        $this->view('MasterLayoutAD', ['page' => 'Lop_them']);
     }
     function Them_lop()
     {
@@ -79,7 +79,7 @@ class DanhSachLop extends Controller
                 echo "<script>alert('Thêm thành công')</script>";
             else
                 echo "<script>alert('Thêm thất bại')</script>";
-            $this->view('MasterLayout', [
+            $this->view('MasterLayoutAD', [
                 'page' => 'Lop_v',
                 'dulieu' => $this->lop->lop_find('', ''),
             ]);
@@ -87,7 +87,7 @@ class DanhSachLop extends Controller
     }
     function Diem_Sinhvien($malop)
     {
-        $this->view('MasterLayout', [
+        $this->view('MasterLayoutAD', [
             'page' => 'DiemSinhVien_v', 'dulieu' => $this->lop->lop_find($malop, ''), 'dulieu_sinhvien' => $this->sinhvien->sinhvien_find('', '', $malop), 'dulieu_monhoc' => $this->monhoc->monhoc_find('', '')
         ]);
     }

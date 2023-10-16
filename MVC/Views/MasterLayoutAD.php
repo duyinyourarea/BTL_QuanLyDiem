@@ -84,7 +84,7 @@
                                  style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Môn hoc</b></a></li>
                            <li><a href="http://localhost/BTL_QuanLyDiem/DanhSachLop/"
                                  style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Lớp</b></a></li>
-                                 <li><a href="http://localhost/BTL_QuanLyDiem/DanhSachLop/"
+                                 <li><a href="http://localhost/BTL_QuanLyDiem/DanhSachNganh/"
                                  style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Ngành</b></a></li>
                            <li><a href="http://localhost/BTL_QuanLyDiem/DanhSachKhoa/"
                                  style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Khoa</b></a></li>
