@@ -40,7 +40,7 @@
             <th>Mã lớp</th>
             <th>Tên lớp</th>
             <th>Sĩ số</th>
-            <th>Mã khoa</th>
+            <th>Mã ngành</th>
             <th>Tác vụ</th>
          </tr>
       </thead>
@@ -65,7 +65,7 @@
                      <?php echo $row['siso'] ?>
                   </td>
                   <td>
-                     <?php echo $row['makhoa'] ?>
+                     <?php echo $row['manganh'] ?>
                   </td>
 
                   <td>

@@ -38,12 +38,12 @@
                 </td>
             </tr>
             <tr>
-                <td class="col1"><label for="sel1"><b>Khoa: </b></label></td>
+                <td class="col1"><label for="sel1"><b>Ngành: </b></label></td>
                 <td class="col2">
                     <div class="form-group">
-                        <select class="form-control" id="sel1" name="txtMakhoa">
-                            <option>--Chọn khoa--</option>
-                            <option>2</option>
+                        <select class="form-control" id="sel1" name="txtManganh">
+                            <option>--Chọn ngành--</option>
+                            <option></option>
                         </select>
                     </div>
                 </td>

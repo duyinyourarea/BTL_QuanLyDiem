@@ -34,9 +34,9 @@
                 </td>
             </tr>
             <tr>
-                <td >Mã khoa</td>
+                <td >Mã ngành</td>
                 <td >
-                    <input class="form-control" type="text" name="txtMakhoa" value="<?php if(isset($data['dulieu'])){ $row = mysqli_fetch_assoc($data['dulieu']); echo $row['makhoa'];} ?>">
+                    <input class="form-control" type="text" name="txtManganh" value="<?php if(isset($data['dulieu'])){ $row = mysqli_fetch_assoc($data['dulieu']); echo $row['manganh'];} ?>">
                 </td>
             </tr>
             <tr>
