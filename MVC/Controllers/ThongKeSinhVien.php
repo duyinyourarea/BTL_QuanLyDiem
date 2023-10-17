@@ -91,24 +91,31 @@ class ThongKeSinhVien extends Controller
         if (isset($_POST['btnTimkiem'])) {
             $mamon = $_POST['cbMamon'];
             $malop = $_POST['cbMalop'];
-            if ($mamon == 'Chọn môn học' && $malop == 'Chọn lớp') {
-                echo "<script>alert('Vui lòng chọn thông tin!')</script>";
-                $this->view('MasterLayoutAD', [
-                    'page' => 'ThiLai_v',
-                    'dulieu_thilai' => $this->thongke->sinhvien_thilai(),
-                    'dulieu_count' => $this->thongke->count_thilai(),
-                    'dulieu_monhoc' => $this->thongke->tenmon_thilai(),
-                    'dulieu_lop' => $this->thongke->tenlop_thilai(),
-                ]);
-            } else {
-                $this->view('MasterLayoutAD', [
-                    'page' => 'ThiLai_v',
-                    'dulieu_thilai' => $this->thongke->find_thilai($malop, $mamon),
-                    'dulieu_count' => $this->thongke->count_thilai(),
-                    'dulieu_monhoc' => $this->thongke->tenmon_thilai(),
-                    'dulieu_lop' => $this->thongke->tenlop_thilai(),
-                ]);
-            }
+            // if ($mamon == 'Chọn môn học' && $malop == 'Chọn lớp') {
+            //     echo "<script>alert('Vui lòng chọn thông tin!')</script>";
+            //     $this->view('MasterLayoutAD', [
+            //         'page' => 'ThiLai_v',
+            //         'dulieu_thilai' => $this->thongke->sinhvien_thilai(),
+            //         'dulieu_count' => $this->thongke->count_thilai(),
+            //         'dulieu_monhoc' => $this->thongke->tenmon_thilai(),
+            //         'dulieu_lop' => $this->thongke->tenlop_thilai(),
+            //     ]);
+            // } else {
+            //     $this->view('MasterLayoutAD', [
+            //         'page' => 'ThiLai_v',
+            //         'dulieu_thilai' => $this->thongke->find_thilai($malop, $mamon),
+            //         'dulieu_count' => $this->thongke->count_thilai(),
+            //         'dulieu_monhoc' => $this->thongke->tenmon_thilai(),
+            //         'dulieu_lop' => $this->thongke->tenlop_thilai(),
+            //     ]);
+            // }
+            $this->view('MasterLayoutAD', [
+                'page' => 'ThiLai_v',
+                'dulieu_thilai' => $this->thongke->find_thilai($malop, $mamon),
+                'dulieu_count' => $this->thongke->count_thilai(),
+                'dulieu_monhoc' => $this->thongke->tenmon_thilai(),
+                'dulieu_lop' => $this->thongke->tenlop_thilai(),
+            ]);
         }
     }
     function Get_data_hocbong()

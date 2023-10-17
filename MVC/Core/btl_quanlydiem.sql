@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 12, 2023 at 07:24 PM
+-- Generation Time: Oct 17, 2023 at 05:45 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -29,10 +29,10 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `diemmonhoc` (
   `dmh_id` varchar(30) NOT NULL,
-  `diemchuyencan` float NOT NULL,
-  `diemthuchanh` float NOT NULL,
-  `diemgiuaki` float NOT NULL,
-  `diemcuoiki_l1` float NOT NULL,
+  `diemchuyencan` float DEFAULT NULL,
+  `diemthuchanh` float DEFAULT NULL,
+  `diemgiuaki` float DEFAULT NULL,
+  `diemcuoiki_l1` float DEFAULT NULL,
   `diemcuoiki_l2` float DEFAULT NULL,
   `diemtb_he10` varchar(10) DEFAULT NULL,
   `diemtb_he4` varchar(10) DEFAULT NULL,
@@ -42,6 +42,27 @@ CREATE TABLE `diemmonhoc` (
   `masinhvien` varchar(30) NOT NULL,
   `mamon` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `diemmonhoc`
+--
+
+INSERT INTO `diemmonhoc` (`dmh_id`, `diemchuyencan`, `diemthuchanh`, `diemgiuaki`, `diemcuoiki_l1`, `diemcuoiki_l2`, `diemtb_he10`, `diemtb_he4`, `diemtb_word`, `lanthi`, `trangthai`, `masinhvien`, `mamon`) VALUES
+('1', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'Đang học', '72DCTM20076', 'MH02'),
+('10', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'Đang học', '72DCTM20088', 'MH02'),
+('11', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'Đang học', '72DCTM20088', 'MH03'),
+('12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'Đang học', '72DCTM20088', 'MH04'),
+('13', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'Đang học', '72DCTM20073', 'MH02'),
+('14', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'Đang học', '72DCTM20073', 'MH03'),
+('15', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'Đang học', '72DCTM20073', 'MH04'),
+('2', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'Đang học', '72DCTM20076', 'MH03'),
+('3', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'Đang học', '72DCTM20076', 'MH04'),
+('4', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'Đang học', '72DCTM20083', 'MH02'),
+('5', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'Đang học', '72DCTM20083', 'MH03'),
+('6', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'Đang học', '72DCTM20083', 'MH04'),
+('7', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'Đang học', '72DCTM20105', 'MH02'),
+('8', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'Đang học', '72DCTM20105', 'MH03'),
+('9', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'Đang học', '72DCTM20105', 'MH04');
 
 -- --------------------------------------------------------
 
@@ -56,6 +77,30 @@ CREATE TABLE `diemsinhvien` (
   `diemtb_he4` varchar(10) DEFAULT NULL,
   `ki` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `diemsinhvien`
+--
+
+INSERT INTO `diemsinhvien` (`dsv_id`, `masinhvien`, `diemtb_he10`, `diemtb_he4`, `ki`) VALUES
+('1', '72DCTM20076', NULL, NULL, 1),
+('10', '72DCTM20105', NULL, NULL, 1),
+('11', '72DCTM20105', NULL, NULL, 2),
+('12', '72DCTM20105', NULL, NULL, 3),
+('13', '72DCTM20088', NULL, NULL, 1),
+('14', '72DCTM20088', NULL, NULL, 2),
+('15', '72DCTM20088', NULL, NULL, 3),
+('16', '72DCTM20073', NULL, NULL, 1),
+('17', '72DCTM20073', NULL, NULL, 2),
+('18', '72DCTM20073', NULL, NULL, 3),
+('2', '72DCTM20076', NULL, NULL, 2),
+('3', '72DCTM20076', NULL, NULL, 3),
+('4', '72DCTM20083', NULL, NULL, 1),
+('5', '72DCTM20083', NULL, NULL, 2),
+('6', '72DCTM20083', NULL, NULL, 3),
+('7', '72DCTM20083', NULL, NULL, 1),
+('8', '72DCTM20083', NULL, NULL, 2),
+('9', '72DCTM20083', NULL, NULL, 3);
 
 -- --------------------------------------------------------
 
@@ -96,7 +141,10 @@ CREATE TABLE `lop` (
 --
 
 INSERT INTO `lop` (`malop`, `tenlop`, `siso`, `manganh`) VALUES
-('L01', '72DCTM22', '0', 'CNTT02');
+('L01', '72DCTM21', '0', 'CNTT02'),
+('L02', '72DCTM22', '5', 'CNTT02'),
+('L03', '72DCKT21', '0', 'KT02'),
+('L04', '72DCOT21', '0', 'CK01');
 
 -- --------------------------------------------------------
 
@@ -120,7 +168,9 @@ CREATE TABLE `monhoc` (
 
 INSERT INTO `monhoc` (`mamon`, `tenmon`, `sotinchi`, `ki`, `giangvien`, `phuongthuctinhdiem`, `manganh`) VALUES
 ('MH01', 'Java', '3', '1', 'Bùi Thị Như', '10/0/20/70', 'CNTT01'),
-('MH02', 'An toàn thông tin', '3', '1', 'Thanh Tấn', '10/0/20/70', 'CNTT02');
+('MH02', 'An toàn thông tin', '3', '1', 'Thanh Tấn', '10/0/20/70', 'CNTT02'),
+('MH03', 'Lập trình Web', '3', '2', 'Tran Thi Xuan Huong', '10/10/20/60', 'CNTT02'),
+('MH04', 'Trí tuệ nhân tạo', '3', '3', 'Sathuan', '10/10/20/60', 'CNTT02');
 
 -- --------------------------------------------------------
 
@@ -163,6 +213,17 @@ CREATE TABLE `sinhvien` (
   `malop` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `sinhvien`
+--
+
+INSERT INTO `sinhvien` (`masinhvien`, `tensinhvien`, `gioitinh`, `sodienthoai`, `email`, `malop`) VALUES
+('72DCTM20073', 'Vũ Minh Hiếu', 'Nam', '048xxx', 'ancb@aks.com', 'L02'),
+('72DCTM20076', 'Vũ Đức Duy', 'Nam', '035xxx', 'duy@gmail.com', 'L02'),
+('72DCTM20083', 'Cao Thế Hiệp', 'Nam', '0343xx', 'abcd@abcd.com', 'L02'),
+('72DCTM20088', 'Nguyễn Đỗ Minh Hiếu', 'Nam', '036xxx', 'abcd@anc.com', 'L02'),
+('72DCTM20105', 'Lương Bá Hiệp', 'Nam', '0234xxx', 'abcd@abc.com', 'L02');
+
 -- --------------------------------------------------------
 
 --
@@ -180,8 +241,12 @@ CREATE TABLE `taikhoan` (
 --
 
 INSERT INTO `taikhoan` (`taikhoan`, `matkhau`, `vaitro`) VALUES
-('ADMIN01', '1', 'Admin'),
-('SV02', '234', 'Sinh viên');
+('72DCTM20073', '048xxx', 'Sinh viên'),
+('72DCTM20076', '035xxx', 'Sinh viên'),
+('72DCTM20083', '0343xx', 'Sinh viên'),
+('72DCTM20088', '036xxx', 'Sinh viên'),
+('72DCTM20105', '0234xxx', 'Sinh viên'),
+('ADMIN01', '1', 'Admin');
 
 --
 -- Indexes for dumped tables
@@ -197,8 +262,7 @@ ALTER TABLE `diemmonhoc`
 -- Indexes for table `diemsinhvien`
 --
 ALTER TABLE `diemsinhvien`
-  ADD PRIMARY KEY (`dsv_id`),
-  ADD KEY `masinhvien` (`masinhvien`);
+  ADD PRIMARY KEY (`dsv_id`);
 
 --
 -- Indexes for table `khoa`
@@ -210,69 +274,31 @@ ALTER TABLE `khoa`
 -- Indexes for table `lop`
 --
 ALTER TABLE `lop`
-  ADD PRIMARY KEY (`malop`),
-  ADD KEY `manganh` (`manganh`);
+  ADD PRIMARY KEY (`malop`);
 
 --
 -- Indexes for table `monhoc`
 --
 ALTER TABLE `monhoc`
-  ADD PRIMARY KEY (`mamon`),
-  ADD KEY `manganh` (`manganh`);
+  ADD PRIMARY KEY (`mamon`);
 
 --
 -- Indexes for table `nganh`
 --
 ALTER TABLE `nganh`
-  ADD PRIMARY KEY (`manganh`),
-  ADD KEY `makhoa` (`makhoa`);
+  ADD PRIMARY KEY (`manganh`);
 
 --
 -- Indexes for table `sinhvien`
 --
 ALTER TABLE `sinhvien`
-  ADD PRIMARY KEY (`masinhvien`),
-  ADD KEY `malop` (`malop`);
+  ADD PRIMARY KEY (`masinhvien`);
 
 --
 -- Indexes for table `taikhoan`
 --
 ALTER TABLE `taikhoan`
   ADD PRIMARY KEY (`taikhoan`);
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `diemsinhvien`
---
-ALTER TABLE `diemsinhvien`
-  ADD CONSTRAINT `diemsinhvien_ibfk_1` FOREIGN KEY (`masinhvien`) REFERENCES `sinhvien` (`masinhvien`);
-
---
--- Constraints for table `lop`
---
-ALTER TABLE `lop`
-  ADD CONSTRAINT `lop_ibfk_1` FOREIGN KEY (`manganh`) REFERENCES `nganh` (`manganh`);
-
---
--- Constraints for table `monhoc`
---
-ALTER TABLE `monhoc`
-  ADD CONSTRAINT `monhoc_ibfk_1` FOREIGN KEY (`manganh`) REFERENCES `nganh` (`manganh`);
-
---
--- Constraints for table `nganh`
---
-ALTER TABLE `nganh`
-  ADD CONSTRAINT `nganh_ibfk_1` FOREIGN KEY (`makhoa`) REFERENCES `khoa` (`makhoa`);
-
---
--- Constraints for table `sinhvien`
---
-ALTER TABLE `sinhvien`
-  ADD CONSTRAINT `sinhvien_ibfk_1` FOREIGN KEY (`malop`) REFERENCES `lop` (`malop`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

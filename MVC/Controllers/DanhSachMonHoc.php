@@ -63,19 +63,19 @@ class DanhSachMonHoc extends Controller
             $mm = $_POST['txtMamon'];
             $tm = $_POST['txtTenmon'];
             $stc = $_POST['txtSotinchi'];
-            $mk = $_POST['txtMakhoa'];
+            $mn = $_POST['txtManganh'];
             $k = $_POST['txtKi'];
             $gv = $_POST['txtGiangvien'];
             $dcc = $_POST['txtDiemcc'];
             $dtl_th = $_POST['txtDiemtl_th'];
             $dgk = $_POST['txtDiemgk'];
             $dck = $_POST['txtDiemck'];
-            if ($mm == "" || $tm == "" || $stc == "" || $mk == "" || $gv == "" || $k == "") {
+            if ($mm == "" || $tm == "" || $stc == "" || $mn == "" || $gv == "" || $k == "") {
                 echo "<script>alert('Vui lòng nhập đủ thông tin')</script>";
                 $this->view('MasterLayoutAD', [
                     'page' => 'Monhoc_sua',
                     'dulieu' => $this->monhoc->monhoc_find($mm, ''),
-                    'data_khoa' => $this->nganh->nganh_find('', '')
+                    'data_nganh' => $this->nganh->nganh_find('', '')
                 ]);
             } else {
                 if ($dcc == "") {
@@ -95,11 +95,11 @@ class DanhSachMonHoc extends Controller
                     $this->view('MasterLayout', [
                         'page' => 'Monhoc_them',
                         'dulieu' => $this->monhoc->monhoc_find($mm, ''),
-                        'data_khoa' => $this->nganh->nganh_find('', '')
+                        'data_nganh' => $this->nganh->nganh_find('', '')
                     ]);
                 } else {
                     $pttd = $dcc . '/' . $dtl_th . '/' . $dgk . '/' . $dck;
-                    $kq = $this->monhoc->monhoc_upd($mm, $tm, $stc, $mk, $k, $gv, $pttd);
+                    $kq = $this->monhoc->monhoc_upd($mm, $tm, $stc, $k, $gv, $pttd, $mn);
                     if ($kq)
                         echo "<script>alert('Sửa thành công')</script>";
                     else
@@ -142,7 +142,7 @@ class DanhSachMonHoc extends Controller
                 echo "<script>alert('Vui lòng nhập đủ thông tin')</script>";
                 $this->view('MasterLayout', [
                     'page' => 'Monhoc_them',
-                    'data_khoa' => $this->khoa->khoa_find('', ''),
+                    'data_nganh' => $this->nganh->nganh_find('', ''),
                     'mm' => $mm,
                     'tm' => $tm,
                     'stc' => $stc,
@@ -171,7 +171,7 @@ class DanhSachMonHoc extends Controller
                     echo "<script>alert('Tổng tỉ lệ điểm phải là 100')</script>";
                     $this->view('MasterLayout', [
                         'page' => 'Monhoc_them',
-                        'data_khoa' => $this->nganh->nganh_find('', ''),
+                        'data_nganh' => $this->nganh->nganh_find('', ''),
                         'mm' => $mm,
                         'tm' => $tm,
                         'stc' => $stc,

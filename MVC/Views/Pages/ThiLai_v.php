@@ -18,7 +18,7 @@
             <form action="http://localhost/BTL_QuanLyDiem/ThongKeSinhVien/Timkiem_thilai" method="post">
                 <td>
                     <select class="form-control" name="cbMalop" style="width: 220px;">
-                        <option>Chọn lớp</option>
+                        <option value="">Chọn lớp</option>
                         <?php
                         if (isset($data['dulieu_lop']) && $data['dulieu_lop'] != null) {
 
@@ -31,7 +31,7 @@
                 </td>
                 <td>
                     <select class="form-control" name="cbMamon" style="width: 220px;">
-                        <option>Chọn môn học</option>
+                        <option value="">Chọn môn học</option>
                         <?php
                         if (isset($data['dulieu_monhoc']) && $data['dulieu_monhoc'] != null) {
 
