@@ -113,7 +113,7 @@ class NhapDiemSinhVien extends Controller
         if ($dtb_he4 > 3.2 && $dtb_he4 < 3.6)
             return "C+";
         if ($dtb_he4 > 2.5 && $dtb_he4 < 3.2)
-            return "C+";
+            return "D+";
         if ($dtb_he4 < 2.5)
             return "F";
         return "F";
