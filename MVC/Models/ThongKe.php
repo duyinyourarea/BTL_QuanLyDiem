@@ -69,4 +69,25 @@ class ThongKe extends connectDB
         $sql_find_hocbong = "SELECT diemsinhvien.*, sinhvien.tensinhvien, lop.tenlop, nganh.tennganh, khoa.tenkhoa FROM diemsinhvien, sinhvien, lop, nganh, khoa WHERE diemsinhvien.masinhvien=sinhvien.masinhvien AND sinhvien.malop=lop.malop AND lop.malop='$malop' AND lop.manganh=nganh.manganh AND nganh.makhoa=khoa.makhoa AND diemsinhvien.diemtb_he4 > 2.8";
         return mysqli_query($this->con, $sql_find_hocbong);
     }
+    //Thống kê điểm sinh viên
+    function sinhvien_diem()
+    {
+        $sql_sinhvien_diem = "SELECT diemmonhoc.*, lop.tenlop, monhoc.tenmon, monhoc.sotinchi, sinhvien.tensinhvien FROM diemmonhoc, sinhvien, lop, monhoc WHERE diemmonhoc.masinhvien=sinhvien.masinhvien AND sinhvien.malop=lop.malop AND diemmonhoc.mamon=monhoc.mamon";
+        return mysqli_query($this->con, $sql_sinhvien_diem);
+    }
+    function count_diem()
+    {
+        $sql_count_diem = "SELECT COUNT(diemmonhoc.dmh_id) AS count FROM diemmonhoc";
+        return mysqli_query($this->con, $sql_count_diem);
+    }
+    function tenlop_diem()
+    {
+        $sql_tenlop_diem = "SELECT DISTINCT lop.malop, lop.tenlop FROM lop,diemmonhoc,sinhvien WHERE diemmonhoc.masinhvien=sinhvien.masinhvien AND sinhvien.malop=lop.malop";
+        return mysqli_query($this->con, $sql_tenlop_diem);
+    }
+    function find_diem($malop)
+    {
+        $sql_find_diem = "SELECT diemmonhoc.*, lop.tenlop, monhoc.tenmon, monhoc.sotinchi, sinhvien.tensinhvien FROM diemmonhoc, sinhvien, lop, monhoc WHERE diemmonhoc.masinhvien=sinhvien.masinhvien AND sinhvien.malop=lop.malop AND lop.malop='$malop' AND diemmonhoc.mamon=monhoc.mamon";
+        return mysqli_query($this->con, $sql_find_diem);
+    }
 }

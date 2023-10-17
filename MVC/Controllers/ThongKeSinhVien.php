@@ -145,4 +145,38 @@ class ThongKeSinhVien extends Controller
             }
         }
     }
+    function Get_data_diem()
+    {
+        $this->view('MasterLayoutAD', [
+            'page' => 'Diem_v',
+            'dulieu_diem' => $this->thongke->sinhvien_diem(),
+            'dulieu_count' => $this->thongke->count_diem(),
+            'dulieu_lop' => $this->thongke->tenlop_diem(),
+
+        ]);
+    }
+    function Timkiem_diem()
+    {
+        if (isset($_POST['btnTimkiem'])) {
+            $malop = $_POST['cbMalop'];
+            if ($malop == 'Chọn lớp') {
+                echo "<script>alert('Vui lòng chọn lớp!')</script>";
+                $this->view('MasterLayoutAD', [
+                    'page' => 'Diem_v',
+                    'dulieu_diem' => $this->thongke->sinhvien_diem(),
+                    'dulieu_count' => $this->thongke->count_diem(),
+                    'dulieu_lop' => $this->thongke->tenlop_diem(),
+
+                ]);
+            } else {
+                $this->view('MasterLayoutAD', [
+                    'page' => 'Diem_v',
+                    'dulieu_diem' => $this->thongke->find_diem($malop),
+                    'dulieu_count' => $this->thongke->count_diem(),
+                    'dulieu_lop' => $this->thongke->tenlop_diem(),
+
+                ]);
+            }
+        }
+    }
 }

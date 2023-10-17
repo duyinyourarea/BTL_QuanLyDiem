@@ -15,7 +15,7 @@
 
     <table style="text-align: center; margin-top: 15px;" align="center">
         <tr>
-            <form action="http://localhost/BTL_QuanLyDiem/ThongKeSinhVien/Timkiem_hocbong" method="post">
+            <form action="http://localhost/BTL_QuanLyDiem/ThongKeSinhVien/Timkiem_diem" method="post">
                 <td>
                     <select class="form-control" name="cbMalop" style="width: 220px;">
                         <option>Chọn lớp</option>
@@ -40,8 +40,8 @@
     if (isset($data['dulieu_count'])) {
         $row_count = mysqli_fetch_assoc($data['dulieu_count']);
     ?>
-        <h5 style="text-align: center;margin-top: 20px;">TỔNG SỐ SINH VIÊN ĐẠT HỌC BỔNG: <?php echo $row_count['count']; ?></h5>
-        <h3 style="text-align: center;">DANH SÁCH CHI TIẾT SINH VIÊN ĐẠT HỌC BỔNG</h3>
+        <h5 style="text-align: center;margin-top: 20px;">TỔNG SỐ SINH VIÊN CÓ ĐIỂM TOÀN TRƯỜNG: <?php echo $row_count['count']; ?></h5>
+        <h3 style="text-align: center;">DANH SÁCH CHI TIẾT ĐIỂM SINH VIÊN</h3>
         <table class="table table-bordered table-hover" style="text-align: center;">
             <thead class="thead-dark">
                 <tr>
@@ -49,19 +49,24 @@
                     <th>Mã sinh viên</th>
                     <th>Tên sinh viên</th>
                     <th>Lớp</th>
-                    <th>Ngành</th>
-                    <th>Khoa</th>
-                    <th>Kì</th>
+                    <th>Môn học</th>
+                    <th>Số tín chỉ</th>
+                    <th>Lần thi</th>
+                    <th>Chuyên cần</th>
+                    <th>Thực hành/Thảo luận</th>
+                    <th>Giữa kì</th>
+                    <th>Cuối kì</th>
                     <th>Tổng kết HP</th>
-                    <th>Tổng kết hệ 4</th>
+                    <th>Điểm chữ</th>
+                    <th>Đánh giá</th>
                 </tr>
             </thead>
             <tbody>
 
                 <?php
-                if (isset($data['dulieu_hocbong']) && $data['dulieu_hocbong'] != null) {
+                if (isset($data['dulieu_diem']) && $data['dulieu_diem'] != null) {
                     $i = 1;
-                    while ($row = mysqli_fetch_array($data['dulieu_hocbong'])) {
+                    while ($row = mysqli_fetch_array($data['dulieu_diem'])) {
                 ?>
                         <tr>
                             <td>
@@ -77,19 +82,38 @@
                                 <?php echo $row['tenlop'] ?>
                             </td>
                             <td>
-                                <?php echo $row['tennganh'] ?>
+                                <?php echo $row['tenmon'] ?>
                             </td>
                             <td>
-                                <?php echo $row['tenkhoa'] ?>
+                                <?php echo $row['sotinchi'] ?>
                             </td>
                             <td>
-                                <?php echo $row['ki'] ?>
+                                <?php echo $row['lanthi'] ?>
+                            </td>
+                            <td>
+                                <?php echo $row['diemchuyencan'] ?>
+                            </td>
+                            <td>
+                                <?php echo $row['diemthuchanh'] ?>
+                            </td>
+                            <td>
+                                <?php echo $row['diemgiuaki'] ?>
+                            </td>
+                            <td>
+                                <?php echo $row['diemcuoiki_l1']; 
+                                if (isset($row['diemcuoiki_l2'])){
+                                    echo ' / '; 
+                                    echo $row['diemcuoiki_l2'];
+                                } ?>
                             </td>
                             <td>
                                 <?php echo $row['diemtb_he10'] ?>
                             </td>
                             <td>
-                                <?php echo $row['diemtb_he4'] ?>
+                                <?php echo $row['diemtb_word'] ?>
+                            </td>
+                            <td>
+                                <?php echo $row['trangthai'] ?>
                             </td>
                         </tr>
                 <?php
