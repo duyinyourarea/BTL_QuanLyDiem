@@ -35,6 +35,7 @@ class TraCuuDiemTongHopSinhVien extends Controller
         $this->view('MasterLayoutSV', [
             'page' => 'Tracuudiemtonghop_v',
             'masinhvien' => $masinhvien,
+            'masinhvien_tmp' => $masinhvien,
             'dulieu_sinhvien_lop' => $this->diem->sinhvien_info_lop($malop),
             'dulieu_sinhvien' => $this->diem->sinhvien_info($masinhvien, $malop, $manganh, $makhoa),
             'dulieu_ki' => $this->diem->bangdiem_ki($masinhvien),
@@ -44,31 +45,34 @@ class TraCuuDiemTongHopSinhVien extends Controller
     function Timkiem()
     {
         if (isset($_POST['btnTimkiem'])) {
-            $masinhvien = $_POST['cbMasinhvien'];
+            $masinhvien = $_POST['txtMSV_old'];
+            $masinhvien_tmp = $_POST['cbMasinhvien'];
             $row_sinhvien = $this->sinhvien->getData($masinhvien);
             $malop = $row_sinhvien['malop'];
             $row_lop = $this->lop->getData($malop);
             $manganh = $row_lop['manganh'];
             $row_nganh = $this->nganh->getData($manganh);
             $makhoa = $row_nganh['makhoa'];
-            if ($masinhvien == 'Chọn sinh viên') {
+            if ($masinhvien_tmp == 'Chọn sinh viên') {
                 echo "<script>alert('Vui lòng chọn sinh viên!')</script>";
                 $this->view('MasterLayoutSV', [
                     'page' => 'Tracuudiemtonghop_v',
                     'masinhvien' => $masinhvien,
+                    'masinhvien_tmp' => $masinhvien_tmp,
                     'dulieu_sinhvien_lop' => $this->diem->sinhvien_info_lop($malop),
-                    'dulieu_sinhvien' => $this->diem->sinhvien_info($masinhvien, $malop, $manganh, $makhoa),
-                    'dulieu_ki' => $this->diem->bangdiem_ki($masinhvien),
-                    'dulieu_chitiet' => $this->diem->bangdiem_chitiet($masinhvien, $manganh),
+                    'dulieu_sinhvien' => $this->diem->sinhvien_info($masinhvien_tmp, $malop, $manganh, $makhoa),
+                    'dulieu_ki' => $this->diem->bangdiem_ki($masinhvien_tmp),
+                    'dulieu_chitiet' => $this->diem->bangdiem_chitiet($masinhvien_tmp, $manganh),
                 ]);
             } else {
                 $this->view('MasterLayoutSV', [
                     'page' => 'Tracuudiemtonghop_v',
                     'masinhvien' => $masinhvien,
+                    'masinhvien_tmp' => $masinhvien_tmp,
                     'dulieu_sinhvien_lop' => $this->diem->sinhvien_info_lop($malop),
-                    'dulieu_sinhvien' => $this->diem->sinhvien_info($masinhvien, $malop, $manganh, $makhoa),
-                    'dulieu_ki' => $this->diem->bangdiem_ki($masinhvien),
-                    'dulieu_chitiet' => $this->diem->bangdiem_chitiet($masinhvien, $manganh),
+                    'dulieu_sinhvien' => $this->diem->sinhvien_info($masinhvien_tmp, $malop, $manganh, $makhoa),
+                    'dulieu_ki' => $this->diem->bangdiem_ki($masinhvien_tmp),
+                    'dulieu_chitiet' => $this->diem->bangdiem_chitiet($masinhvien_tmp, $manganh),
                 ]);
             }
         }

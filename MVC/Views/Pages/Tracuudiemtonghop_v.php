@@ -30,7 +30,10 @@
                 </td>
 
                 <td>
+                    <div class="form-inline">
                     <input type="submit" class="btn btn-outline-primary" name="btnTimkiem" value="Tìm kiếm">
+                    <input type="text" name="txtMSV_old" value="<?php if(isset($data['masinhvien'])) echo $data['masinhvien']; ?>" style="visibility: hidden;">
+                    </div>
                 </td>
             </form>
         </tr>
