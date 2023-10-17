@@ -95,13 +95,13 @@
                   <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
                      <div class="card-body">
                         <ul>
-                           <li><a href="http://localhost/BTL_QuanLyDiem/DanhSachSinhVien/"
+                           <li><a href="http://localhost/BTL_QuanLyDiem/ThongKeSinhVien/Get_data_diem"
                                  style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Điểm</b></a></li>
-                           <li><a href="" style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Học
+                           <li><a href="http://localhost/BTL_QuanLyDiem/ThongKeSinhVien/Get_data_hocbong" style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Học
                                     bổng</b></a></li>
-                           <li><a href="" style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Thi
+                           <li><a href="http://localhost/BTL_QuanLyDiem/ThongKeSinhVien/Get_data_thilai" style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Thi
                                     lại</b></a></li>
-                           <li><a href="" style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Học
+                           <li><a href="http://localhost/BTL_QuanLyDiem/ThongKeSinhVien/Get_data_hoclai" style="color: black;font-family: Arial, Helvetica, sans-serif;"><b>Học
                                     lại</b></a></li>
                         </ul>
                      </div>
