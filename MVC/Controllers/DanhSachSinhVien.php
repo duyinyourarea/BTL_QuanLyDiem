@@ -49,6 +49,7 @@ class DanhSachSinhVien extends Controller
         $malop = $row_sinhvien_malop['malop'];
         $kq_del_siso = $this->malop->del_sinhvien($malop);
         $kq_del = $this->sinhvien->sinhvien_del($masinhvien);
+        // xoa tai khoan sinh vien
         $kq_taikhoan_del = $this->taikhoan->taikhoan_del($masinhvien);
         //xoa du lieu trong bang diemsinhvien va diemmonhoc
         $kq_dmh_del = $this->nhapdiem->diemmonhoc_del($masinhvien);
@@ -199,7 +200,9 @@ class DanhSachSinhVien extends Controller
                     );
                 } else {
                     $kq = $this->sinhvien->sinhvien_ins($masinhvien, $tensinhvien, $gioitinh, $sodienthoai, $email, $malop);
+                    // them tai khoan sinh vien
                     $kq_taikhoan = $this->taikhoan->taikhoan_ins($masinhvien, $sodienthoai, 'Sinh viên');
+                    //
                     $kq_siso = $this->malop->add_sinhvien($malop);
                     if ($kq && $kq_siso && $kq_taikhoan)
                         echo "<script>alert('Thêm mới thành công!')</script>";
