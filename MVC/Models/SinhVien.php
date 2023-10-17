@@ -32,5 +32,10 @@ class SinhVien extends connectDB{
         
         return mysqli_fetch_assoc($data);
     }
+    function getMaNganhFromMaLop($malop){
+        $sql_nganh = "SELECT * from lop WHERE malop = '$malop'";
+        $data_nganh = mysqli_query($this->con, $sql_nganh);
+        return mysqli_fetch_assoc($data_nganh);
+    }
     
 }
