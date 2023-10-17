@@ -26,6 +26,18 @@ class Monhoc extends connectDB{
         $sql_monhoc_find="SELECT * FROM monhoc where mamon like '%$mamon%' and tenmon like '%$tenmon%'";
         return mysqli_query($this->con,$sql_monhoc_find);
     }
-    
+    function getData($mamon){
+        $sql_mh = "SELECT * FROM monhoc WHERE mamon = '$mamon'";
+        $data_mh = mysqli_query($this->con, $sql_mh);
+        return mysqli_fetch_assoc($data_mh);
+    }
+    function monhoc_findByNganh($manganh){
+        $sql_monhoc_find="SELECT * FROM monhoc where manganh = '$manganh'";
+        return mysqli_fetch_all(mysqli_query($this->con,$sql_monhoc_find));
+    }
+    function ki_findByNganh($manganh){
+        $sql_monhoc_find="SELECT DISTINCT ki FROM monhoc WHERE manganh like '%$manganh%'";
+        return mysqli_fetch_all(mysqli_query($this->con,$sql_monhoc_find));
+    }
 }
 ?>

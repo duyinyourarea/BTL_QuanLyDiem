@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <form action="http://localhost/BTL_QuanLyDiem/NhapDiemSinhVien/Luudiemquatrinh" method="post">
+    <form action="http://localhost/BTL_QuanLyDiem/NhapDiemSinhVien/Luudiemcuoikilan2" method="post">
         <table style="width: 100%;margin: 5px 0px;">
             <tr>
                 <td style="width: 16%;">
@@ -37,6 +37,7 @@
                         <th>Điểm chuyên cần</th>
                         <th>Điểm thực hành/Thảo luận</th>
                         <th>Điểm giữa kì</th>
+                        <th>Điểm cuối kì</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -56,16 +57,21 @@
                                 <?php echo $row['tensinhvien'] ?>
                             </td>
                             <td>
-                                <input class="form-control" type="number" name="DCC<?php echo $row['masinhvien'] ?>"
-                                    placeholder="Điểm chuyên cần" max="10" min="0">
+                                <?php echo $row['diemchuyencan'] ?>
                             </td>
                             <td>
-                                <input class="form-control" type="number" name="DTH<?php echo $row['masinhvien'] ?>"
-                                    placeholder="Điểm thực hành/Thảo luận" max="10" min="0">
+                                <?php echo $row['diemthuchanh'] ?>
                             </td>
                             <td>
-                                <input class="form-control" type="number" name="DGK<?php echo $row['masinhvien'] ?>"
-                                    placeholder="Điểm giữa kì" max="10" min="0">
+                                <?php echo $row['diemgiuaki'] ?>
+                            </td>
+                            <td>
+                                <div class="form-inline">
+                                <input class="form-control" type="number" max="10" min="0" value="<?php echo $row['diemcuoiki_l1'] ?>" style="width: 55px;" readonly>/
+                                <input class="form-control" type="number" name="DCK_l2<?php echo $row['masinhvien'] ?>"
+                                    placeholder="Nhập điểm" max="10" min="0" style="width: 150px;">
+                                </div>
+                            
                             </td>
                         </tr>
                         <?php

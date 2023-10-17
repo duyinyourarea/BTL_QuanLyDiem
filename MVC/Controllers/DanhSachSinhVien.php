@@ -10,11 +10,17 @@ class DanhSachSinhVien extends Controller
     protected $sinhvien;
     protected $malop;
     protected $taikhoan;
+    protected $nganh;
+    protected $monhoc;
+    protected $nhapdiem;
     function __construct()
     {
         $this->sinhvien = $this->mode('SinhVien');
         $this->malop = $this->mode('Lop');
         $this->taikhoan = $this->mode('TaiKhoan');
+        $this->nganh = $this->mode('Nganh');
+        $this->monhoc = $this->mode('Monhoc');
+        $this->nhapdiem = $this->mode('Nhapdiem');
     }
     function Get_data()
     {
@@ -44,7 +50,10 @@ class DanhSachSinhVien extends Controller
         $kq_del_siso = $this->malop->del_sinhvien($malop);
         $kq_del = $this->sinhvien->sinhvien_del($masinhvien);
         $kq_taikhoan_del = $this->taikhoan->taikhoan_del($masinhvien);
-        if ($kq_del && $kq_taikhoan_del && $kq_del_siso)
+        //xoa du lieu trong bang diemsinhvien va diemmonhoc
+        $kq_dmh_del = $this->nhapdiem->diemmonhoc_del($masinhvien);
+        $kq_dsv_del = $this->nhapdiem->diemsinhvien_del($masinhvien);
+        if ($kq_del && $kq_taikhoan_del && $kq_del_siso && $kq_dmh_del && $kq_dsv_del)
             echo "<script>alert('Xóa thành công')</script>";
         else
             echo "<script>alert('Xóa thất bại')</script>";
@@ -126,6 +135,26 @@ class DanhSachSinhVien extends Controller
             $sodienthoai = $_POST['txtSodienthoai'];
             $email = $_POST['txtEmail'];
             $malop = $_POST['cbMalop'];
+            //Thêm thông tin các môn sv phải học 
+            //lấy mã ngành
+            $data_nganh = $this->sinhvien->getMaNganhFromMaLop($malop);
+            $manganh = $data_nganh['manganh'];
+            // lấy danh sách các môn thuộc ngành
+            $ds_monhoc = $this->monhoc->monhoc_findByNganh($manganh);
+            //Thêm thông tin vào bảng điểm môn học với trang trạng thái Đang học 
+            foreach ($ds_monhoc as $key) {
+                $dmh_id_new = $this->nhapdiem->dmh_id_creat();
+                $kq_dmh_ins = $this->nhapdiem->diemmonhoc_ins($dmh_id_new, 0, 'Đang học', $masinhvien, $key[0]);
+                if($kq_dmh_ins);
+            }
+            //Thêm thông tin điểm tb theo kì của sinh viên
+            // lấy danh sách các kì của các môn trong ngành 
+            $ds_ki = $this->monhoc->ki_findByNganh($manganh);
+            foreach ($ds_ki as $key) {
+                $dsv_id_new = $this->nhapdiem->dsv_id_creat();
+                $kq_dsv_ins = $this->nhapdiem->diemsinhvien_ins($dsv_id_new, $masinhvien, $key[0]);
+                if($kq_dsv_ins);
+            }
             //Gán dữ liệu cho tài khoản sinh viên
             $ck = $this->sinhvien->masinhvien_check($masinhvien);
             if ($masinhvien == '' || $tensinhvien == '' || $gioitinh == '' || $sodienthoai == '' || $email == '' || $malop == 'Chọn lớp') {
