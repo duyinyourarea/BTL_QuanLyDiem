@@ -88,7 +88,9 @@ class DanhSachSinhVien extends Controller
             if ($tensinhvien == '' || $gioitinh == '' || $sodienthoai == '' || $email == '' || $malop == 'Chọn lớp') {
                 echo "<script>alert('Vui lòng nhập đủ thông tin!')</script>";
                 $this->view('MasterLayoutAD', [
-                    'page' => 'Sinhvien_sua', 'dulieu' => $this->sinhvien->sinhvien_find($masinhvien, '', ''), 'dulieu_malop' => $this->malop->lop_find('', ''),
+                    'page' => 'Sinhvien_sua',
+                    'dulieu' => $this->sinhvien->sinhvien_find($masinhvien, '', ''),
+                    'dulieu_malop' => $this->malop->lop_find('', ''),
                     'tensinhvien' => $tensinhvien,
                     'gioitinh' => $gioitinh,
                     'sodienthoai' => $sodienthoai,
@@ -137,23 +139,27 @@ class DanhSachSinhVien extends Controller
             $malop = $_POST['cbMalop'];
             //Thêm thông tin các môn sv phải học 
             //lấy mã ngành
-            $data_nganh = $this->sinhvien->getMaNganhFromMaLop($malop);
-            $manganh = $data_nganh['manganh'];
-            // lấy danh sách các môn thuộc ngành
-            $ds_monhoc = $this->monhoc->monhoc_findByNganh($manganh);
-            //Thêm thông tin vào bảng điểm môn học với trang trạng thái Đang học 
-            foreach ($ds_monhoc as $key) {
-                $dmh_id_new = $this->nhapdiem->dmh_id_creat();
-                $kq_dmh_ins = $this->nhapdiem->diemmonhoc_ins($dmh_id_new, 0, 'Đang học', $masinhvien, $key[0]);
-                if($kq_dmh_ins);
-            }
-            //Thêm thông tin điểm tb theo kì của sinh viên
-            // lấy danh sách các kì của các môn trong ngành 
-            $ds_ki = $this->monhoc->ki_findByNganh($manganh);
-            foreach ($ds_ki as $key) {
-                $dsv_id_new = $this->nhapdiem->dsv_id_creat();
-                $kq_dsv_ins = $this->nhapdiem->diemsinhvien_ins($dsv_id_new, $masinhvien, $key[0]);
-                if($kq_dsv_ins);
+            if ($malop != "") {
+                $data_nganh = $this->sinhvien->getMaNganhFromMaLop($malop);
+                $manganh = $data_nganh['manganh'];
+                // lấy danh sách các môn thuộc ngành
+                $ds_monhoc = $this->monhoc->monhoc_findByNganh($manganh);
+                //Thêm thông tin vào bảng điểm môn học với trang trạng thái Đang học 
+                foreach ($ds_monhoc as $key) {
+                    $dmh_id_new = $this->nhapdiem->dmh_id_creat();
+                    $kq_dmh_ins = $this->nhapdiem->diemmonhoc_ins($dmh_id_new, 0, 'Đang học', $masinhvien, $key[0]);
+                    if ($kq_dmh_ins)
+                        ;
+                }
+                //Thêm thông tin điểm tb theo kì của sinh viên
+                // lấy danh sách các kì của các môn trong ngành 
+                $ds_ki = $this->monhoc->ki_findByNganh($manganh);
+                foreach ($ds_ki as $key) {
+                    $dsv_id_new = $this->nhapdiem->dsv_id_creat();
+                    $kq_dsv_ins = $this->nhapdiem->diemsinhvien_ins($dsv_id_new, $masinhvien, $key[0]);
+                    if ($kq_dsv_ins)
+                        ;
+                }
             }
             //Gán dữ liệu cho tài khoản sinh viên
             $ck = $this->sinhvien->masinhvien_check($masinhvien);
@@ -323,7 +329,8 @@ class DanhSachSinhVien extends Controller
                         $email = trim($sheetData[$i]["F"]);
                         $malop = trim($sheetData[$i]["G"]);
                         $kq_import = $this->sinhvien->sinhvien_ins($masinhvien, $tensinhvien, $gioitinh, $sodienthoai, $email, $malop);
-                        if($kq_import) ;
+                        if ($kq_import)
+                            ;
                     }
                     unlink('file.xlsx');
                     echo "<script>alert('Import file thành công')</script>";
