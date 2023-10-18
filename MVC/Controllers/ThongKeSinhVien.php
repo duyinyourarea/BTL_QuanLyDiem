@@ -215,6 +215,18 @@ class ThongKeSinhVien extends Controller
         // Ghi dữ liệu
         $rowCount = 2;
         foreach ($data_export as $key => $value) {
+            $diemcuoiki = '';
+            if ($value['diemcuoiki_l1'] != null) {
+                if ($value['diemcuoiki_l2'] != null) {
+                    $diemcuoiki = $value['diemcuoiki_l1'] . " | " . $value['diemcuoiki_l2'];
+                } else {
+                    $diemcuoiki = $value['diemcuoiki_l1'];
+                }
+            } else {
+                if ($value['diemcuoiki_l2'] != null) {
+                    $diemcuoiki = $value['diemcuoiki_l2'];
+                }
+            }
             $sheet->setCellValue('A' . $rowCount, $rowCount - 1);
             $sheet->setCellValue('B' . $rowCount, $value['masinhvien']);
             $sheet->setCellValue('C' . $rowCount, $value['tensinhvien']);
@@ -225,7 +237,7 @@ class ThongKeSinhVien extends Controller
             $sheet->setCellValue('H' . $rowCount, $value['diemchuyencan']);
             $sheet->setCellValue('I' . $rowCount, $value['diemthuchanh']);
             $sheet->setCellValue('J' . $rowCount, $value['diemgiuaki']);
-            $sheet->setCellValue('K' . $rowCount, $value['diemcuoiki_l1']+' / '+$value['diemcuoiki_l2']);
+            $sheet->setCellValue('K' . $rowCount, $diemcuoiki);
             $sheet->setCellValue('L' . $rowCount, $value['diemtb_he10']);
             $sheet->setCellValue('M' . $rowCount, $value['diemtb_word']);
             $sheet->setCellValue('N' . $rowCount, $value['trangthai']);
@@ -243,7 +255,10 @@ class ThongKeSinhVien extends Controller
         // header("location:" . $filename);
         $this->view('MasterLayoutAD', [
             'page' => 'Diem_v',
-            'dulieu_diem' => $this->thongke->sinhvien_diem()
+            'dulieu_diem' => $this->thongke->sinhvien_diem(),
+            'dulieu_count' => $this->thongke->count_diem(),
+            'dulieu_lop' => $this->thongke->tenlop_diem(),
+
         ]);
     }
     function ExportExcel_hocbong()

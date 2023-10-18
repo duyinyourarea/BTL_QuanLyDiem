@@ -77,7 +77,7 @@ class ThongKe extends connectDB
     }
     function count_diem()
     {
-        $sql_count_diem = "SELECT COUNT(diemmonhoc.dmh_id) AS count FROM diemmonhoc";
+        $sql_count_diem = "SELECT COUNT(DISTINCT diemmonhoc.masinhvien) AS count FROM diemmonhoc";
         return mysqli_query($this->con, $sql_count_diem);
     }
     function tenlop_diem()
