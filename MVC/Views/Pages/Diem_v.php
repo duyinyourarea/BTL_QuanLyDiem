@@ -34,6 +34,7 @@
                     <input type="submit" class="btn btn-outline-primary" name="btnTimkiem" value="Tìm kiếm">
                 </td>
             </form>
+            <td><a href="http://localhost/BTL_QuanLyDiem/ThongKeSinhVien/ExportExcel_diem"><button class="btn btn-outline-primary" name="btnExportExcel" style="margin-left: 5px;">ExportExcel</button></a></td>
         </tr>
     </table>
     <?php
@@ -100,9 +101,9 @@
                                 <?php echo $row['diemgiuaki'] ?>
                             </td>
                             <td>
-                                <?php echo $row['diemcuoiki_l1']; 
-                                if (isset($row['diemcuoiki_l2'])){
-                                    echo ' / '; 
+                                <?php echo $row['diemcuoiki_l1'];
+                                if (isset($row['diemcuoiki_l2'])) {
+                                    echo ' / ';
                                     echo $row['diemcuoiki_l2'];
                                 } ?>
                             </td>

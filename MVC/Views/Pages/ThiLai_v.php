@@ -47,6 +47,7 @@
                     <input type="submit" class="btn btn-outline-primary" name="btnTimkiem" value="Tìm kiếm">
                 </td>
             </form>
+            <td><a href="http://localhost/BTL_QuanLyDiem/ThongKeSinhVien/ExportExcel_thilai"><button class="btn btn-outline-primary" name="btnExportExcel" style="margin-left: 5px;">ExportExcel</button></a></td>
         </tr>
     </table>
     <?php
